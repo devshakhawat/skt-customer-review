@@ -38,6 +38,7 @@ class Plugin {
 	public $ajax; // phpcs:ignore
 	public $generate_css; // phpcs:ignore
 	public $video_btn; // phpcs:ignore
+	public $admin_menu; // phpcs:ignore
 
 	/**
 	 * Constructor for the class.
@@ -50,6 +51,8 @@ class Plugin {
 		$this->ajax             = new Ajax();
 		$this->generate_css     = new Generate_CSS();
 		$this->video_btn        = new Video_Btn();
+		$this->admin_menu = new Admin_Menu();
+		
 	}
 }
 

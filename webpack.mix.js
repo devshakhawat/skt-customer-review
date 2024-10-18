@@ -35,21 +35,20 @@ if ( process.env.NODE_ENV.trim() !== 'production' ) {
 
 
 // Form Builder JS
-mix.scripts('./dev/public/js/recordrtc.js', './assets/public/js/recordrtc.min.js');
-mix.scripts('./dev/public/js/form-public.js', './assets/public/js/form-public.min.js');
-mix.scripts('./dev/admin/js/form-admin.js', './assets/admin/js/form-admin.min.js');
+mix.scripts('./dev/public/js/public.js', './assets/public/js/public.min.js');
+mix.scripts('./dev/admin/js/admin.js', './assets/admin/js/admin.min.js');
 
 // Form Builder SCSS
-mix.sass('./dev/public/css/form-public.scss', './assets/public/css/form-public.min.css');
-mix.sass('./dev/admin/css/form-admin.scss', './assets/admin/css/form-admin.min.css');
+mix.sass('./dev/public/css/public.scss', './assets/public/css/public.min.css');
+mix.sass('./dev/admin/css/admin.scss', './assets/admin/css/admin.min.css');
 
 // Freemius
 if ( process.env.NODE_ENV.trim() === 'production' ) {
 
 	// Language pot file generator
 	wpPot({
-		destFile: 'languages/skt-review.pot',
-		domain: 'skt-review',
+		destFile: 'languages/sktplugin.pot',
+		domain: 'sktplugin',
 		package: 'Skt_Customer_Review',
 		src: ['**/*.php', '!freemius/**/*.php']
 	});

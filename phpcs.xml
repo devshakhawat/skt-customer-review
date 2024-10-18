@@ -1,0 +1,18 @@
+<ruleset name="Custom WordPress Coding Standard">
+    <!-- Include WordPress Coding Standard -->
+    <rule ref="WordPress"/>
+
+    <!-- Allow short array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax">
+        <properties>
+            <property name="allowShortArray" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- Convert long array syntax to short array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax">
+        <properties>
+            <property name="convertToShortArray" value="true"/>
+        </properties>
+    </rule>
+</ruleset>

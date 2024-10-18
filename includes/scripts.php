@@ -32,6 +32,9 @@ class Scripts {
 
     public function public_enqueue_scripts() {
 
+        wp_enqueue_style( 'font-awesome', SKT_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', [], SKT_VERSION );
+        wp_enqueue_style( 'public', SKT_PLUGIN_URI . 'assets/public/css/public.min.css', [], SKT_VERSION );
+        wp_enqueue_script( 'public', SKT_PLUGIN_URI . 'assets/public/js/public.min.js', [ 'jquery' ], SKT_VERSION, true );
 
     }
 

@@ -6,19 +6,23 @@ defined( 'ABSPATH' ) || exit;
 
 class Video_Btn {
 
-    public function __construct() {
-        
-        add_filter( 'woocommerce_product_review_comment_form_args', [ $this, 'add_custom_review_field' ] );       
-        
-    }
+	public function __construct() {
+		add_filter( 'woocommerce_product_review_comment_form_args', array( $this, 'add_custom_review_field' ) );
+	}
 
-    
-    public function add_custom_review_field( $args ) {
+	public function add_custom_review_field( $args ) {
 
-        $label  = '<label for="rating">Your rating&nbsp;<span class="required">*</span></label>';
-        $hidden = '<input type="hidden" name="video" id="video" value=""/>';
-        $button = '<br><button>Upload Video</button>';
-        $rating = '<select name="rating" id="rating" required>
+		$label        = '<label for="rating">Your rating&nbsp;<span class="required">*</span></label>';
+		$hidden       = '<input type="hidden" name="video" id="video" value=""/>';
+		// $button       = sprintf( '<br><button id="tpro_modal_btn">%s</button>', __( 'Upload Video', 'sktplugin' ) );
+		$button        = '<div class="sp-testimonial-input-field">
+							<div class="sp-testimonial-video-wrapper" style="display: none;">
+								<video playsinline controls src="" type="video/mp4"></video>
+							</div>
+							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>Record Video</a>
+							<input type="file" name="tpro_client_video_upload" id="tpro_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
+						</div>';
+		$rating       = '<select name="rating" id="rating" required>
                     <option value="">Rate&hellip;</option>
                     <option value="5">Perfect</option>
                     <option value="4">Good</option>
@@ -26,16 +30,14 @@ class Video_Btn {
                     <option value="2">Not that bad</option>
                     <option value="1">Very poor</option>
                 </select>';
-        $text_comment = '<p class="comment-form-comment">
+		$modal = modal_html();
+		$text_comment = '<p class="comment-form-comment">
                 <label for="comment">Your review&nbsp;<span class="required"></span></label>
                 <textarea id="comment" name="comment" cols="45" rows="8" ></textarea>
             </p>';
 
-        $args['comment_field'] = sprintf( '<div class="comment-form-rating">%1s %2s %3s</div>%4s', $label, $button, $rating, $text_comment );
-        
+		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%1s %2s %3s</div>%4s %5s', $label, $button, $rating, $modal, $text_comment );
 
-        return $args;
-
-    }
-
+		return $args;
+	}
 }
