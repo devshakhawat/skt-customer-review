@@ -76,11 +76,13 @@
 	text-align: center;
 }
 
-.sp-tpro-form-field .sp-testimonial-video-wrapper video {
-	max-width: 100%;
-	width: 450px !important;
-	margin-bottom: 10px;
-	height: auto !important;
+.sp-testimonial-video-wrapper {
+	video {
+		max-width: 100%;
+		width: 450px !important;
+		margin-bottom: 10px;
+		height: auto !important;
+	}
 }
 
 .tpro_modal-content-wrapper {

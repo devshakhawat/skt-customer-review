@@ -1,42 +1,81 @@
-<?php
+<?php // phpcs:ignore
 namespace CUSREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Class Video_Btn
+ *
+ * Handles the addition of a video button to the WooCommerce product review form.
+ */
 class Video_Btn {
 
+	/**
+	 * Video_Btn constructor.
+	 * Adds actions and filters for the video button functionality.
+	 */
 	public function __construct() {
+		add_action( 'wp_footer', array( $this, 'add_enctype_to_review_form' ) );
 		add_filter( 'woocommerce_product_review_comment_form_args', array( $this, 'add_custom_review_field' ) );
 	}
 
+	/**
+	 * Adds enctype attribute to the review form.
+	 */
+	public function add_enctype_to_review_form() {
+
+		if ( is_product() ) { // Ensure this runs only on product pages.
+			?>
+			<script type="text/javascript">
+				document.addEventListener('DOMContentLoaded', function() {
+					var reviewForm = document.getElementById('commentform');
+					if (reviewForm) {
+						reviewForm.setAttribute('enctype', 'multipart/form-data');
+					}
+				});
+			</script>
+			<?php
+		}
+	}
+
+	/**
+	 * Adds a custom video upload field to the WooCommerce product review form.
+	 *
+	 * @param array $args The arguments for the comment form.
+	 * @return array Modified comment form arguments.
+	 */
 	public function add_custom_review_field( $args ) {
 
-		$label        = '<label for="rating">Your rating&nbsp;<span class="required">*</span></label>';
-		$hidden       = '<input type="hidden" name="video" id="video" value=""/>';
-		// $button       = sprintf( '<br><button id="tpro_modal_btn">%s</button>', __( 'Upload Video', 'sktplugin' ) );
-		$button        = '<div class="sp-testimonial-input-field">
+		$label  = '<label for="rating">Your rating&nbsp;<span class="required">*</span></label>';
+		$button = '<div class="sp-testimonial-input-field">
 							<div class="sp-testimonial-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
 							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>Record Video</a>
 							<input type="file" name="tpro_client_video_upload" id="tpro_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
 						</div>';
-		$rating       = '<select name="rating" id="rating" required>
-                    <option value="">Rate&hellip;</option>
-                    <option value="5">Perfect</option>
-                    <option value="4">Good</option>
-                    <option value="3">Average</option>
-                    <option value="2">Not that bad</option>
-                    <option value="1">Very poor</option>
-                </select>';
-		$modal = modal_html();
+		$rating = '';
+		if ( wc_review_ratings_enabled() ) {
+			$rating = '<div class="comment-form-rating">
+			<label for="rating">' . esc_html__( 'Your rating', 'woocommerce' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label>
+						<select name="rating" id="rating" required>
+							<option value="">Rate&hellip;</option>
+							<option value="5">Perfect</option>
+							<option value="4">Good</option>
+							<option value="3">Average</option>
+							<option value="2">Not that bad</option>
+							<option value="1">Very poor</option>
+						</select>
+			</div>';
+		}
+		$modal        = modal_html();
 		$text_comment = '<p class="comment-form-comment">
                 <label for="comment">Your review&nbsp;<span class="required"></span></label>
                 <textarea id="comment" name="comment" cols="45" rows="8" ></textarea>
             </p>';
 
-		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%1s %2s %3s</div>%4s %5s', $label, $button, $rating, $modal, $text_comment );
+		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s', $rating, $button, $modal, $text_comment );
 
 		return $args;
 	}

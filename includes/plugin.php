@@ -35,24 +35,23 @@ class Plugin {
 	public $hooks; // phpcs:ignore
 	public $shortcode; // phpcs:ignore
 	public $scripts; // phpcs:ignore
-	public $ajax; // phpcs:ignore
 	public $generate_css; // phpcs:ignore
 	public $video_btn; // phpcs:ignore
 	public $admin_menu; // phpcs:ignore
+	public $save_video; // phpcs:ignore
+	public $display_video; // phpcs:ignore
 
 	/**
 	 * Constructor for the class.
 	 */
 	public function __construct() {
 
-		$this->hooks            = new Hooks();
-		$this->shortcode        = new Shortcode();
-		$this->scripts          = new Scripts();
-		$this->ajax             = new Ajax();
-		$this->generate_css     = new Generate_CSS();
-		$this->video_btn        = new Video_Btn();
-		$this->admin_menu = new Admin_Menu();
-		
+		$this->shortcode     = new Shortcode();
+		$this->scripts       = new Scripts();
+		$this->video_btn     = new Video_Btn();
+		$this->admin_menu    = new Admin_Menu();
+		$this->save_video    = new Save_Video();
+		$this->display_video = new Display_Video();
 	}
 }
 

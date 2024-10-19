@@ -183,13 +183,12 @@ jQuery(function($){
                 mediaRecorder.onstop = function () {
                     log('mediaRecorder.onstop, mediaRecorder.state = ' + mediaRecorder.state);
 
-                    //var recording = new Blob(chunks, {type: containerType});
                     var recording = new Blob(chunks, { type: mediaRecorder.mimeType });
                     tpro_addButton.href = URL.createObjectURL(recording);
                     // Even if they do, they may only support MediaStream.
                     tpro_recording.src = URL.createObjectURL(recording);
                     tpro_recording.controls = true;
-                    // tpro_recording.play();
+                    // tpro_recording.play();                    
 
                     var rand = Math.floor((Math.random() * 10000000));
                     switch (containerType) {
@@ -208,13 +207,15 @@ jQuery(function($){
                         let file = new File([recording], name, {
                             type: recording.type,
                         });
+                        
                         let container = new DataTransfer();
                         container.items.add(file);
                         document.querySelector('#tpro_client_video_upload').files = container.files;
 
                         document.querySelector('.sp-testimonial-video-wrapper video').src = tpro_addButton.href;
                         document.querySelector('.sp-testimonial-video-wrapper').style.display = 'block';
-
+                        
+                        console.log(container, 'file');
                         tpro_modal_close.click();
                     });
 
