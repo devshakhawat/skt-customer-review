@@ -47,7 +47,6 @@ class Video_Btn {
 	 */
 	public function add_custom_review_field( $args ) {
 
-		$label  = '<label for="rating">Your rating&nbsp;<span class="required">*</span></label>';
 		$button = '<div class="sp-testimonial-input-field">
 							<div class="sp-testimonial-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
@@ -55,6 +54,7 @@ class Video_Btn {
 							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>Record Video</a>
 							<input type="file" name="tpro_client_video_upload" id="tpro_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
 						</div>';
+
 		$rating = '';
 		if ( wc_review_ratings_enabled() ) {
 			$rating = '<div class="comment-form-rating">

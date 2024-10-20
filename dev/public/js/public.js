@@ -1,5 +1,7 @@
 jQuery(function($){
 
+    // Media Uploader
+
     let tpro_preview = document.getElementById("tpro_preview");
     let tpro_recording = document.getElementById("tpro_recording");
     let tpro_timer = document.getElementById("tpro_timer-text");
@@ -289,6 +291,41 @@ jQuery(function($){
             // console.log(message)
         }
     }
+
+    // FILE Uploader
+
+    var file_frame;
+    $('#upload_file_button').on('click', function(e) {
+        e.preventDefault();
+
+        // If the file_frame already exists, reopen it
+        if (file_frame) {
+            file_frame.open();
+            return;
+        }
+
+        // Create the media frame.
+        file_frame = wp.media({
+            title: 'Select or Upload a File',
+            button: {
+                text: 'Use this file'
+            },
+            multiple: true // Set this to true if you want to allow multiple file selection
+        });
+
+        file_frame.on('select', function() {
+            var selection = file_frame.state().get('selection');
+            
+            selection.map(function(attachment) {
+                attachment = attachment.toJSON();
+               
+                $('#skt_file_url').val(attachment.url);
+            });
+        });        
+
+        // Open the modal
+        file_frame.open();
+    });
     
 
 })

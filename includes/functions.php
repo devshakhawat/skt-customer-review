@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 function modal_html() {
 	$recording_time = 2;
 	ob_start();
+	wp_nonce_field('my_form_nonce_action', 'my_form_nonce_name');
 	?>
 	<div id="tpro_video_modal" class="tpro_video_modal">
 	<div class="tpro_background"></div>

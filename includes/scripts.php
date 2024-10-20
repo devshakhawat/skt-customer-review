@@ -25,11 +25,18 @@ class Scripts {
 	 * Enqueue scripts
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $hook The current admin page.
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts( $hook ) {
 
-		// wp_enqueue_style( 'woocommerce_admin_styles' );
+		if ( 'toplevel_page_skt-video-reviews' !== $hook ) {
+			return;
+		}
+
+		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'admin', SKT_PLUGIN_URI . 'assets/admin/css/admin.min.css', array(), SKT_VERSION );
+		wp_enqueue_script( 'admin', SKT_PLUGIN_URI . 'assets/admin/js/admin.min.js', array( 'wp-color-picker' ), SKT_VERSION, true );
 	}
 
 	/**
@@ -39,6 +46,7 @@ class Scripts {
 	 */
 	public function public_enqueue_scripts() {
 
+		wp_enqueue_media();
 		wp_enqueue_style( 'font-awesome', SKT_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', array(), SKT_VERSION );
 		wp_enqueue_style( 'public', SKT_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKT_VERSION );
 		wp_enqueue_script( 'public', SKT_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), SKT_VERSION, true );
