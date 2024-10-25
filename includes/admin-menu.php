@@ -53,7 +53,7 @@ class Admin_Menu {
 						<tr class="">
 							<th scope="row" class="titledesc">
 								<label for="enable_video_btn">
-									<?php esc_html_e( 'Show All', 'sktplugin' ); ?>									
+									<?php esc_html_e( 'Show All:', 'sktplugin' ); ?>									
 								</label>
 							</th>
 							<td class="skt_video_btn">
@@ -63,18 +63,29 @@ class Admin_Menu {
 
 						<tr class="">
 							<th scope="row" class="titledesc">
-								<label for="ivole_enable_for_role">
-									<?php esc_html_e( 'Show All', 'sktplugin' ); ?>									
+								<label for="required_video">
+									<?php esc_html_e( 'Required Video:', 'sktplugin' ); ?>									
 								</label>
 							</th>
 							<td class="forminp forminp-select">
-								<input type="checkbox" name="enable_video_btn" id="enable_video_btn">
+								<input type="checkbox" name="required_video" id="required_video">
 							</td>
 						</tr>
 
 						<tr class="">
 							<th scope="row" class="titledesc">
-								<label for="woocommerce_price_num_decimals"><?php esc_html_e( 'Video Duration', 'sktplugin' ); ?></label>
+								<label for="required_text_comment">
+									<?php esc_html_e( 'Required Text Comment:', 'sktplugin' ); ?>									
+								</label>
+							</th>
+							<td class="forminp forminp-select">
+								<input type="checkbox" name="required_text_comment" id="required_text_comment">
+							</td>
+						</tr>
+
+						<tr class="">
+							<th scope="row" class="titledesc">
+								<label for="woocommerce_price_num_decimals"><?php esc_html_e( 'Video Duration:', 'sktplugin' ); ?></label>
 							</th>
 							<td class="forminp forminp-number">
 								<input name="woocommerce_price_num_decimals" id="woocommerce_price_num_decimals" type="number" style="width:50px;" value="2" class="" placeholder="" min="0" step="1"> 						
@@ -82,7 +93,7 @@ class Admin_Menu {
 						</tr>
 						<tr>
 							<th scope="row" class="titledesc">
-								<label for="review_btn_color"><?php esc_html_e( 'Button Color', 'sktplugin' ); ?></label>
+								<label for="review_btn_color"><?php esc_html_e( 'Button Color:', 'sktplugin' ); ?></label>
 							</th>
 							<td class="forminp forminp-select">
 								<input type="text" name="review_btn_color" id="review_btn_color" value="#ff0000" />
@@ -90,7 +101,7 @@ class Admin_Menu {
 						</tr>
 						<tr>
 							<th scope="row" class="titledesc">
-								<label for="review_btn_text"><?php esc_html_e( 'Button Text', 'sktplugin' ); ?></label>
+								<label for="review_btn_text"><?php esc_html_e( 'Button Text:', 'sktplugin' ); ?></label>
 							</th>
 							<td class="forminp forminp-select">
 								<input type="text" name="review_btn_text" id="review_btn_text" value="<?php esc_attr_e( 'Record Video', 'sktplugin' ); ?>" />

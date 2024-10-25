@@ -69,13 +69,17 @@ class Video_Btn {
 						</select>
 			</div>';
 		}
-		$modal        = modal_html();
+
+		$modal = modal_html();
+
 		$text_comment = '<p class="comment-form-comment">
                 <label for="comment">Your review&nbsp;<span class="required"></span></label>
                 <textarea id="comment" name="comment" cols="45" rows="8" ></textarea>
             </p>';
 
-		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s', $rating, $button, $modal, $text_comment );
+		$file_input = '<br><input type="file" name="skt_file_upload" id="skt_file_upload" accept="video/mp4, video/x-m4v,video/webm,video/*"><br><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+
+		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s %s', $rating, $modal, $text_comment, $button, $file_input );
 
 		return $args;
 	}
