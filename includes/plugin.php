@@ -46,6 +46,7 @@ class Plugin {
 	 */
 	public function __construct() {
 
+		$this->hooks         = new Hooks();
 		$this->shortcode     = new Shortcode();
 		$this->scripts       = new Scripts();
 		$this->video_btn     = new Video_Btn();

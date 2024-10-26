@@ -10,6 +10,8 @@ defined( 'ABSPATH' ) || exit;
  * Handles the addition of a video button to the WooCommerce product review form.
  */
 class Video_Btn {
+	
+	use Helpers;
 
 	/**
 	 * Video_Btn constructor.
@@ -70,10 +72,10 @@ class Video_Btn {
 			</div>';
 		}
 
-		$modal = modal_html();
+		$modal = $this->modal_html();
 
 		$text_comment = '<p class="comment-form-comment">
-                <label for="comment">Your review&nbsp;<span class="required"></span></label>
+                <label for="comment">Your review&nbsp;<span class="required">*</span></label>
                 <textarea id="comment" name="comment" cols="45" rows="8" ></textarea>
             </p>';
 

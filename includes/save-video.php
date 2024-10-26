@@ -31,8 +31,6 @@ class Save_Video {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 
-			pretty_log( $_FILES, 'files' );
-
 			if ( ! empty( $_FILES ) ) {
 				foreach ( $_FILES as $file_key => $file_array ) {
 					if ( UPLOAD_ERR_OK !== $file_array['error'] ) {
@@ -49,11 +47,11 @@ class Save_Video {
 						$allowed_video_types = array( 'video/mp4', 'video/webm', 'video/x-matroska' );
 
 						if ( in_array( $file_array['type'], $allowed_video_types, true ) ) {
-							$attachment_url = wp_get_attachment_url( $attachment_id );
-							update_comment_meta( $comment_id, 'uploaded_video_url', $attachment_url, true );
+							$attachment_url[] = wp_get_attachment_url( $attachment_id );
 						}
 					}
 				}
+				update_comment_meta( $comment_id, 'uploaded_video_url', $attachment_url, true );
 			}
 		}
 	}

@@ -27,13 +27,17 @@ class Display_Video {
 
 		$comment_id = $comments->comment_ID;
 		$video_url  = get_comment_meta( $comment_id, 'uploaded_video_url', true );
-		if ( $video_url ) {
+		$video_urls = get_comment_meta( $comment_id, 'uploaded_video_url' );
+
+		$flatten_urls = flatten_array( $video_urls );
+
+		foreach ( $flatten_urls as $url ) {
 			printf(
 				'<video width="320" height="240" controls>
-                <source src="%s" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>',
-				esc_url( $video_url )
+					<source src="%s" type="video/mp4">
+					Your browser does not support the video tag.
+				</video><br>',
+				esc_url( $url )
 			);
 		}
 	}
