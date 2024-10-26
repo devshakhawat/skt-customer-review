@@ -100,14 +100,12 @@ trait Helpers {
 			return false;
 		}
 
-		wp_cache_delete( 'skt_plugin_settings', 'skt_customer_review' );
-
 		return true;
 	}
 
 	public function get_settings() {
-		// $defaults = get_defaults();
-		// $settings = get_option( 'skt_review_settings', $defaults );
-		// return $settings;
+
+		$settings = get_option( 'skt_review_settings', $this->get_defaults() );
+		return $settings;
 	}
 }
