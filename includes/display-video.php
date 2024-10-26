@@ -25,10 +25,8 @@ class Display_Video {
 	 */
 	public function display_video( $comments ) {
 
-		$comment_id = $comments->comment_ID;
-		$video_url  = get_comment_meta( $comment_id, 'uploaded_video_url', true );
-		$video_urls = get_comment_meta( $comment_id, 'uploaded_video_url' );
-
+		$comment_id   = $comments->comment_ID;
+		$video_urls   = get_comment_meta( $comment_id, 'uploaded_video_url' );
 		$flatten_urls = flatten_array( $video_urls );
 
 		foreach ( $flatten_urls as $url ) {

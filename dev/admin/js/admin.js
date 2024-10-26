@@ -20,28 +20,13 @@ jQuery(function ($) {
       return response.json(); // Parse JSON response
     })
     .then(data => {
-      console.log(data); // Handle success response
+      console.log(data);
+      
+      // $('.skt_submit_successful').append(data.status);
     })
     .catch(error => {
       console.error('Error:', error); // Handle error response
     });
 
-    // $.ajax({
-    //   url: skt_plugin.ajax_url,
-    //   type: "POST",
-    //   data: {
-    //     action: "get_review_settings",
-    //     _wpnonce: skt_plugin.nonce,
-    //     settings: formData,
-    //   },
-    //   success: function (response) {
-    //     var data = JSON.parse(response);
-    //     $("#review_btn_color").val(data.review_btn_color);
-    //     $("#review_btn_text").val(data.review_btn_text);
-    //   },
-    //   error: function (error) {
-    //     console.log(error);
-    //   },
-    // });
   });
 });

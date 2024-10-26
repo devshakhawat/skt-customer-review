@@ -49,13 +49,15 @@ class Video_Btn {
 	 */
 	public function add_custom_review_field( $args ) {
 
-		$button = '<div class="sp-testimonial-input-field">
+		$settings = $this->get_settings();
+
+		$button = sprintf( '<div class="sp-testimonial-input-field">
 							<div class="sp-testimonial-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
-							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>Record Video</a>
+							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a>
 							<input type="file" name="tpro_client_video_upload" id="tpro_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
-						</div>';
+						</div>', $settings['review_btn_text'] );
 
 		$rating = '';
 		if ( wc_review_ratings_enabled() ) {
@@ -79,7 +81,10 @@ class Video_Btn {
                 <textarea id="comment" name="comment" cols="45" rows="8" ></textarea>
             </p>';
 
-		$file_input = '<br><input type="file" name="skt_file_upload" id="skt_file_upload" accept="video/mp4, video/x-m4v,video/webm,video/*"><br><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+		$file_input = '';
+		if( $settings['show_file_uploader'] ) {
+			$file_input = '<br><input type="file" name="skt_file_upload" id="skt_file_upload" accept="video/mp4, video/x-m4v,video/webm,video/*"><br><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+		}
 
 		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s %s', $rating, $modal, $text_comment, $button, $file_input );
 
