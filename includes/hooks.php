@@ -21,12 +21,13 @@ class Hooks {
 			wp_send_json_error( array( 'status' => 'error' ) );
 		}
 
+		pretty_log( $_POST, 'post' );
+
 		$form_data = shortcode_atts( $this->get_defaults(), $_POST );
 		$form_data = $this->validate_form_data( $form_data );
 		
-		$is_updated = $this->update_settings( $form_data );		
-
-		pretty_log( $is_updated );
+		
+		$is_updated = $this->update_settings( $form_data );
 
 		if( ! $is_updated ) {
 			wp_send_json_error( array( 'status' => 'error' ) );

@@ -94,7 +94,12 @@ trait Helpers {
 
 	public function update_settings( $settings ) {
 
+		$settings   = serialize( $settings );
+
+
 		$is_updated = update_option( 'skt_review_settings', $settings );
+
+		pretty_log( $is_updated, 'test' );
 
 		if ( ! $is_updated ) {
 			return false;
@@ -106,6 +111,7 @@ trait Helpers {
 	public function get_settings() {
 
 		$settings = get_option( 'skt_review_settings', $this->get_defaults() );
-		return $settings;
+
+		return is_array( $settings ) ? $settings : unserialize( $settings );
 	}
 }

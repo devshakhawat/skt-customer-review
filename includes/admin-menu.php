@@ -53,6 +53,7 @@ class Admin_Menu {
 
 		$settings = $this->get_settings();
 
+
 		ob_start();
 		?>
 		<div class="wrap">
@@ -69,7 +70,7 @@ class Admin_Menu {
 								</label>
 							</th>
 							<td class="skt_video_btn">
-								<input type="checkbox" name="enable_video_btn" id="enable_video_btn" <?php checked( $settings['enable_video_btn'], true ); ?> value="true">
+								<input type="checkbox" name="enable_video_btn" id="enable_video_btn" <?php checked( $settings['enable_video_btn'], true ); ?> >
 								<?php echo wp_kses_post( wc_help_tip( 'Show Record Button to all products', false ) ); ?>
 								<span><?php esc_html_e( 'Show or Hide Video Record Button to all Products Page.', 'sktplugin' ); ?></span>
 							</td>
@@ -82,7 +83,7 @@ class Admin_Menu {
 								</label>
 							</th>
 							<td class="skt_video_btn">
-								<input type="checkbox" name="show_file_uploader" id="show_file_uploader" <?php checked( $settings['show_file_uploader'], true ); ?> value="true">
+								<input type="checkbox" name="show_file_uploader" id="show_file_uploader" <?php checked( $settings['show_file_uploader'], true ); ?> >
 								<?php echo wp_kses_post( wc_help_tip( 'Show File Uploader to all products', false ) ); ?>
 								<span><?php esc_html_e( 'Show or Hide File Uploader Button to all Products Page.', 'sktplugin' ); ?></span>
 							</td>
@@ -95,7 +96,7 @@ class Admin_Menu {
 								</label>
 							</th>
 							<td class="forminp forminp-select">
-								<input type="checkbox" name="required_video" id="required_video" <?php checked( $settings['required_video'], true ); ?> value="true">
+								<input type="checkbox" name="required_video" id="required_video" <?php checked( $settings['required_video'], true ); ?> >
 								<?php echo wp_kses_post( wc_help_tip( 'Make Required Field to add Review', false ) ); ?>
 								<span><?php esc_html_e( 'Required or Optional to make this field', 'sktplugin' ); ?></span>
 							</td>
@@ -108,7 +109,7 @@ class Admin_Menu {
 								</label>
 							</th>
 							<td class="forminp forminp-select">
-								<input type="checkbox" name="required_file_uploader" id="required_file_uploader" <?php checked( $settings['required_file_uploader'], true ); ?> value="true">
+								<input type="checkbox" name="required_file_uploader" id="required_file_uploader" <?php checked( $settings['required_file_uploader'], true ); ?> >
 								<?php echo wp_kses_post( wc_help_tip( 'Make required this field', false ) ); ?>
 								<span><?php esc_html_e( 'Required or Optional File Uploader', 'sktplugin' ); ?></span>
 							</td>
@@ -121,7 +122,7 @@ class Admin_Menu {
 								</label>
 							</th>
 							<td class="forminp forminp-select">
-								<input type="checkbox" name="required_text_comment" id="required_text_comment" <?php checked( $settings['required_text_comment'], true ); ?> value="true">
+								<input type="checkbox" name="required_text_comment" id="required_text_comment" <?php checked( $settings['required_text_comment'], true ); ?> >
 								<?php echo wp_kses_post( wc_help_tip( 'Make Required or Optional File Uploader', false ) ); ?>
 								<span><?php esc_html_e( 'Make Required or Optional File Uploader', 'sktplugin' ); ?></span>
 							</td>

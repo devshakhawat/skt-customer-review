@@ -4,7 +4,6 @@ jQuery(function ($) {
   $("#skt_plugin_settings").on("submit", function (e) {
     e.preventDefault();
 
-    // var formData = $(this).serialize();
     let formData = new FormData(this);
     formData.append("_wpnonce", skt_plugin.nonce);
     formData.append("action", "get_review_settings");
@@ -21,6 +20,8 @@ jQuery(function ($) {
     })
     .then(data => {
       console.log(data);
+
+      // $('skt_submit_successful').show();
       
       // $('.skt_submit_successful').append(data.status);
     })

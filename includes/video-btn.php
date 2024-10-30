@@ -51,13 +51,18 @@ class Video_Btn {
 
 		$settings = $this->get_settings();
 
-		$button = sprintf( '<div class="sp-testimonial-input-field">
+		$button = '';
+		if( $settings['enable_video_btn'] ) {
+
+			$button = sprintf( '<div class="sp-testimonial-input-field">
 							<div class="sp-testimonial-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
 							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a>
 							<input type="file" name="tpro_client_video_upload" id="tpro_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
 						</div>', $settings['review_btn_text'] );
+		}
+		
 
 		$rating = '';
 		if ( wc_review_ratings_enabled() ) {
