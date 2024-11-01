@@ -69,8 +69,8 @@ trait Helpers {
 		return array(
 			'enable_video_btn'       => true,
 			'show_file_uploader'     => true,
-			'required_video'         => true,
-			'required_file_uploader' => true,
+			'required_video'         => false,
+			'required_file_uploader' => false,
 			'required_text_comment'  => true,
 			'video_duration'         => 2,
 			'review_btn_color'       => '#f722cc',

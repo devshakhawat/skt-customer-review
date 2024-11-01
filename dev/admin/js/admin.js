@@ -1,8 +1,6 @@
 jQuery(function ($) {
   $("#review_btn_color").wpColorPicker();
 
-  
-
   $("#skt_plugin_settings").on("submit", function (e) {
     e.preventDefault();
 
@@ -24,4 +22,16 @@ jQuery(function ($) {
         data.success ? toastr.success(data.data.status) : toastr.error(data.data.status);        
       })
   });
+
+  // Disabled Buttons
+  // $('tr.disabled').hover(
+  //   function() {
+  //       $(this).css('background-color', '#4287f5');
+  //   },
+  //   function() {
+  //       $(this).css('background-color', '');
+  //   }
+  // );
+
+
 });
