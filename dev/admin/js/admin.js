@@ -23,15 +23,4 @@ jQuery(function ($) {
       })
   });
 
-  // Disabled Buttons
-  // $('tr.disabled').hover(
-  //   function() {
-  //       $(this).css('background-color', '#4287f5');
-  //   },
-  //   function() {
-  //       $(this).css('background-color', '');
-  //   }
-  // );
-
-
 });

@@ -20,6 +20,7 @@ class Video_Btn {
 	public function __construct() {
 		add_action( 'wp_footer', array( $this, 'add_enctype_to_review_form' ) );
 		add_filter( 'woocommerce_product_review_comment_form_args', array( $this, 'add_custom_review_field' ) );
+
 	}
 
 	/**
@@ -58,8 +59,8 @@ class Video_Btn {
 							<div class="sp-testimonial-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
-							<a href="#" id="tpro_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a>
-							<input type="file" name="tpro_client_video_upload" id="tpro_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
+							<a href="#" id="skt_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a>
+							<input type="file" name="skt_client_video_upload" id="skt_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
 						</div>', $settings['review_btn_text'] );
 		}
 		
@@ -92,7 +93,11 @@ class Video_Btn {
 		}
 
 		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s %s', $rating, $modal, $text_comment, $button, $file_input );
+		$args['fields']['comment'] = false; 
+
+		// pretty_log( $args, 'args' );
 
 		return $args;
 	}
+
 }

@@ -30,13 +30,17 @@ class Display_Video {
 		$flatten_urls = flatten_array( $video_urls );
 
 		foreach ( $flatten_urls as $url ) {
-			printf(
-				'<video width="320" height="240" controls>
-					<source src="%s" type="video/mp4">
-					Your browser does not support the video tag.
-				</video><br>',
-				esc_url( $url )
-			);
+			if ( ! empty( $url ) ) {
+
+				printf(
+					'<video width="320" height="240" controls>
+						<source src="%s" type="video/mp4">
+						Your browser does not support the video tag.
+					</video><br>',
+					esc_url( $url )
+				);
+
+			}
 		}
 	}
 }

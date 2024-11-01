@@ -1,22 +1,22 @@
-.tpro_preview-recording video {
+.skt_preview-recording video {
   /* margin-top: 2px; */
   /* border: 1px solid #000 */
   background: #C4C4C4;
 }
 
-.tpro_record_video_buttons {
+.skt_record_video_buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.tpro_record_video_buttons div,
-.tpro_record_video_buttons a {
+.skt_record_video_buttons div,
+.skt_record_video_buttons a {
   margin: 10px 5px;
   text-decoration: none !important;
 }
 
-.tpro_video_button {
+.skt_video_button {
   cursor: pointer;
   display: block;
   font-size: 12px;
@@ -33,7 +33,7 @@
   padding: 10px 20px;
 }
 
-.tpro_modal-content-inner {
+.skt_modal-content-inner {
   margin: auto;
   width: 100%;
   padding: 0;
@@ -41,7 +41,7 @@
   margin-bottom: -3px;
 }
 
-.tpro_modal-content-bottom {
+.skt_modal-content-bottom {
   font-size: 13px;
   color: rgba(56, 77, 106, 0.6980392157);
   font-style: italic;
@@ -51,7 +51,7 @@
   line-height: 1 !important;
 }
 
-.tpro_video_modal {
+.skt_video_modal {
   display: none;
   position: fixed;
   z-index: 9999;
@@ -64,7 +64,7 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#tpro_client_video_upload {
+#skt_client_video_upload {
   visibility: hidden;
   width: 0;
   height: 0;
@@ -81,14 +81,14 @@
   height: auto !important;
 }
 
-.tpro_modal-content-wrapper {
+.skt_modal-content-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-.tpro_modal-content {
+.skt_modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 0 0;
@@ -99,13 +99,13 @@
   z-index: 99;
 }
 
-.tpro_background {
+.skt_background {
   position: fixed;
   height: 100%;
   width: 100%;
 }
 
-.tpro_modal_close {
+.skt_modal_close {
   color: #fff;
   font-weight: 700;
   overflow: hidden;
@@ -126,14 +126,14 @@
 }
 
 @media screen and (max-width: 575px) {
-  .tpro_modal_close {
+  .skt_modal_close {
     top: 5px;
     right: 4px;
     color: #333;
     border: none;
   }
 }
-.tpro_modal-content-inner h3 {
+.skt_modal-content-inner h3 {
   font-size: 13px !important;
   font-weight: 500;
   margin: 17px 0 !important;
@@ -143,19 +143,19 @@
   line-height: 16px;
 }
 
-.tpro_modal_close:focus,
-.tpro_modal_close:hover {
+.skt_modal_close:focus,
+.skt_modal_close:hover {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
-.tpro_preview-recording {
+.skt_preview-recording {
   overflow: hidden;
   position: relative;
 }
 
-.tpro_preview-recording video {
+.skt_preview-recording video {
   width: 100% !important;
   margin-bottom: 5px !important;
   height: 337px;
@@ -163,10 +163,10 @@
   max-height: 450px;
 }
 
-/* .tpro_preview-recording video#tpro_preview {
+/* .skt_preview-recording video#skt_preview {
 	transform: scaleX(-1);
 } */
-#tpro_timer {
+#skt_timer {
   position: absolute;
   bottom: 10px;
   /* background: #00000060; */
@@ -180,22 +180,22 @@
   z-index: 2;
 }
 
-.tpro_video_button.stop_recording_btn {
+.skt_video_button.stop_recording_btn {
   background: #C6272A;
 }
 
-.tpro_video_button.add_video_btn {
+.skt_video_button.add_video_btn {
   background: #07B86B;
   color: #fff;
 }
 
-.tpro_modal-content-inner img {
+.skt_modal-content-inner img {
   border-radius: 0 !important;
   box-shadow: none !important;
   display: inline-block;
 }
 
-.tpro_no_camera {
+.skt_no_camera {
   position: absolute;
   top: 0;
   left: 0;
@@ -215,7 +215,7 @@
   margin: auto;
 }
 
-#tpro_modal_btn {
+#skt_modal_btn {
   padding: 12px 20px;
   text-transform: uppercase;
   color: #005BDF;
@@ -227,13 +227,13 @@
   font-weight: 500;
 }
 
-.tpro_video_button .fa,
-#tpro_modal_btn .fa {
+.skt_video_button .fa,
+#skt_modal_btn .fa {
   margin-right: 6px;
   font-size: 15px;
 }
 
-.tpro_modal-content-inner h3 img {
+.skt_modal-content-inner h3 img {
   display: inline-block;
   box-shadow: none;
   margin: -3px 5px -2px 0px;
