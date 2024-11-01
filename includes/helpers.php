@@ -78,6 +78,20 @@ trait Helpers {
 		);
 	}
 
+	public function get_allowed_fields() {
+
+		return array(
+			'enable_video_btn'       => false,
+			'show_file_uploader'     => false,
+			'required_video'         => false,
+			'required_file_uploader' => false,
+			'required_text_comment'  => false,
+			'video_duration'         => 2,
+			'review_btn_color'       => '#f722cc',
+			'review_btn_text'        => 'Record Video',
+		);
+	}
+
 	public function validate_form_data( $form_data ) {
 
 		$form_data['enable_video_btn']       = wp_validate_boolean( $form_data['enable_video_btn'] );
@@ -94,24 +108,23 @@ trait Helpers {
 
 	public function update_settings( $settings ) {
 
-		$settings   = serialize( $settings );
+		if( empty( $settings ) ) return;
 
+		$prev_data = get_option( 'skt_review_settings' );
+
+		if( $prev_data === $settings ) {
+			return true;
+		}
 
 		$is_updated = update_option( 'skt_review_settings', $settings );
 
-		pretty_log( $is_updated, 'test' );
-
-		if ( ! $is_updated ) {
-			return false;
-		}
-
-		return true;
+		return $is_updated;
 	}
 
 	public function get_settings() {
 
 		$settings = get_option( 'skt_review_settings', $this->get_defaults() );
 
-		return is_array( $settings ) ? $settings : unserialize( $settings );
+		return $settings;
 	}
 }

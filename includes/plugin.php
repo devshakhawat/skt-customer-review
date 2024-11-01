@@ -53,6 +53,8 @@ class Plugin {
 		$this->admin_menu    = new Admin_Menu();
 		$this->save_video    = new Save_Video();
 		$this->display_video = new Display_Video();
+
+		new Template_Loader();
 	}
 }
 
