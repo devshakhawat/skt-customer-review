@@ -51,7 +51,9 @@ class Save_Video {
 						}
 					}
 				}
-				update_comment_meta( $comment_id, 'uploaded_video_url', $attachment_url, true );
+				if ( isset( $attachment_url ) && ! empty( $attachment_url ) ) {
+					update_comment_meta( $comment_id, 'uploaded_video_url', $attachment_url, true );
+				}
 			}
 		}
 	}

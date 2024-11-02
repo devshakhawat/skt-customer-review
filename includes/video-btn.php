@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
  * Handles the addition of a video button to the WooCommerce product review form.
  */
 class Video_Btn {
-	
+
 	use Helpers;
 
 	/**
@@ -20,7 +20,6 @@ class Video_Btn {
 	public function __construct() {
 		add_action( 'wp_footer', array( $this, 'add_enctype_to_review_form' ) );
 		add_filter( 'woocommerce_product_review_comment_form_args', array( $this, 'add_custom_review_field' ) );
-
 	}
 
 	/**
@@ -53,17 +52,19 @@ class Video_Btn {
 		$settings = $this->get_settings();
 
 		$button = '';
-		if( $settings['enable_video_btn'] ) {
+		if ( $settings['enable_video_btn'] ) {
 
-			$button = sprintf( '<div class="sp-testimonial-input-field">
+			$button = sprintf(
+				'<div class="sp-testimonial-input-field">
 							<div class="sp-testimonial-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
-							<a href="#" id="skt_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a>
+							<div class="skt_video_uploader"><a href="#" id="skt_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a></div>
 							<input type="file" name="skt_client_video_upload" id="skt_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
-						</div>', $settings['review_btn_text'] );
+						</div>',
+				$settings['review_btn_text']
+			);
 		}
-		
 
 		$rating = '';
 		if ( wc_review_ratings_enabled() ) {
@@ -88,16 +89,15 @@ class Video_Btn {
             </p>';
 
 		$file_input = '';
-		if( $settings['show_file_uploader'] ) {
-			$file_input = '<br><input type="file" name="skt_file_upload" id="skt_file_upload" accept="video/mp4, video/x-m4v,video/webm,video/*"><br><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+		if ( $settings['show_file_uploader'] ) {
+			if ( $settings['show_file_uploader'] ) {
+				$file_input = '<br><input type="file" name="skt_file_upload" id="skt_file_upload" required accept="video/mp4, video/x-m4v,video/webm,video/*"><br><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+			}
 		}
 
-		$args['comment_field'] = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s %s', $rating, $modal, $text_comment, $button, $file_input );
-		$args['fields']['comment'] = false; 
-
-		// pretty_log( $args, 'args' );
+		$args['comment_field']     = sprintf( '<div class="comment-form-rating">%s %s</div>%s %s %s', $rating, $modal, $text_comment, $button, $file_input );
+		$args['fields']['comment'] = false;
 
 		return $args;
 	}
-
 }

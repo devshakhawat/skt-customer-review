@@ -39,16 +39,16 @@ class Scripts {
 			return;
 		}
 
-		// Styles
+		// Styles.
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'woocommerce_admin_styles' );
 		wp_enqueue_style( 'skt_toastr', SKT_PLUGIN_URI . 'assets/libs/toastr/toastr.min.css', array(), SKT_VERSION );
 		wp_enqueue_style( 'skt_admin', SKT_PLUGIN_URI . 'assets/admin/css/admin.min.css', array(), SKT_VERSION );
-		
-		// Scripts
+
+		// Scripts.
 		wp_enqueue_script( 'skt_toastr', SKT_PLUGIN_URI . 'assets/libs/toastr/toastr.min.js', array(), SKT_VERSION, true );
 		wp_enqueue_script( 'skt_admin', SKT_PLUGIN_URI . 'assets/admin/js/admin.min.js', array( 'wp-color-picker', 'jquery-tiptip' ), SKT_VERSION, true );
-	
+
 		wp_localize_script(
 			'skt_admin',
 			'skt_plugin',

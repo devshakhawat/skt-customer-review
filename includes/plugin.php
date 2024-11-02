@@ -33,7 +33,6 @@ class Plugin {
 	}
 
 	public $hooks; // phpcs:ignore
-	public $shortcode; // phpcs:ignore
 	public $scripts; // phpcs:ignore
 	public $generate_css; // phpcs:ignore
 	public $video_btn; // phpcs:ignore
@@ -47,7 +46,6 @@ class Plugin {
 	public function __construct() {
 
 		$this->hooks         = new Hooks();
-		$this->shortcode     = new Shortcode();
 		$this->scripts       = new Scripts();
 		$this->video_btn     = new Video_Btn();
 		$this->admin_menu    = new Admin_Menu();

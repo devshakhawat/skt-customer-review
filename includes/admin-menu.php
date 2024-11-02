@@ -1,8 +1,6 @@
 <?php // phpcs:ignore
 namespace CUSREVIEW;
 
-use ElementorPro\Modules\Library\Widgets\Template;
-
 // if direct access than exit the fi le.
 defined( 'ABSPATH' ) || exit;
 
@@ -36,16 +34,6 @@ class Admin_Menu {
 			'dashicons-format-video',
 			50
 		);
-
-		// add_submenu_page(
-		// 	'skt-video-reviews',
-		// 	'Settings',
-		// 	'Settings',
-		// 	'manage_options',
-		// 	'submitted-video-reviews',
-		// 	[ $this, 'render_reviews_list_table' ],
-		// 	70
-		// );
 	}
 
 	/**
@@ -56,8 +44,4 @@ class Admin_Menu {
 		$settings = $this->get_settings();
 		include_once Template_Loader::locate_template( 'admin-settings.php' );
 	}
-
-	// public function get_submenu_page_data() {
-		
-	// } 
 }

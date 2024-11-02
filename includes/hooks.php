@@ -5,28 +5,40 @@ namespace CUSREVIEW;
 defined( 'ABSPATH' ) || exit;
 
 
+/**
+ * Class Hooks
+ *
+ * Handles AJAX requests for review settings.
+ */
 class Hooks {
-	
+
 	use Helpers;
+
+	/**
+	 * Constructor for the Hooks class.
+	 */
 	public function __construct() {
 		add_action( 'wp_ajax_get_review_settings', array( $this, 'handle_get_review_settings' ) );
 	}
 
+	/**
+	 * Handles the AJAX request to get review settings.
+	 */
 	public function handle_get_review_settings() {
 
-		check_admin_referer( 'skt_plugin_nonce' );	
+		check_admin_referer( 'skt_plugin_nonce' );
 
-		if( ! current_user_can( 'manage_options' ) ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( array( 'status' => 'error' ) );
 		}
 
 		$default_fields = array_merge( $this->get_allowed_fields(), $_POST );
 		$form_data      = shortcode_atts( $this->get_defaults(), $default_fields );
 		$form_data      = $this->validate_form_data( $form_data );
-		
+
 		$is_updated = $this->update_settings( $form_data );
 
-		if( ! $is_updated ) {
+		if ( ! $is_updated ) {
 			wp_send_json_error( array( 'status' => 'Something Went Wrong!' ) );
 		}
 

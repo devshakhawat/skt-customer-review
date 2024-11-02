@@ -32,56 +32,56 @@
 				</td>
 			</tr>
 
-			<tr>
+			<!-- <tr>
 				<th scope="row" class="titledesc">
 					<label for="required_video">
-						<?php esc_html_e( 'Required Video Recorder:', 'sktplugin' ); ?>									
+						<?php // esc_html_e( 'Required Video Recorder:', 'sktplugin' ); ?>									
 					</label>
 				</th>
 				<td class="forminp forminp-select">
-					<input type="checkbox" name="required_video" id="required_video" <?php checked( $settings['required_video'], true ); ?> >
-					<?php echo wp_kses_post( wc_help_tip( 'Make Required Field to add Review', false ) ); ?>
-					<span><?php esc_html_e( 'Required or Optional to make this field', 'sktplugin' ); ?></span>
+					<input type="checkbox" name="required_video" id="required_video" <?php // checked( $settings['required_video'], true ); ?> >
+					<?php // echo wp_kses_post( wc_help_tip( 'Make Required Field to add Review', false ) ); ?>
+					<span><?php // esc_html_e( 'Required or Optional to make this field', 'sktplugin' ); ?></span>
 				</td>
-			</tr>
+			</tr> -->
 
-			<tr>
+			<!-- <tr>
 				<th scope="row" class="titledesc">
 					<label for="required_file_uploader">
-						<?php esc_html_e( 'Required File Uploader:', 'sktplugin' ); ?>									
+						<?php // esc_html_e( 'Required File Uploader:', 'sktplugin' ); ?>									
 					</label>
 				</th>
 				<td class="forminp forminp-select">
-					<input type="checkbox" name="required_file_uploader" id="required_file_uploader" <?php checked( $settings['required_file_uploader'], true ); ?> >
-					<?php echo wp_kses_post( wc_help_tip( 'Make required this field', false ) ); ?>
-					<span><?php esc_html_e( 'Required or Optional File Uploader', 'sktplugin' ); ?></span>
+					<input type="checkbox" name="required_file_uploader" id="required_file_uploader" <?php // checked( $settings['required_file_uploader'], true ); ?> >
+					<?php // echo wp_kses_post( wc_help_tip( 'Make required this field', false ) ); ?>
+					<span><?php // esc_html_e( 'Required or Optional File Uploader', 'sktplugin' ); ?></span>
 				</td>
-			</tr>
-<!-- 
-			<tr>
+			</tr> -->
+
+			<!-- <tr>
 				<th scope="row" class="titledesc">
 					<label for="required_text_comment">
 						<?php // esc_html_e( 'Required Text Comment:', 'sktplugin' ); ?>									
 					</label>
 				</th>
 				<td class="forminp forminp-select">
-					<input type="checkbox" name="required_text_comment" id="required_text_comment" <?php //checked( $settings['required_text_comment'], true ); ?> >
+					<input type="checkbox" name="required_text_comment" id="required_text_comment" <?php // checked( $settings['required_text_comment'], true ); ?> >
 					<?php // echo wp_kses_post( wc_help_tip( 'Make Required or Optional File Uploader', false ) ); ?>
 					<span><?php // esc_html_e( 'Make Required or Optional File Uploader', 'sktplugin' ); ?></span>
 				</td>
 			</tr> -->
 
 			<tr class="disabled">
-                <th scope="row" class="titledesc">
-                    <label for="video_duration"><?php esc_html_e( 'Video Duration:', 'sktplugin' ); ?></label>
-                </th>
-                <td class="forminp forminp-number">
-                    <input type="number" name="video_duration" disabled id="video_duration" style="width:50px;" value="2" placeholder="" min="0" max="2" step="1">
-                    <?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
-                    <span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'sktplugin' ); ?></span>   
-                    <span class="coming-soon-text">Coming Soon...</span> <!-- Tooltip text -->
-                </td>
-            </tr>
+				<th scope="row" class="titledesc">
+					<label for="video_duration"><?php esc_html_e( 'Video Duration:', 'sktplugin' ); ?></label>
+				</th>
+				<td class="forminp forminp-number">
+					<input type="number" name="video_duration" disabled id="video_duration" style="width:50px;" value="2" placeholder="" min="0" max="2" step="1">
+					<?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
+					<span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'sktplugin' ); ?></span>   
+					<span class="coming-soon-text">Coming Soon...</span> <!-- Tooltip text -->
+				</td>
+			</tr>
 
 
 			<tr>
