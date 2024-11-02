@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Review Booster
  * Plugin URI: wpspeedo.com
- * Description: this plugin will use to show variations of products in woocommerce
+ * Description: this plugin will enhance product review experience by adding some extra features.
  * Version: 1.0
  * Author: Shakhawat
  * Author URI: wpspeedo.com

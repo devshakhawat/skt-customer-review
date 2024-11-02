@@ -91,7 +91,7 @@ class Video_Btn {
 		$file_input = '';
 		if ( $settings['show_file_uploader'] ) {
 			if ( $settings['show_file_uploader'] ) {
-				$file_input = '<br><input type="file" name="skt_file_upload" id="skt_file_upload" required accept="video/mp4, video/x-m4v,video/webm,video/*"><br><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+				$file_input = '<div class="skt_file_uploader"><input type="file" name="skt_file_upload" id="skt_file_upload" required accept="video/mp4, video/x-m4v,video/webm,video/*"></div><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
 			}
 		}
 
