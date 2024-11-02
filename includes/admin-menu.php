@@ -43,5 +43,6 @@ class Admin_Menu {
 
 		$settings = $this->get_settings();
 		include_once Template_Loader::locate_template( 'admin-settings.php' );
+
 	}
 }

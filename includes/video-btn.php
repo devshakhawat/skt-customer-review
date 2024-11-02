@@ -55,8 +55,8 @@ class Video_Btn {
 		if ( $settings['enable_video_btn'] ) {
 
 			$button = sprintf(
-				'<div class="sp-testimonial-input-field">
-							<div class="sp-testimonial-video-wrapper" style="display: none;">
+				'<div class="skt-input-field">
+							<div class="skt-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
 							<div class="skt_video_uploader"><a href="#" id="skt_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a></div>
@@ -69,7 +69,7 @@ class Video_Btn {
 		$rating = '';
 		if ( wc_review_ratings_enabled() ) {
 			$rating = '<div class="comment-form-rating">
-			<label for="rating">' . esc_html__( 'Your rating', 'woocommerce' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label>
+			<label for="rating">' . esc_html__( 'Your rating', 'review-booster' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label>
 						<select name="rating" id="rating" required>
 							<option value="">Rate&hellip;</option>
 							<option value="5">Perfect</option>

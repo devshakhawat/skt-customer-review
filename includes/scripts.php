@@ -11,6 +11,8 @@ defined( 'ABSPATH' ) || exit;
  */
 class Scripts {
 
+	use Helpers;
+
 	/**
 	 * Initialize the class
 	 *
@@ -66,10 +68,15 @@ class Scripts {
 	 */
 	public function public_enqueue_scripts() {
 
+		if ( is_product() ) {
+			wp_enqueue_style( 'font-awesome', SKT_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', array(), SKT_VERSION );
+		}
 		wp_enqueue_media();
-		wp_enqueue_style( 'font-awesome', SKT_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', array(), SKT_VERSION );
 		wp_enqueue_style( 'skt_public', SKT_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKT_VERSION );
 		wp_enqueue_script( 'skt_public', SKT_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), SKT_VERSION, true );
+
+		$settings = $this->get_settings();
+		plugin()->generate_css->generate_custom_css( $settings );
 	}
 
 	/**

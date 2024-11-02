@@ -18,6 +18,7 @@ class Hooks {
 	 * Constructor for the Hooks class.
 	 */
 	public function __construct() {
+		add_filter( 'plugin_action_links_' . plugin_basename( SKT_PLUGIN_FILE ), array( $this, 'add_settings_link' ) );
 		add_action( 'wp_ajax_get_review_settings', array( $this, 'handle_get_review_settings' ) );
 	}
 
@@ -43,5 +44,17 @@ class Hooks {
 		}
 
 		wp_send_json_success( array( 'status' => 'Successfully Saved' ) );
+	}
+
+	/**
+	 * Adds a settings link to the plugin action links.
+	 *
+	 * @param array $links An array of plugin action links.
+	 * @return array Modified array of plugin action links.
+	 */
+	public function add_settings_link( $links ) {
+		$settings_link = '<a href="admin.php?page=skt-video-reviews">Settings</a>';
+		array_unshift( $links, $settings_link );
+		return $links;
 	}
 }

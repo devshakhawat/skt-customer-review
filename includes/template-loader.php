@@ -33,7 +33,7 @@ final class Template_Loader {
 	 */
 	public function set_theme_template_path() {
 
-		$dir = apply_filters( 'skt_templates_folder', 'skt-plugin' );
+		$dir = apply_filters( 'skt_templates_folder', 'review-booster' );
 
 		if ( $dir ) {
 			$dir              = '/' . trailingslashit( ltrim( $dir, '/\\' ) );
@@ -60,7 +60,7 @@ final class Template_Loader {
 		if ( ! empty( self::$pro_plugin_template_path ) && file_exists( self::$pro_plugin_template_path . $template_file ) ) {
 			$path = self::$pro_plugin_template_path;
 		} elseif ( ! file_exists( $path . $template_file ) ) {
-				return new WP_Error( 'skt_plugin_template_not_found', __( 'Template file not found - GS Plugins', 'sktplugin' ) );
+				return new WP_Error( 'skt_plugin_template_not_found', __( 'Template file not found - GS Plugins', 'review-booster' ) );
 		}
 
 		// Override default template if exist from theme.

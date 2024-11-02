@@ -31,24 +31,29 @@ class Generate_CSS {
 			$selectors[] = $selector . $target;
 		}
 
-		echo wp_strip_all_tags( sprintf( '%s{%s:%s}', join( ',', $selectors ), $prop, $value ) );
+		$css = sprintf( '%s{%s:%s}', join( ',', $selectors ), $prop, $value );
+
+		wp_add_inline_style( 'skt_public', $css );
 	}
 
 	/**
 	 * Generate custom CSS based on settings and shortcode ID.
 	 *
-	 * @param array  $settings The settings array.
-	 * @param string $shortcode_id The shortcode ID.
+	 * @param array $settings The settings array.
 	 * @return string The generated CSS.
 	 */
-	public function generate_custom_css( $settings, $shortcode_id ) {
+	public function generate_custom_css( $settings ) {
 
-		$parent_selector = '.gstm_form_' . $shortcode_id;
+		$parent_selector = '.skt-input-field';
 
 		ob_start();
 
-		if ( ! empty( $settings['gstm_width'] ) ) {
-			$this->generate_css( $parent_selector, '', 'width', $settings['gstm_width'] . 'px' );
+		if ( ! empty( $settings['review_btn_color'] ) ) {
+			$this->generate_css( $parent_selector, ' #skt_modal_btn', 'background', $settings['review_btn_color'] );
+		}
+		
+		if ( ! empty( $settings['review_btn_txt_color'] ) ) {
+			$this->generate_css( $parent_selector, ' #skt_modal_btn', 'color', $settings['review_btn_txt_color'] );
 		}
 
 		return ob_get_clean();

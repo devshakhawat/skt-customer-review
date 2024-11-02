@@ -6,40 +6,40 @@ npm run production
 echo -ne 'Production version created......              (30%)\r'
 
 rm -rf build
-mkdir -p build/skt-customer-review #multiple folder creation
+mkdir -p build/review-booster #multiple folder creation
 
 echo -ne 'Cleanup and building files started........            (40%)\r'
 
-rsync -r --exclude '.git' --exclude '.svn' --exclude 'build' --exclude 'node_modules' --exclude 'dev' --exclude '.vscode' . build/skt-customer-review/
+rsync -r --exclude '.git' --exclude '.svn' --exclude 'build' --exclude 'node_modules' --exclude 'dev' --exclude '.vscode' . build/review-booster/
 
 echo -ne 'Files copied............        (60%)\r'
 
-rm -rf build/skt-customer-review/mix-manifest.json &&
-rm -rf build/skt-customer-review/package.json &&
-rm -rf build/skt-customer-review/package-lock.json &&
-rm -rf build/skt-customer-review/webpack.mix.js &&
-rm -rf build/skt-customer-review/.babelrc &&
-rm -rf build/skt-customer-review/.gitignore &&
+rm -rf build/review-booster/mix-manifest.json &&
+rm -rf build/review-booster/package.json &&
+rm -rf build/review-booster/package-lock.json &&
+rm -rf build/review-booster/webpack.mix.js &&
+rm -rf build/review-booster/.babelrc &&
+rm -rf build/review-booster/.gitignore &&
 find . -type f -name '*.DS_Store' -ls -delete &&
-rm -rf build/skt-customer-review/.AppleDouble &&
-rm -rf build/skt-customer-review/.LSOverride &&
-rm -rf build/skt-customer-review/.Trashes &&
-rm -rf build/skt-customer-review/.AppleDB &&
-rm -rf build/skt-customer-review/.idea &&
-rm -rf build/skt-customer-review/build.sh &&
-rm -rf build/skt-customer-review/yarn.lock &&
-rm -rf build/skt-customer-review/composer.json &&
-rm -rf build/skt-customer-review/composer.lock &&
-rm -rf build/skt-customer-review/task.txt &&
-rm -rf build/skt-customer-review/phpcs.xml &&
+rm -rf build/review-booster/.AppleDouble &&
+rm -rf build/review-booster/.LSOverride &&
+rm -rf build/review-booster/.Trashes &&
+rm -rf build/review-booster/.AppleDB &&
+rm -rf build/review-booster/.idea &&
+rm -rf build/review-booster/build.sh &&
+rm -rf build/review-booster/yarn.lock &&
+rm -rf build/review-booster/composer.json &&
+rm -rf build/review-booster/composer.lock &&
+rm -rf build/review-booster/task.txt &&
+rm -rf build/review-booster/phpcs.xml &&
 
 find . -type f -name '*.LICENSE.txt' -ls -delete &&
 
-echo -ne 'Creating skt-customer-review.zip file................    (80%)'
+echo -ne 'Creating review-booster.zip file................    (80%)'
 
 cd build
-zip -r skt-customer-review.zip skt-customer-review/.
-rm -r skt-customer-review
+zip -r review-booster.zip review-booster/.
+rm -r review-booster
 
 echo -ne 'Congratulations... Successfully done....................(100%)'
 

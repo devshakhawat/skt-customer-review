@@ -1,15 +1,15 @@
 <?php // phpcs:ignore
 
 /**
- * Plugin Name: SKT Customer Review
- * Plugin URI: test.com
+ * Plugin Name: Review Booster
+ * Plugin URI: wpspeedo.com
  * Description: this plugin will use to show variations of products in woocommerce
  * Version: 1.0
  * Author: Shakhawat
- * Author URI: skt.com
+ * Author URI: wpspeedo.com
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: sktplugin
+ * Text Domain: review-booster
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  *

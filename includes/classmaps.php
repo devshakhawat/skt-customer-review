@@ -14,4 +14,5 @@ return array(
 	'Save_Video'      => 'includes/save-video.php',
 	'Display_Video'   => 'includes/display-video.php',
 	'Helpers'         => 'includes/helpers.php',
+	'Generate_CSS'    => 'includes/generate-css.php',
 );

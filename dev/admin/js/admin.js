@@ -1,5 +1,6 @@
 jQuery(function ($) {
   $("#review_btn_color").wpColorPicker();
+  $("#review_btn_txt_color").wpColorPicker();
 
   $("#skt_plugin_settings").on("submit", function (e) {
     e.preventDefault();

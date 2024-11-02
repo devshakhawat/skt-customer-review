@@ -188,10 +188,10 @@ jQuery(function ($) {
             document.querySelector("#skt_client_video_upload").files =
               container.files;
 
-            document.querySelector(".sp-testimonial-video-wrapper video").src =
+            document.querySelector(".skt-video-wrapper video").src =
               skt_addButton.href;
             document.querySelector(
-              ".sp-testimonial-video-wrapper"
+              ".skt-video-wrapper"
             ).style.display = "block";
 
             skt_modal_close.click();

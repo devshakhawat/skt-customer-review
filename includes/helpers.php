@@ -23,7 +23,7 @@ trait Helpers {
 				<div class="skt_modal-content">
 					<span class="skt_modal_close">&times;</span>
 					<div class="skt_modal-content-inner">
-						<h3 class="text-center"><img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'testimonial-pro' ); ?></h3>
+						<h3 class="text-center"><img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'review-booster' ); ?></h3>
 						<div class="skt_preview-recording">
 							<div id="skt_timer"><span id="skt_timer-text" data-maxtime="<?php echo esc_attr( $recording_time ); ?>" style="display: none;">05:00</span></div>
 							<video playsinline id="skt_preview" width="450" height="337"  autoplay="" muted="" style="display: none;"></video>
@@ -31,31 +31,31 @@ trait Helpers {
 							<div class="skt_no_camera text-center" style="display: none;">
 								<div class="camera_inner">
 									<img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="">
-									<div><?php esc_html_e( 'No camera available', 'testimonial-pro' ); ?></div>
+									<div><?php esc_html_e( 'No camera available', 'review-booster' ); ?></div>
 								</div>
 							</div>
 						</div>
 						<div class="skt_record_video_buttons">
 							<div id="skt_startButton" class="skt_video_button" style="display: none;">
 							<i class="fa fa-video-camera" aria-hidden="true"></i><span id="skt_startButton_text">
-									<?php esc_html_e( 'Start Recording', 'testimonial-pro' ); ?>
+									<?php esc_html_e( 'Start Recording', 'review-booster' ); ?>
 								</span>
 							</div>
 							<div id="skt_stopButton" class="skt_video_button stop_recording_btn" style="display: none;">
 							<i class="fa fa-stop-circle" aria-hidden="true"></i>
-								<?php esc_html_e( 'Stop Recording', 'testimonial-pro' ); ?>
+								<?php esc_html_e( 'Stop Recording', 'review-booster' ); ?>
 							</div>
 							<a id="skt_addButton" class="skt_video_button add_video_btn" style="display: none;">
 							<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<?php esc_html_e( 'Add this video', 'testimonial-pro' ); ?>
+								<?php esc_html_e( 'Add this video', 'review-booster' ); ?>
 							</a>
 						</div>
 					</div>
 					<p class="skt_modal-content-bottom text-center">
 						<?php
-							$skt_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'testimonial-pro' ) : __( 'minute', 'testimonial-pro' );
+							$skt_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'review-booster' ) : __( 'minute', 'review-booster' );
 						?>
-						<span><?php esc_html_e( 'Maximum recording duration', 'testimonial-pro' ) . ' ' . $recording_time . ' ' . apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ); ?></span>
+						<span><?php esc_html_e( 'Maximum recording duration', 'review-booster' ) . ' ' . $recording_time . ' ' . apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ); ?></span>
 					</p>
 				</div>
 			</div>
@@ -79,6 +79,7 @@ trait Helpers {
 			'required_text_comment'  => true,
 			'video_duration'         => 2,
 			'review_btn_color'       => '#f722cc',
+			'review_btn_txt_color'   => '#005bdf',
 			'review_btn_text'        => 'Record Video',
 		);
 	}
@@ -97,7 +98,8 @@ trait Helpers {
 			'required_file_uploader' => false,
 			'required_text_comment'  => false,
 			'video_duration'         => 2,
-			'review_btn_color'       => '#f722cc',
+			'review_btn_color'       => '#005BDF1F',
+			'review_btn_txt_color'   => '#005bdf',
 			'review_btn_text'        => 'Record Video',
 		);
 	}
@@ -117,6 +119,7 @@ trait Helpers {
 		$form_data['required_text_comment']  = wp_validate_boolean( $form_data['required_text_comment'] );
 		$form_data['video_duration']         = filter_var( $form_data['video_duration'], FILTER_VALIDATE_INT );
 		$form_data['review_btn_color']       = sanitize_text_field( $form_data['review_btn_color'] );
+		$form_data['review_btn_txt_color']   = sanitize_text_field( $form_data['review_btn_txt_color'] );
 		$form_data['review_btn_text']        = sanitize_text_field( $form_data['review_btn_text'] );
 
 		return $form_data;
