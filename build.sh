@@ -31,6 +31,7 @@ rm -rf build/skt-customer-review/yarn.lock &&
 rm -rf build/skt-customer-review/composer.json &&
 rm -rf build/skt-customer-review/composer.lock &&
 rm -rf build/skt-customer-review/task.txt &&
+rm -rf build/skt-customer-review/phpcs.xml &&
 
 find . -type f -name '*.LICENSE.txt' -ls -delete &&
 
