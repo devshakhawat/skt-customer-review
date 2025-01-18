@@ -7,7 +7,7 @@
  * Author: Shakhawat
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: customer-reviews
+ * Text Domain: product-reviews
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  *
@@ -44,36 +44,3 @@ require_once SKT_PLUGIN_DIR . 'includes/functions.php';
 require_once SKT_PLUGIN_DIR . 'includes/autoloader.php';
 require_once SKT_PLUGIN_DIR . 'includes/plugin.php';
 
-if ( ! function_exists( 'rb_fs' ) ) {
-	// Create a helper function for easy SDK access.
-	function rb_fs() {
-		global $rb_fs;
-
-		if ( ! isset( $rb_fs ) ) {
-			// Include Freemius SDK.
-			require_once __DIR__ . '/freemius/start.php';
-
-			$rb_fs = fs_dynamic_init(
-				array(
-					'id'             => '16965',
-					'slug'           => 'review-booster',
-					'type'           => 'plugin',
-					'public_key'     => 'pk_84fe86484df4fc244be0610b01d03',
-					'is_premium'     => false,
-					'has_addons'     => false,
-					'has_paid_plans' => false,
-					'menu'           => array(
-						'slug' => 'skt-product-reviews',
-					),
-				)
-			);
-		}
-
-		return $rb_fs;
-	}
-
-	// Init Freemius.
-	rb_fs();
-	// Signal that SDK was initiated.
-	do_action( 'rb_fs_loaded' );
-}
