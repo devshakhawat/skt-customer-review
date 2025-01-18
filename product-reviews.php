@@ -1,7 +1,7 @@
 <?php // phpcs:ignore
 
 /**
- * Plugin Name: Review Booster
+ * Plugin Name: Product Reviews
  * Description: this plugin will enhance product review experience by adding some extra features.
  * Version: 1.0
  * Author: Shakhawat
@@ -63,7 +63,7 @@ if ( ! function_exists( 'rb_fs' ) ) {
 					'has_addons'     => false,
 					'has_paid_plans' => false,
 					'menu'           => array(
-						'slug' => 'skt-video-reviews',
+						'slug' => 'skt-product-reviews',
 					),
 				)
 			);

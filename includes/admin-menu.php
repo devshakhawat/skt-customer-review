@@ -29,7 +29,7 @@ class Admin_Menu {
 			'Video Reviews',
 			'Video Reviews',
 			'manage_options',
-			'skt-video-reviews',
+			'skt-product-reviews',
 			array( $this, 'get_menu_page_data' ),
 			'dashicons-format-video',
 			50

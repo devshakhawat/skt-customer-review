@@ -53,7 +53,7 @@ class Hooks {
 	 * @return array Modified array of plugin action links.
 	 */
 	public function add_settings_link( $links ) {
-		$settings_link = '<a href="admin.php?page=skt-video-reviews">Settings</a>';
+		$settings_link = '<a href="admin.php?page=skt-product-reviews">Settings</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
 	}
