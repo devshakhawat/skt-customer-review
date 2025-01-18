@@ -7,7 +7,7 @@
  * Author: Shakhawat
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: review-booster
+ * Text Domain: customer-reviews
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  *

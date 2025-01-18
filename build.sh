@@ -6,40 +6,40 @@ npm run production
 echo -ne 'Production version created......              (30%)\r'
 
 rm -rf build
-mkdir -p build/review-booster #multiple folder creation
+mkdir -p build/customer-reviews #multiple folder creation
 
 echo -ne 'Cleanup and building files started........            (40%)\r'
 
-rsync -r --exclude '.git' --exclude '.svn' --exclude 'build' --exclude 'node_modules' --exclude 'dev' --exclude '.vscode' . build/review-booster/
+rsync -r --exclude '.git' --exclude '.svn' --exclude 'build' --exclude 'node_modules' --exclude 'dev' --exclude '.vscode' . build/customer-reviews/
 
 echo -ne 'Files copied............        (60%)\r'
 
-rm -rf build/review-booster/mix-manifest.json &&
-rm -rf build/review-booster/package.json &&
-rm -rf build/review-booster/package-lock.json &&
-rm -rf build/review-booster/webpack.mix.js &&
-rm -rf build/review-booster/.babelrc &&
-rm -rf build/review-booster/.gitignore &&
+rm -rf build/customer-reviews/mix-manifest.json &&
+rm -rf build/customer-reviews/package.json &&
+rm -rf build/customer-reviews/package-lock.json &&
+rm -rf build/customer-reviews/webpack.mix.js &&
+rm -rf build/customer-reviews/.babelrc &&
+rm -rf build/customer-reviews/.gitignore &&
 find . -type f -name '*.DS_Store' -ls -delete &&
-rm -rf build/review-booster/.AppleDouble &&
-rm -rf build/review-booster/.LSOverride &&
-rm -rf build/review-booster/.Trashes &&
-rm -rf build/review-booster/.AppleDB &&
-rm -rf build/review-booster/.idea &&
-rm -rf build/review-booster/build.sh &&
-rm -rf build/review-booster/yarn.lock &&
-rm -rf build/review-booster/composer.json &&
-rm -rf build/review-booster/composer.lock &&
-rm -rf build/review-booster/task.txt &&
-rm -rf build/review-booster/phpcs.xml &&
+rm -rf build/customer-reviews/.AppleDouble &&
+rm -rf build/customer-reviews/.LSOverride &&
+rm -rf build/customer-reviews/.Trashes &&
+rm -rf build/customer-reviews/.AppleDB &&
+rm -rf build/customer-reviews/.idea &&
+rm -rf build/customer-reviews/build.sh &&
+rm -rf build/customer-reviews/yarn.lock &&
+rm -rf build/customer-reviews/composer.json &&
+rm -rf build/customer-reviews/composer.lock &&
+rm -rf build/customer-reviews/task.txt &&
+rm -rf build/customer-reviews/phpcs.xml &&
 
 find . -type f -name '*.LICENSE.txt' -ls -delete &&
 
-echo -ne 'Creating review-booster.zip file................    (80%)'
+echo -ne 'Creating customer-reviews.zip file................    (80%)'
 
 cd build
-zip -r review-booster.zip review-booster/.
-rm -r review-booster
+zip -r customer-reviews.zip customer-reviews/.
+rm -r customer-reviews
 
 echo -ne 'Congratulations... Successfully done....................(100%)'
 

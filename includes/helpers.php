@@ -23,7 +23,7 @@ trait Helpers {
 				<div class="skt_modal-content">
 					<span class="skt_modal_close">&times;</span>
 					<div class="skt_modal-content-inner">
-						<h3 class="text-center"><img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'review-booster' ); ?></h3>
+						<h3 class="text-center"><img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'product-reviews' ); ?></h3>
 						<div class="skt_preview-recording">
 							<div id="skt_timer"><span id="skt_timer-text" data-maxtime="<?php echo esc_attr( $recording_time ); ?>" style="display: none;">05:00</span></div>
 							<video playsinline id="skt_preview" width="450" height="337"  autoplay="" muted="" style="display: none;"></video>
@@ -31,31 +31,31 @@ trait Helpers {
 							<div class="skt_no_camera text-center" style="display: none;">
 								<div class="camera_inner">
 									<img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="">
-									<div><?php esc_html_e( 'No camera available', 'review-booster' ); ?></div>
+									<div><?php esc_html_e( 'No camera available', 'product-reviews' ); ?></div>
 								</div>
 							</div>
 						</div>
 						<div class="skt_record_video_buttons">
 							<div id="skt_startButton" class="skt_video_button" style="display: none;">
 							<i class="fa fa-video-camera" aria-hidden="true"></i><span id="skt_startButton_text">
-									<?php esc_html_e( 'Start Recording', 'review-booster' ); ?>
+									<?php esc_html_e( 'Start Recording', 'product-reviews' ); ?>
 								</span>
 							</div>
 							<div id="skt_stopButton" class="skt_video_button stop_recording_btn" style="display: none;">
 							<i class="fa fa-stop-circle" aria-hidden="true"></i>
-								<?php esc_html_e( 'Stop Recording', 'review-booster' ); ?>
+								<?php esc_html_e( 'Stop Recording', 'product-reviews' ); ?>
 							</div>
 							<a id="skt_addButton" class="skt_video_button add_video_btn" style="display: none;">
 							<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<?php esc_html_e( 'Add this video', 'review-booster' ); ?>
+								<?php esc_html_e( 'Add this video', 'product-reviews' ); ?>
 							</a>
 						</div>
 					</div>
 					<p class="skt_modal-content-bottom text-center">
 						<?php
-							$skt_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'review-booster' ) : __( 'minute', 'review-booster' );
+							$skt_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'product-reviews' ) : __( 'minute', 'product-reviews' );
 						?>
-						<span><?php esc_html_e( 'Maximum recording duration', 'review-booster' ) . ' ' . $recording_time . ' ' . apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ); ?></span>
+						<span><?php esc_html_e( 'Maximum recording duration', 'product-reviews' ) . ' ' . $recording_time . ' ' . apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ); ?></span>
 					</p>
 				</div>
 			</div>

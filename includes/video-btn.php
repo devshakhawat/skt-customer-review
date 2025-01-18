@@ -69,7 +69,7 @@ class Video_Btn {
 		$rating = '';
 		if ( wc_review_ratings_enabled() ) {
 			$rating = '<div class="comment-form-rating">
-			<label for="rating">' . esc_html__( 'Your rating', 'review-booster' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label>
+			<label for="rating">' . esc_html__( 'Your rating', 'product-reviews' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label>
 						<select name="rating" id="rating" required>
 							<option value="">Rate&hellip;</option>
 							<option value="5">Perfect</option>
