@@ -31,9 +31,9 @@ class Generate_CSS {
 			$selectors[] = $selector . $target;
 		}
 
-		$css = sprintf( '%s{%s:%s}', join( ',', $selectors ), $prop, $value );
+		$css = sprintf( '%s{%s:%s}', join( ',', $selectors ), esc_attr( $prop ), esc_attr( $value ) );
 
-		wp_add_inline_style( 'skt_public', $css );
+		wp_add_inline_style( 'skt_public', wp_strip_all_tags( $css ) );
 	}
 
 	/**

@@ -14,6 +14,8 @@
  * @package   Skt_Customer_Review
  */
 
+ namespace CUSREVIEW;
+
 /**
  * Protect direct access
  */

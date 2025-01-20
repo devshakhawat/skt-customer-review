@@ -31,6 +31,8 @@ class Save_Video {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 
+			// pretty_log( $_FILES );
+
 			if ( ! empty( $_FILES ) ) {
 				foreach ( $_FILES as $file_key => $file_array ) {
 					if ( UPLOAD_ERR_OK !== $file_array['error'] ) {

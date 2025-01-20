@@ -1,3 +1,10 @@
+<?php
+
+// if direct access than exit the file.
+defined( 'ABSPATH' ) || exit;
+
+?>
+
 <div class="wrap">
 
 	<h1><?php esc_html_e( 'Settings', 'customer-reviews' ); ?></h1>

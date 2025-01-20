@@ -33,7 +33,15 @@ class Hooks {
 			wp_send_json_error( array( 'status' => 'error' ) );
 		}
 
-		$default_fields = array_merge( $this->get_allowed_fields(), $_POST );
+		$data = [
+			'enable_video_btn'     => isset( $_POST['enable_video_btn'] ) ? sanitize_text_field( $_POST['enable_video_btn'] ) : '',
+			'show_file_uploader'   => isset( $_POST['show_file_uploader'] ) ? sanitize_text_field( $_POST['show_file_uploader'] ) : '',
+			'review_btn_color'     => sanitize_text_field( $_POST['review_btn_color'] ),
+			'review_btn_txt_color' => sanitize_text_field( $_POST['review_btn_txt_color'] ),
+			'review_btn_text'      => sanitize_text_field( $_POST['review_btn_text'] )
+		];
+
+		$default_fields = array_merge( $this->get_allowed_fields(), $data );
 		$form_data      = shortcode_atts( $this->get_defaults(), $default_fields );
 		$form_data      = $this->validate_form_data( $form_data );
 
