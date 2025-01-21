@@ -27,17 +27,8 @@ class Video_Btn {
 	 */
 	public function add_enctype_to_review_form() {
 
-		if ( is_product() ) { // Ensure this runs only on product pages.
-			?>
-			<script type="text/javascript">
-				document.addEventListener('DOMContentLoaded', function() {
-					var reviewForm = document.getElementById('commentform');
-					if (reviewForm) {
-						reviewForm.setAttribute('enctype', 'multipart/form-data');
-					}
-				});
-			</script>
-			<?php
+		if ( is_product() ) {			
+			wp_enqueue_script( 'skt_public' );
 		}
 	}
 

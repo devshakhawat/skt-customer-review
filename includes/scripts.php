@@ -73,7 +73,8 @@ class Scripts {
 		}
 		wp_enqueue_media();
 		wp_enqueue_style( 'skt_public', SKT_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKT_VERSION );
-		wp_enqueue_script( 'skt_public', SKT_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), SKT_VERSION, true );
+		wp_register_script( 'skt_public', SKT_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), time(), true );
+		wp_enqueue_script( 'skt_public' );
 
 		$settings = $this->get_settings();
 		plugin()->generate_css->generate_custom_css( $settings );

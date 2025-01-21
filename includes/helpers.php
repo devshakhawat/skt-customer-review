@@ -55,7 +55,7 @@ trait Helpers {
 						<?php
 							$skt_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'product-reviews' ) : __( 'minute', 'product-reviews' );
 						?>
-						<span><?php esc_html_e( 'Maximum recording duration', 'product-reviews' ) . ' ' . $recording_time . ' ' . apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ); ?></span>
+						<span><?php echo esc_html__( 'Maximum recording duration', 'product-reviews' ) . ' ' . esc_html( $recording_time ) . ' ' . esc_html( apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ) ); ?></span>
 					</p>
 				</div>
 			</div>

@@ -242,4 +242,22 @@ jQuery(function ($) {
       skt_stopButton.disabled = true;
     }
   }
+
+  
+  // document.addEventListener('DOMContentLoaded', function() {
+    
+  //   var reviewForm = document.getElementById('commentform');
+  //   if (reviewForm) {
+  //     reviewForm.setAttribute('enctype', 'multipart/form-data');
+  //   }
+  // });
+
+  
+    
+    let reviewForm = $('#commentform');
+    if (reviewForm.length) {
+      reviewForm.attr('enctype', 'multipart/form-data');
+    }
+  
+
 });
