@@ -11,10 +11,8 @@
  * Domain Path: /languages
  * Requires Plugins: woocommerce
  *
- * @package   Skt_Customer_Review
+ * @package   Sktpr_Customer_Review
  */
-
- namespace CUSREVIEW;
 
 /**
  * Protect direct access
@@ -26,23 +24,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Defining constants
  */
-if ( ! defined( 'SKT_VERSION' ) ) {
-	define( 'SKT_VERSION', '1.0.0' );
+if ( ! defined( 'SKTPR_VERSION' ) ) {
+	define( 'SKTPR_VERSION', '1.0.0' );
 }
-if ( ! defined( 'SKT_PLUGIN_FILE' ) ) {
-	define( 'SKT_PLUGIN_FILE', __FILE__ );
+if ( ! defined( 'SKTPR_PLUGIN_FILE' ) ) {
+	define( 'SKTPR_PLUGIN_FILE', __FILE__ );
 }
-if ( ! defined( 'SKT_PLUGIN_DIR' ) ) {
-	define( 'SKT_PLUGIN_DIR', trailingslashit( plugin_dir_path( SKT_PLUGIN_FILE ) ) );
+if ( ! defined( 'SKTPR_PLUGIN_DIR' ) ) {
+	define( 'SKTPR_PLUGIN_DIR', trailingslashit( plugin_dir_path( SKTPR_PLUGIN_FILE ) ) );
 }
-if ( ! defined( 'SKT_PLUGIN_URI' ) ) {
-	define( 'SKT_PLUGIN_URI', trailingslashit( plugins_url( '', SKT_PLUGIN_FILE ) ) );
+if ( ! defined( 'SKTPR_PLUGIN_URI' ) ) {
+	define( 'SKTPR_PLUGIN_URI', trailingslashit( plugins_url( '', SKTPR_PLUGIN_FILE ) ) );
 }
 
 /**
  * Load essential files
  */
-require_once SKT_PLUGIN_DIR . 'includes/functions.php';
-require_once SKT_PLUGIN_DIR . 'includes/autoloader.php';
-require_once SKT_PLUGIN_DIR . 'includes/plugin.php';
+require_once SKTPR_PLUGIN_DIR . 'includes/functions.php';
+require_once SKTPR_PLUGIN_DIR . 'includes/autoloader.php';
+require_once SKTPR_PLUGIN_DIR . 'includes/plugin.php';
 

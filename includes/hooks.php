@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
@@ -18,7 +18,7 @@ class Hooks {
 	 * Constructor for the Hooks class.
 	 */
 	public function __construct() {
-		add_filter( 'plugin_action_links_' . plugin_basename( SKT_PLUGIN_FILE ), array( $this, 'add_settings_link' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( SKTPR_PLUGIN_FILE ), array( $this, 'add_settings_link' ) );
 		add_action( 'wp_ajax_get_review_settings', array( $this, 'handle_get_review_settings' ) );
 	}
 
@@ -33,17 +33,16 @@ class Hooks {
 			wp_send_json_error( array( 'status' => 'error' ) );
 		}
 
-		$data = [
-			'enable_video_btn'     => isset( $_POST['enable_video_btn'] ) ? sanitize_text_field( $_POST['enable_video_btn'] ) : '',
-			'show_file_uploader'   => isset( $_POST['show_file_uploader'] ) ? sanitize_text_field( $_POST['show_file_uploader'] ) : '',
-			'review_btn_color'     => sanitize_text_field( $_POST['review_btn_color'] ),
-			'review_btn_txt_color' => sanitize_text_field( $_POST['review_btn_txt_color'] ),
-			'review_btn_text'      => sanitize_text_field( $_POST['review_btn_text'] )
-		];
+		$data = array(
+			'enable_video_btn'     => isset( $_POST['enable_video_btn'] ) ? sanitize_text_field( wp_unslash( $_POST['enable_video_btn'] ) ) : '',
+			'show_file_uploader'   => isset( $_POST['show_file_uploader'] ) ? sanitize_text_field( wp_unslash( $_POST['show_file_uploader'] ) ) : '',
+			'review_btn_color'     => isset( $_POST['review_btn_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_color'] ) ) : '',
+			'review_btn_txt_color' => isset( $_POST['review_btn_txt_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_txt_color'] ) ) : '',
+			'review_btn_text'      => isset( $_POST['review_btn_text'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_text'] ) ) : '',
+		);
 
-		$default_fields = array_merge( $this->get_allowed_fields(), $data );
-		$form_data      = shortcode_atts( $this->get_defaults(), $default_fields );
-		$form_data      = $this->validate_form_data( $form_data );
+		$form_data = shortcode_atts( $this->get_defaults(), $data );
+		$form_data = $this->validate_form_data( $form_data );
 
 		$is_updated = $this->update_settings( $form_data );
 

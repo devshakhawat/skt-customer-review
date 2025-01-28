@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
@@ -23,14 +23,14 @@ trait Helpers {
 				<div class="skt_modal-content">
 					<span class="skt_modal_close">&times;</span>
 					<div class="skt_modal-content-inner">
-						<h3 class="text-center"><img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'product-reviews' ); ?></h3>
+						<h3 class="text-center"><img src="<?php echo esc_url( SKTPR_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'product-reviews' ); ?></h3>
 						<div class="skt_preview-recording">
 							<div id="skt_timer"><span id="skt_timer-text" data-maxtime="<?php echo esc_attr( $recording_time ); ?>" style="display: none;">05:00</span></div>
 							<video playsinline id="skt_preview" width="450" height="337"  autoplay="" muted="" style="display: none;"></video>
 							<video playsinline id="skt_recording" width="450" height="337" controls style="display: none;"></video>
 							<div class="skt_no_camera text-center" style="display: none;">
 								<div class="camera_inner">
-									<img src="<?php echo esc_url( SKT_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="">
+									<img src="<?php echo esc_url( SKTPR_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="">
 									<div><?php esc_html_e( 'No camera available', 'product-reviews' ); ?></div>
 								</div>
 							</div>
@@ -72,35 +72,11 @@ trait Helpers {
 	public function get_defaults() {
 
 		return array(
-			'enable_video_btn'       => true,
-			'show_file_uploader'     => true,
-			'required_video'         => false,
-			'required_file_uploader' => false,
-			'required_text_comment'  => true,
-			'video_duration'         => 2,
-			'review_btn_color'       => '#005BDF1F',
-			'review_btn_txt_color'   => '#005bdf',
-			'review_btn_text'        => 'Record Video',
-		);
-	}
-
-	/**
-	 * Retrieves the allowed fields for the review.
-	 *
-	 * @return array The allowed fields.
-	 */
-	public function get_allowed_fields() {
-
-		return array(
-			'enable_video_btn'       => false,
-			'show_file_uploader'     => false,
-			'required_video'         => false,
-			'required_file_uploader' => false,
-			'required_text_comment'  => false,
-			'video_duration'         => 2,
-			'review_btn_color'       => '#005BDF1F',
-			'review_btn_txt_color'   => '#005bdf',
-			'review_btn_text'        => 'Record Video',
+			'enable_video_btn'     => true,
+			'show_file_uploader'   => true,
+			'review_btn_color'     => '#005BDF1F',
+			'review_btn_txt_color' => '#005bdf',
+			'review_btn_text'      => 'Record Video',
 		);
 	}
 
@@ -112,15 +88,11 @@ trait Helpers {
 	 */
 	public function validate_form_data( $form_data ) {
 
-		$form_data['enable_video_btn']       = wp_validate_boolean( $form_data['enable_video_btn'] );
-		$form_data['show_file_uploader']     = wp_validate_boolean( $form_data['show_file_uploader'] );
-		$form_data['required_video']         = wp_validate_boolean( $form_data['required_video'] );
-		$form_data['required_file_uploader'] = wp_validate_boolean( $form_data['required_file_uploader'] );
-		$form_data['required_text_comment']  = wp_validate_boolean( $form_data['required_text_comment'] );
-		$form_data['video_duration']         = filter_var( $form_data['video_duration'], FILTER_VALIDATE_INT );
-		$form_data['review_btn_color']       = sanitize_text_field( $form_data['review_btn_color'] );
-		$form_data['review_btn_txt_color']   = sanitize_text_field( $form_data['review_btn_txt_color'] );
-		$form_data['review_btn_text']        = sanitize_text_field( $form_data['review_btn_text'] );
+		$form_data['enable_video_btn']     = filter_var( $form_data['enable_video_btn'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['show_file_uploader']   = filter_var( $form_data['show_file_uploader'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['review_btn_color']     = sanitize_text_field( $form_data['review_btn_color'] );
+		$form_data['review_btn_txt_color'] = sanitize_text_field( $form_data['review_btn_txt_color'] );
+		$form_data['review_btn_text']      = sanitize_text_field( $form_data['review_btn_text'] );
 
 		return $form_data;
 	}

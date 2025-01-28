@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the fi le.
 defined( 'ABSPATH' ) || exit;
@@ -23,7 +23,7 @@ final class Template_Loader {
 	 */
 	public function __construct() {
 
-		self::$plugin_template_path = SKT_PLUGIN_DIR . 'templates/';
+		self::$plugin_template_path = SKTPR_PLUGIN_DIR . 'templates/';
 
 		add_action( 'init', array( $this, 'set_theme_template_path' ) );
 	}

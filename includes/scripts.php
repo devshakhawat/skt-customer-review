@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
@@ -44,12 +44,12 @@ class Scripts {
 		// Styles.
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'woocommerce_admin_styles' );
-		wp_enqueue_style( 'skt_toastr', SKT_PLUGIN_URI . 'assets/libs/toastr/toastr.min.css', array(), SKT_VERSION );
-		wp_enqueue_style( 'skt_admin', SKT_PLUGIN_URI . 'assets/admin/css/admin.min.css', array(), SKT_VERSION );
+		wp_enqueue_style( 'skt_toastr', SKTPR_PLUGIN_URI . 'assets/libs/toastr/toastr.min.css', array(), SKTPR_VERSION );
+		wp_enqueue_style( 'skt_admin', SKTPR_PLUGIN_URI . 'assets/admin/css/admin.min.css', array(), SKTPR_VERSION );
 
 		// Scripts.
-		wp_enqueue_script( 'skt_toastr', SKT_PLUGIN_URI . 'assets/libs/toastr/toastr.min.js', array(), SKT_VERSION, true );
-		wp_enqueue_script( 'skt_admin', SKT_PLUGIN_URI . 'assets/admin/js/admin.min.js', array( 'wp-color-picker', 'jquery-tiptip' ), SKT_VERSION, true );
+		wp_enqueue_script( 'skt_toastr', SKTPR_PLUGIN_URI . 'assets/libs/toastr/toastr.min.js', array(), SKTPR_VERSION, true );
+		wp_enqueue_script( 'skt_admin', SKTPR_PLUGIN_URI . 'assets/admin/js/admin.min.js', array( 'wp-color-picker', 'jquery-tiptip' ), SKTPR_VERSION, true );
 
 		wp_localize_script(
 			'skt_admin',
@@ -69,11 +69,11 @@ class Scripts {
 	public function public_enqueue_scripts() {
 
 		if ( is_product() ) {
-			wp_enqueue_style( 'font-awesome', SKT_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', array(), SKT_VERSION );
+			wp_enqueue_style( 'font-awesome', SKTPR_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', array(), SKTPR_VERSION );
 		}
 		wp_enqueue_media();
-		wp_enqueue_style( 'skt_public', SKT_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKT_VERSION );
-		wp_register_script( 'skt_public', SKT_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), time(), true );
+		wp_enqueue_style( 'skt_public', SKTPR_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKTPR_VERSION );
+		wp_register_script( 'skt_public', SKTPR_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), time(), true );
 		wp_enqueue_script( 'skt_public' );
 
 		$settings = $this->get_settings();

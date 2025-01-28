@@ -1,13 +1,13 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Autoloader class for CUSREVIEW namespace.
+ * Autoloader class for SKTPREVIEW namespace.
  *
- * This class handles the autoloading of classes within the CUSREVIEW namespace.
+ * This class handles the autoloading of classes within the SKTPREVIEW namespace.
  */
 class Autoloader {
 
@@ -38,7 +38,7 @@ class Autoloader {
 	 *
 	 * Classes folder used for @package GS Portfolio Portfolio.
 	 */
-	private static $SOURCE_DIRECTORY = SKT_PLUGIN_DIR; // phpcs:ignore
+	private static $SOURCE_DIRECTORY = SKTPR_PLUGIN_DIR; // phpcs:ignore
 
 	/**
 	 * Classmap file for Autoloader

@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the fi le.
 defined( 'ABSPATH' ) || exit;
@@ -26,8 +26,8 @@ class Admin_Menu {
 	public function add_admin_menu() {
 
 		add_menu_page(
-			'Video Reviews',
-			'Video Reviews',
+			'Product Reviews',
+			'Product Reviews',
 			'manage_options',
 			'skt-product-reviews',
 			array( $this, 'get_menu_page_data' ),

@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
@@ -27,7 +27,7 @@ class Video_Btn {
 	 */
 	public function add_enctype_to_review_form() {
 
-		if ( is_product() ) {			
+		if ( is_product() ) {
 			wp_enqueue_script( 'skt_public' );
 		}
 	}

@@ -1,5 +1,5 @@
 <?php // phpcs:ignore
-namespace CUSREVIEW;
+namespace SKTPREVIEW;
 
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
@@ -31,14 +31,17 @@ class Save_Video {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 
-			$files[ 'skt_client_video_upload' ] = array_map( 'sanitize_text_field', $_FILES['skt_client_video_upload'] ); 
-			$files[ 'skt_file_upload' ] 		= array_map( 'sanitize_text_field', $_FILES['skt_file_upload'] );
+			$files = array();
+			if ( isset( $_FILES['skt_client_video_upload'] ) && is_array( $_FILES['skt_client_video_upload'] ) && ! empty( $_FILES['skt_client_video_upload'] ) ) {
+				$files['skt_client_video_upload'] = array_map( 'sanitize_text_field', $_FILES['skt_client_video_upload'] );
+			}
+
+			if ( isset( $_FILES['skt_file_upload'] ) && is_array( $_FILES['skt_file_upload'] ) && ! empty( $_FILES['skt_file_upload'] ) ) {
+				$files['skt_file_upload'] = array_map( 'sanitize_text_field', $_FILES['skt_file_upload'] );
+			}
 
 			if ( ! empty( $files ) ) {
 				foreach ( $files as $file_key => $file_array ) {
-					if ( UPLOAD_ERR_OK !== $file_array['error'] ) {
-						continue;
-					}
 
 					$attachment_id = media_handle_upload( $file_key, $comment_id );
 
