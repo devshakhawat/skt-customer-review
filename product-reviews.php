@@ -43,4 +43,3 @@ if ( ! defined( 'SKTPR_PLUGIN_URI' ) ) {
 require_once SKTPR_PLUGIN_DIR . 'includes/functions.php';
 require_once SKTPR_PLUGIN_DIR . 'includes/autoloader.php';
 require_once SKTPR_PLUGIN_DIR . 'includes/plugin.php';
-
