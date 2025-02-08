@@ -27,7 +27,7 @@ class Hooks {
 	 */
 	public function handle_get_review_settings() {
 
-		check_admin_referer( 'skt_plugin_nonce' );
+		check_admin_referer( 'sktpr_plugin_nonce' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( array( 'status' => 'error' ) );

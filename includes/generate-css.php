@@ -33,7 +33,7 @@ class Generate_CSS {
 
 		$css = sprintf( '%s{%s:%s}', join( ',', $selectors ), esc_attr( $prop ), esc_attr( $value ) );
 
-		wp_add_inline_style( 'skt_public', wp_kses_post( wp_strip_all_tags( $css ) ) );
+		wp_add_inline_style( 'sktpr_public', wp_kses_post( wp_strip_all_tags( $css ) ) );
 	}
 
 	/**
@@ -49,11 +49,11 @@ class Generate_CSS {
 		ob_start();
 
 		if ( ! empty( $settings['review_btn_color'] ) ) {
-			$this->generate_css( $parent_selector, ' #skt_modal_btn', 'background', $settings['review_btn_color'] );
+			$this->generate_css( $parent_selector, ' #sktpr_modal_btn', 'background', $settings['review_btn_color'] );
 		}
 
 		if ( ! empty( $settings['review_btn_txt_color'] ) ) {
-			$this->generate_css( $parent_selector, ' #skt_modal_btn', 'color', $settings['review_btn_txt_color'] );
+			$this->generate_css( $parent_selector, ' #sktpr_modal_btn', 'color', $settings['review_btn_txt_color'] );
 		}
 
 		return ob_get_clean();

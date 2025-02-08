@@ -28,7 +28,7 @@ class Video_Btn {
 	public function add_enctype_to_review_form() {
 
 		if ( is_product() ) {
-			wp_enqueue_script( 'skt_public' );
+			wp_enqueue_script( 'sktpr_public' );
 		}
 	}
 
@@ -50,8 +50,8 @@ class Video_Btn {
 							<div class="skt-video-wrapper" style="display: none;">
 								<video playsinline controls src="" type="video/mp4"></video>
 							</div>
-							<div class="skt_video_uploader"><a href="#" id="skt_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a></div>
-							<input type="file" name="skt_client_video_upload" id="skt_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
+							<div class="sktpr_video_uploader"><a href="#" id="sktpr_modal_btn"><i class="fa fa-video-camera" aria-hidden="true"></i>%s</a></div>
+							<input type="file" name="sktpr_client_video_upload" id="sktpr_client_video_upload" accept="video/mp4, video/x-m4v,video/webm,video/*" />
 						</div>',
 				$settings['review_btn_text']
 			);
@@ -82,7 +82,7 @@ class Video_Btn {
 		$file_input = '';
 		if ( $settings['show_file_uploader'] ) {
 			if ( $settings['show_file_uploader'] ) {
-				$file_input = '<div class="skt_file_uploader"><input type="file" name="skt_file_upload" id="skt_file_upload" required accept="video/mp4, video/x-m4v,video/webm,video/*"></div><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
+				$file_input = '<div class="sktpr_file_uploader"><input type="file" name="sktpr_file_upload" id="sktpr_file_upload" required accept="video/mp4, video/x-m4v,video/webm,video/*"></div><br><video playsinline controls src="" style="display: none;max-width: 450px;" class="inp_file_video" type="video/mp4"></video>';
 			}
 		}
 

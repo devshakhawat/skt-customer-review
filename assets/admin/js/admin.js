@@ -2,14 +2,14 @@ jQuery(function ($) {
   $("#review_btn_color").wpColorPicker();
   $("#review_btn_txt_color").wpColorPicker();
 
-  $("#skt_plugin_settings").on("submit", function (e) {
+  $("#sktpr_plugin_settings").on("submit", function (e) {
     e.preventDefault();
 
     let formData = new FormData(this);
-    formData.append("_wpnonce", skt_plugin.nonce);
+    formData.append("_wpnonce", sktpr_plugin.nonce);
     formData.append("action", "get_review_settings");
 
-    fetch(skt_plugin.ajax_url, {
+    fetch(sktpr_plugin.ajax_url, {
       method: "POST",
       body: formData,
     })

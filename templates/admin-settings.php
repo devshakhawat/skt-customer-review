@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 	<h2><?php esc_html_e( 'Settings for Customer Reviews', 'customer-reviews' ); ?></h2>
 	<p><?php esc_html_e( 'Here you can view and manage video reviews.', 'customer-reviews' ); ?></p>
 
-	<form action="" id="skt_plugin_settings" method="post">
+	<form action="" id="sktpr_plugin_settings" method="post">
 		<table class="form-table">	
 			<tr>
 				<th scope="row" class="titledesc">
@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 						<?php esc_html_e( 'Video Record Button:', 'customer-reviews' ); ?>									
 					</label>
 				</th>
-				<td class="skt_video_btn">
+				<td class="sktpr_video_btn">
 					<input type="checkbox" name="enable_video_btn" id="enable_video_btn" <?php checked( $settings['enable_video_btn'], true ); ?> >
 					<?php echo wp_kses_post( wc_help_tip( 'Show Record Button to all products', false ) ); ?>
 					<span><?php esc_html_e( 'Show or Hide Video Record Button to all Products Page.', 'customer-reviews' ); ?></span>
@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 						<?php esc_html_e( 'File Uploader:', 'customer-reviews' ); ?>									
 					</label>
 				</th>
-				<td class="skt_video_btn">
+				<td class="sktpr_video_btn">
 					<input type="checkbox" name="show_file_uploader" id="show_file_uploader" <?php checked( $settings['show_file_uploader'], true ); ?> >
 					<?php echo wp_kses_post( wc_help_tip( 'Show File Uploader to all products', false ) ); ?>
 					<span><?php esc_html_e( 'Show or Hide File Uploader Button to all Products Page.', 'customer-reviews' ); ?></span>
@@ -125,9 +125,9 @@ defined( 'ABSPATH' ) || exit;
 
 		</table>
 
-		<input type="submit" name="submit" id="skt_plugin_submit" class="button button-primary" value="Submit">
+		<input type="submit" name="submit" id="sktpr_plugin_submit" class="button button-primary" value="Submit">
 	
-		<span class="skt_submit_successful" style="display:none;">Successfully Submitted</span>
+		<span class="sktpr_submit_successful" style="display:none;">Successfully Submitted</span>
 	</form>
 
 <div>

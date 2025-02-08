@@ -16,46 +16,46 @@ trait Helpers {
 		ob_start();
 		wp_nonce_field( 'my_form_nonce_action', 'my_form_nonce_name' );
 		?>
-		<div id="skt_video_modal" class="skt_video_modal">
-			<div class="skt_background"></div>
+		<div id="sktpr_video_modal" class="sktpr_video_modal">
+			<div class="sktpr_background"></div>
 			<!-- Modal content -->
-			<div class="skt_modal-content-wrapper">
-				<div class="skt_modal-content">
-					<span class="skt_modal_close">&times;</span>
-					<div class="skt_modal-content-inner">
+			<div class="sktpr_modal-content-wrapper">
+				<div class="sktpr_modal-content">
+					<span class="sktpr_modal_close">&times;</span>
+					<div class="sktpr_modal-content-inner">
 						<h3 class="text-center"><img src="<?php echo esc_url( SKTPR_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="record video"><?php echo esc_html_e( 'Record Review', 'product-reviews' ); ?></h3>
-						<div class="skt_preview-recording">
-							<div id="skt_timer"><span id="skt_timer-text" data-maxtime="<?php echo esc_attr( $recording_time ); ?>" style="display: none;">05:00</span></div>
-							<video playsinline id="skt_preview" width="450" height="337"  autoplay="" muted="" style="display: none;"></video>
-							<video playsinline id="skt_recording" width="450" height="337" controls style="display: none;"></video>
-							<div class="skt_no_camera text-center" style="display: none;">
+						<div class="sktpr_preview-recording">
+							<div id="sktpr_timer"><span id="sktpr_timer-text" data-maxtime="<?php echo esc_attr( $recording_time ); ?>" style="display: none;">05:00</span></div>
+							<video playsinline id="sktpr_preview" width="450" height="337"  autoplay="" muted="" style="display: none;"></video>
+							<video playsinline id="sktpr_recording" width="450" height="337" controls style="display: none;"></video>
+							<div class="sktpr_no_camera text-center" style="display: none;">
 								<div class="camera_inner">
 									<img src="<?php echo esc_url( SKTPR_PLUGIN_URI . 'assets/img/video-icon.svg' ); ?>" alt="">
 									<div><?php esc_html_e( 'No camera available', 'product-reviews' ); ?></div>
 								</div>
 							</div>
 						</div>
-						<div class="skt_record_video_buttons">
-							<div id="skt_startButton" class="skt_video_button" style="display: none;">
-							<i class="fa fa-video-camera" aria-hidden="true"></i><span id="skt_startButton_text">
+						<div class="sktpr_record_video_buttons">
+							<div id="sktpr_startButton" class="sktpr_video_button" style="display: none;">
+							<i class="fa fa-video-camera" aria-hidden="true"></i><span id="sktpr_startButton_text">
 									<?php esc_html_e( 'Start Recording', 'product-reviews' ); ?>
 								</span>
 							</div>
-							<div id="skt_stopButton" class="skt_video_button stop_recording_btn" style="display: none;">
+							<div id="sktpr_stopButton" class="sktpr_video_button stop_recording_btn" style="display: none;">
 							<i class="fa fa-stop-circle" aria-hidden="true"></i>
 								<?php esc_html_e( 'Stop Recording', 'product-reviews' ); ?>
 							</div>
-							<a id="skt_addButton" class="skt_video_button add_video_btn" style="display: none;">
+							<a id="sktpr_addButton" class="sktpr_video_button add_video_btn" style="display: none;">
 							<i class="fa fa-plus-circle" aria-hidden="true"></i>
 								<?php esc_html_e( 'Add this video', 'product-reviews' ); ?>
 							</a>
 						</div>
 					</div>
-					<p class="skt_modal-content-bottom text-center">
+					<p class="sktpr_modal-content-bottom text-center">
 						<?php
-							$skt_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'product-reviews' ) : __( 'minute', 'product-reviews' );
+							$sktpr_video_duration_unit = $recording_time >= 2 ? __( 'minutes', 'product-reviews' ) : __( 'minute', 'product-reviews' );
 						?>
-						<span><?php echo esc_html__( 'Maximum recording duration', 'product-reviews' ) . ' ' . esc_html( $recording_time ) . ' ' . esc_html( apply_filters( 'skt_video_duration_unit', $skt_video_duration_unit ) ); ?></span>
+						<span><?php echo esc_html__( 'Maximum recording duration', 'product-reviews' ) . ' ' . esc_html( $recording_time ) . ' ' . esc_html( apply_filters( 'sktpr_video_duration_unit', $sktpr_video_duration_unit ) ); ?></span>
 					</p>
 				</div>
 			</div>
@@ -109,13 +109,13 @@ trait Helpers {
 			return;
 		}
 
-		$prev_data = get_option( 'skt_review_settings' );
+		$prev_data = get_option( 'sktpr_review_settings' );
 
 		if ( $prev_data === $settings ) {
 			return true;
 		}
 
-		$is_updated = update_option( 'skt_review_settings', $settings );
+		$is_updated = update_option( 'sktpr_review_settings', $settings );
 
 		return $is_updated;
 	}
@@ -127,7 +127,7 @@ trait Helpers {
 	 */
 	public function get_settings() {
 
-		$settings = get_option( 'skt_review_settings', $this->get_defaults() );
+		$settings = get_option( 'sktpr_review_settings', $this->get_defaults() );
 
 		return $settings;
 	}

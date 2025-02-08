@@ -49,7 +49,7 @@ if ( process.env.NODE_ENV.trim() === 'production' ) {
 	wpPot({
 		destFile: 'languages/sktplugin.pot',
 		domain: 'sktplugin',
-		package: 'Skt_Customer_Review',
+		package: 'Sktpr_Customer_Review',
 		src: ['**/*.php', '!freemius/**/*.php']
 	});
 

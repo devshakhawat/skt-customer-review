@@ -21,7 +21,7 @@ class Scripts {
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'public_enqueue_scripts' ) );
-		add_action( 'admin_footer', array( $this, 'skt_plugin_wc_tooltips' ) );
+		add_action( 'admin_footer', array( $this, 'sktpr_plugin_wc_tooltips' ) );
 	}
 
 	/**
@@ -44,19 +44,19 @@ class Scripts {
 		// Styles.
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'woocommerce_admin_styles' );
-		wp_enqueue_style( 'skt_toastr', SKTPR_PLUGIN_URI . 'assets/libs/toastr/toastr.min.css', array(), SKTPR_VERSION );
-		wp_enqueue_style( 'skt_admin', SKTPR_PLUGIN_URI . 'assets/admin/css/admin.min.css', array(), SKTPR_VERSION );
+		wp_enqueue_style( 'sktpr_toastr', SKTPR_PLUGIN_URI . 'assets/libs/toastr/toastr.min.css', array(), SKTPR_VERSION );
+		wp_enqueue_style( 'sktpr_admin', SKTPR_PLUGIN_URI . 'assets/admin/css/admin.min.css', array(), SKTPR_VERSION );
 
 		// Scripts.
-		wp_enqueue_script( 'skt_toastr', SKTPR_PLUGIN_URI . 'assets/libs/toastr/toastr.min.js', array(), SKTPR_VERSION, true );
-		wp_enqueue_script( 'skt_admin', SKTPR_PLUGIN_URI . 'assets/admin/js/admin.min.js', array( 'wp-color-picker', 'jquery-tiptip' ), SKTPR_VERSION, true );
+		wp_enqueue_script( 'sktpr_toastr', SKTPR_PLUGIN_URI . 'assets/libs/toastr/toastr.min.js', array(), SKTPR_VERSION, true );
+		wp_enqueue_script( 'sktpr_admin', SKTPR_PLUGIN_URI . 'assets/admin/js/admin.min.js', array( 'wp-color-picker', 'jquery-tiptip' ), SKTPR_VERSION, true );
 
 		wp_localize_script(
-			'skt_admin',
-			'skt_plugin',
+			'sktpr_admin',
+			'sktpr_plugin',
 			array(
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'nonce'    => wp_create_nonce( 'skt_plugin_nonce' ),
+				'nonce'    => wp_create_nonce( 'sktpr_plugin_nonce' ),
 			)
 		);
 	}
@@ -72,9 +72,9 @@ class Scripts {
 			wp_enqueue_style( 'font-awesome', SKTPR_PLUGIN_URI . 'assets/libs/font-awesome/css/font-awesome.min.css', array(), SKTPR_VERSION );
 		}
 		wp_enqueue_media();
-		wp_enqueue_style( 'skt_public', SKTPR_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKTPR_VERSION );
-		wp_register_script( 'skt_public', SKTPR_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), time(), true );
-		wp_enqueue_script( 'skt_public' );
+		wp_enqueue_style( 'sktpr_public', SKTPR_PLUGIN_URI . 'assets/public/css/public.min.css', array(), SKTPR_VERSION );
+		wp_register_script( 'sktpr_public', SKTPR_PLUGIN_URI . 'assets/public/js/public.min.js', array( 'jquery' ), time(), true );
+		wp_enqueue_script( 'sktpr_public' );
 
 		$settings = $this->get_settings();
 		plugin()->generate_css->generate_custom_css( $settings );
@@ -85,7 +85,7 @@ class Scripts {
 	 *
 	 * @since 1.0.0
 	 */
-	public function skt_plugin_wc_tooltips() {
+	public function sktpr_plugin_wc_tooltips() {
 
 		if ( class_exists( 'WooCommerce' ) ) {
 			wc_enqueue_js(

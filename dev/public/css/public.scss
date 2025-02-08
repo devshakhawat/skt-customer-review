@@ -1,24 +1,24 @@
 // New
 
-.skt_preview-recording video {
+.sktpr_preview-recording video {
 	/* margin-top: 2px; */
 	/* border: 1px solid #000 */
 	background: #C4C4C4;
 }
 
-.skt_record_video_buttons {
+.sktpr_record_video_buttons {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.skt_record_video_buttons div,
-.skt_record_video_buttons a {
+.sktpr_record_video_buttons div,
+.sktpr_record_video_buttons a {
 	margin: 10px 5px;
 	text-decoration: none !important;
 }
 
-.skt_video_button {
+.sktpr_video_button {
 	cursor: pointer;
 	display: block;
 	font-size: 12px;
@@ -35,7 +35,7 @@
 	padding: 10px 20px;
 }
 
-.skt_modal-content-inner {
+.sktpr_modal-content-inner {
 	margin: auto;
 	width: 100%;
 	padding: 0;
@@ -43,7 +43,7 @@
 	margin-bottom: -3px;
 }
 
-.skt_modal-content-bottom {
+.sktpr_modal-content-bottom {
 	font-size: 13px;
 	color: #384D6AB2;
 	font-style: italic;
@@ -53,7 +53,7 @@
 	line-height: 1 !important;
 }
 
-.skt_video_modal {
+.sktpr_video_modal {
 	display: none;
 	position: fixed;
 	z-index: 9999;
@@ -66,7 +66,7 @@
 	background-color: rgba(0, 0, 0, .4)
 }
 
-#skt_client_video_upload {
+#sktpr_client_video_upload {
 	visibility: hidden;
 	width: 0;
 	height: 0;
@@ -85,14 +85,14 @@
 	}
 }
 
-.skt_modal-content-wrapper {
+.sktpr_modal-content-wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
 }
 
-.skt_modal-content {
+.sktpr_modal-content {
 	background-color: #fefefe;
 	margin: auto;
 	padding: 0 0;
@@ -103,13 +103,13 @@
 	z-index: 99;
 }
 
-.skt_background {
+.sktpr_background {
 	position: fixed;
 	height: 100%;
 	width: 100%;
 }
 
-.skt_modal_close {
+.sktpr_modal_close {
 	color: #fff;
 	font-weight: 700;
 	overflow: hidden;
@@ -130,7 +130,7 @@
 }
 
 @media screen and (max-width: 575px) {
-	.skt_modal_close {
+	.sktpr_modal_close {
 		top: 5px;
 		right: 4px;
 		color: #333;
@@ -138,7 +138,7 @@
 	}
 }
 
-.skt_modal-content-inner h3 {
+.sktpr_modal-content-inner h3 {
 	font-size: 13px !important;
 	font-weight: 500;
 	margin: 17px 0 !important;
@@ -151,19 +151,19 @@
 
 
 
-.skt_modal_close:focus,
-.skt_modal_close:hover {
+.sktpr_modal_close:focus,
+.sktpr_modal_close:hover {
 	color: #fff;
 	text-decoration: none;
 	cursor: pointer
 }
 
-.skt_preview-recording {
+.sktpr_preview-recording {
 	overflow: hidden;
 	position: relative
 }
 
-.skt_preview-recording video {
+.sktpr_preview-recording video {
 	width: 100% !important;
 	margin-bottom: 5px !important;
 	height: 337px;
@@ -171,11 +171,11 @@
 	max-height: 450px;
 }
 
-/* .skt_preview-recording video#skt_preview {
+/* .sktpr_preview-recording video#sktpr_preview {
 	transform: scaleX(-1);
 } */
 
-#skt_timer {
+#sktpr_timer {
 	position: absolute;
 	bottom: 10px;
 	/* background: #00000060; */
@@ -189,22 +189,22 @@
 	z-index: 2;
 }
 
-.skt_video_button.stop_recording_btn {
+.sktpr_video_button.stop_recording_btn {
 	background: #C6272A;
 }
 
-.skt_video_button.add_video_btn {
+.sktpr_video_button.add_video_btn {
 	background: #07B86B;
 	color: #fff;
 }
 
-.skt_modal-content-inner img {
+.sktpr_modal-content-inner img {
 	border-radius: 0 !important;
 	box-shadow: none !important;
 	display: inline-block;
 }
 
-.skt_no_camera {
+.sktpr_no_camera {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -224,7 +224,7 @@
 	margin: auto;
 }
 
-#skt_modal_btn {
+#sktpr_modal_btn {
 	padding: 12px 20px;
 	text-transform: uppercase;
 	color: #005BDF;
@@ -236,13 +236,13 @@
 	font-weight: 500;
 }
 
-.skt_video_button .fa,
-#skt_modal_btn .fa {
+.sktpr_video_button .fa,
+#sktpr_modal_btn .fa {
 	margin-right: 6px;
 	font-size: 15px;
 }
 
-.skt_modal-content-inner h3 img {
+.sktpr_modal-content-inner h3 img {
 	display: inline-block;
 	box-shadow: none;
 	margin: -3px 5px -2px 0px;

@@ -32,12 +32,12 @@ class Save_Video {
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 
 			$files = array();
-			if ( isset( $_FILES['skt_client_video_upload'] ) && is_array( $_FILES['skt_client_video_upload'] ) && ! empty( $_FILES['skt_client_video_upload'] ) ) {
-				$files['skt_client_video_upload'] = array_map( 'sanitize_text_field', $_FILES['skt_client_video_upload'] );
+			if ( isset( $_FILES['sktpr_client_video_upload'] ) && is_array( $_FILES['sktpr_client_video_upload'] ) && ! empty( $_FILES['sktpr_client_video_upload'] ) ) {
+				$files['sktpr_client_video_upload'] = array_map( 'sanitize_text_field', $_FILES['sktpr_client_video_upload'] );
 			}
 
-			if ( isset( $_FILES['skt_file_upload'] ) && is_array( $_FILES['skt_file_upload'] ) && ! empty( $_FILES['skt_file_upload'] ) ) {
-				$files['skt_file_upload'] = array_map( 'sanitize_text_field', $_FILES['skt_file_upload'] );
+			if ( isset( $_FILES['sktpr_file_upload'] ) && is_array( $_FILES['sktpr_file_upload'] ) && ! empty( $_FILES['sktpr_file_upload'] ) ) {
+				$files['sktpr_file_upload'] = array_map( 'sanitize_text_field', $_FILES['sktpr_file_upload'] );
 			}
 
 			if ( ! empty( $files ) ) {
