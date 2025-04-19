@@ -5,11 +5,11 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<div class="wrap">
+<div class="skt-wrap">
 
-	<h1><?php esc_html_e( 'Settings', 'product-reviews' ); ?></h1>
-	<h2><?php esc_html_e( 'Settings for Customer Reviews', 'product-reviews' ); ?></h2>
-	<p><?php esc_html_e( 'Here you can view and manage video reviews.', 'product-reviews' ); ?></p>
+	<!-- <h1><?php // esc_html_e( 'Settings', 'product-reviews' ); ?></h1> -->
+	<h1><strong><?php esc_html_e( 'Settings for Customer Reviews', 'product-reviews' ); ?></strong></h1>
+	<p><?php esc_html_e( 'Here you can view and manage video reviews settings.', 'product-reviews' ); ?></p>
 
 	<form action="" id="sktpr_plugin_settings" method="post">
 		<table class="form-table">	
@@ -39,54 +39,26 @@ defined( 'ABSPATH' ) || exit;
 				</td>
 			</tr>
 
-			<!-- <tr>
-				<th scope="row" class="titledesc">
-					<label for="required_video">
-						<?php // esc_html_e( 'Required Video Recorder:', 'product-reviews' ); ?>									
-					</label>
-				</th>
-				<td class="forminp forminp-select">
-					<input type="checkbox" name="required_video" id="required_video" <?php // checked( $settings['required_video'], true ); ?> >
-					<?php // echo wp_kses_post( wc_help_tip( 'Make Required Field to add Review', false ) ); ?>
-					<span><?php // esc_html_e( 'Required or Optional to make this field', 'product-reviews' ); ?></span>
-				</td>
-			</tr> -->
-
-			<!-- <tr>
-				<th scope="row" class="titledesc">
-					<label for="required_file_uploader">
-						<?php // esc_html_e( 'Required File Uploader:', 'product-reviews' ); ?>									
-					</label>
-				</th>
-				<td class="forminp forminp-select">
-					<input type="checkbox" name="required_file_uploader" id="required_file_uploader" <?php // checked( $settings['required_file_uploader'], true ); ?> >
-					<?php // echo wp_kses_post( wc_help_tip( 'Make required this field', false ) ); ?>
-					<span><?php // esc_html_e( 'Required or Optional File Uploader', 'product-reviews' ); ?></span>
-				</td>
-			</tr> -->
-
-			<!-- <tr>
-				<th scope="row" class="titledesc">
-					<label for="required_text_comment">
-						<?php // esc_html_e( 'Required Text Comment:', 'product-reviews' ); ?>									
-					</label>
-				</th>
-				<td class="forminp forminp-select">
-					<input type="checkbox" name="required_text_comment" id="required_text_comment" <?php // checked( $settings['required_text_comment'], true ); ?> >
-					<?php // echo wp_kses_post( wc_help_tip( 'Make Required or Optional File Uploader', false ) ); ?>
-					<span><?php // esc_html_e( 'Make Required or Optional File Uploader', 'product-reviews' ); ?></span>
-				</td>
-			</tr> -->
-
 			<tr class="disabled">
 				<th scope="row" class="titledesc">
 					<label for="video_duration"><?php esc_html_e( 'Video Duration:', 'product-reviews' ); ?></label>
 				</th>
 				<td class="forminp forminp-number">
-					<input type="number" name="video_duration" disabled id="video_duration" style="width:50px;" value="2" placeholder="" min="0" max="2" step="1">
+					<input type="number" name="video_duration" disabled id="video_duration" placeholder="2">
 					<?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
 					<span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'product-reviews' ); ?></span>   
-					<span class="coming-soon-text">Coming Soon...</span> <!-- Tooltip text -->
+					<span class="go-pro-text"><a href="<?php echo site_url( '/wp-admin/admin.php?page=skt-product-reviews-pricing' ); ?>"><?php esc_html_e( 'Go Pro', 'product-reviews' ); ?></a></span>
+				</td>
+			</tr>
+
+			<tr>
+				<th scope="row" class="titledesc">
+					<label for="video_duration"><?php esc_html_e( 'Video Duration:', 'product-reviews' ); ?></label>
+				</th>
+				<td class="forminp forminp-number">
+					<input type="number" name="video_duration" id="video_duration" placeholder="2" step="1">
+					<?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
+					<span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'product-reviews' ); ?></span>
 				</td>
 			</tr>
 
