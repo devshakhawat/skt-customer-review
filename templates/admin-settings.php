@@ -39,28 +39,30 @@ defined( 'ABSPATH' ) || exit;
 				</td>
 			</tr>
 
-			<tr class="disabled">
+			<?php if( pr_fs()->can_use_premium_code__premium_only() ): ?>
+				<tr>
+					<th scope="row" class="titledesc">
+						<label for="video_duration"><?php esc_html_e( 'Video Duration:', 'product-reviews' ); ?></label>
+					</th>
+					<td class="forminp forminp-number">
+						<input type="number" name="video_duration" id="video_duration" placeholder="2" step="1">
+						<?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
+						<span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'product-reviews' ); ?></span>
+					</td>
+				</tr>
+			<?php else: ?>
+				<tr class="disabled">
 				<th scope="row" class="titledesc">
 					<label for="video_duration"><?php esc_html_e( 'Video Duration:', 'product-reviews' ); ?></label>
 				</th>
 				<td class="forminp forminp-number">
-					<input type="number" name="video_duration" disabled id="video_duration" placeholder="2">
+					<input type="number" name="test-video_duration" disabled id="video_duration" placeholder="2">
 					<?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
 					<span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'product-reviews' ); ?></span>   
 					<span class="go-pro-text"><a href="<?php echo site_url( '/wp-admin/admin.php?page=skt-product-reviews-pricing' ); ?>"><?php esc_html_e( 'Go Pro', 'product-reviews' ); ?></a></span>
 				</td>
 			</tr>
-
-			<tr>
-				<th scope="row" class="titledesc">
-					<label for="video_duration"><?php esc_html_e( 'Video Duration:', 'product-reviews' ); ?></label>
-				</th>
-				<td class="forminp forminp-number">
-					<input type="number" name="video_duration" id="video_duration" placeholder="2" step="1">
-					<?php echo wp_kses_post( wc_help_tip( 'Increase or Decrease Video Duration', false ) ); ?>
-					<span><?php esc_html_e( 'Increase or Decrease Video Duration in ( Minutes )', 'product-reviews' ); ?></span>
-				</td>
-			</tr>
+			<?php endif; ?>
 
 			<tr>
 				<th scope="row" class="titledesc">

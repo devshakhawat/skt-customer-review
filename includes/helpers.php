@@ -12,7 +12,9 @@ trait Helpers {
 	 * @return string The HTML content for the video modal.
 	 */
 	public function modal_html() {
-		$recording_time = 2;
+
+		$settings 		= $this->get_settings();
+		$recording_time = intval( $settings['video_duration'] ?? 2 );
 		ob_start();
 		wp_nonce_field( 'my_form_nonce_action', 'my_form_nonce_name' );
 		?>
@@ -74,6 +76,7 @@ trait Helpers {
 		return array(
 			'enable_video_btn'     => true,
 			'show_file_uploader'   => true,
+			'video_duration'   	   => 2,
 			'review_btn_color'     => '#005BDF1F',
 			'review_btn_txt_color' => '#005bdf',
 			'review_btn_text'      => 'Record Video',
@@ -90,6 +93,7 @@ trait Helpers {
 
 		$form_data['enable_video_btn']     = filter_var( $form_data['enable_video_btn'], FILTER_VALIDATE_BOOLEAN );
 		$form_data['show_file_uploader']   = filter_var( $form_data['show_file_uploader'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['video_duration']   	   = intval( $form_data['video_duration'] );
 		$form_data['review_btn_color']     = sanitize_text_field( $form_data['review_btn_color'] );
 		$form_data['review_btn_txt_color'] = sanitize_text_field( $form_data['review_btn_txt_color'] );
 		$form_data['review_btn_text']      = sanitize_text_field( $form_data['review_btn_text'] );

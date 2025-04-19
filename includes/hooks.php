@@ -36,6 +36,7 @@ class Hooks {
 		$data = array(
 			'enable_video_btn'     => isset( $_POST['enable_video_btn'] ) ? sanitize_text_field( wp_unslash( $_POST['enable_video_btn'] ) ) : '',
 			'show_file_uploader'   => isset( $_POST['show_file_uploader'] ) ? sanitize_text_field( wp_unslash( $_POST['show_file_uploader'] ) ) : '',
+			'video_duration'       => isset( $_POST['video_duration'] ) ? absint( wp_unslash( $_POST['video_duration'] ) ) : 2,
 			'review_btn_color'     => isset( $_POST['review_btn_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_color'] ) ) : '',
 			'review_btn_txt_color' => isset( $_POST['review_btn_txt_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_txt_color'] ) ) : '',
 			'review_btn_text'      => isset( $_POST['review_btn_text'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_text'] ) ) : '',
