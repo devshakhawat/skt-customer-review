@@ -1,55 +1,59 @@
 === Product Reviews, Customer Reviews, Video Reviews for WooCommerce ===
 Contributors: devshakhawat
 Requires at least: 4.5
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: video reviews, product reviews, customer reviews
+Tags: video reviews, product reviews, customer reviews, woocommerce video reviews, customer feedback, product testimonials
 
-Enhance your WooCommerce store with Product Reviews, Customer Reviews, and Video Reviews. Collect authentic feedback to build trust and boost sales.
+Collect video and text reviews from your WooCommerce customers to boost trust, increase engagement, and drive more sales with real social proof.
 
 == Description ==
 
-**Happy customers are your most effective marketers, so why not encourage them to share their experiences?**
+**Turn your happy customers into your best marketers with authentic video and product reviews.**
 
-Enhance standard WooCommerce reviews with additional features, including video uploads and built-in video capture capabilities.
+This plugin extends the default WooCommerce review system by enabling customers to **upload videos** or **record them directly via webcam**, creating compelling, trustworthy testimonials that drive conversions.
 
-The Customer Reviews for WooCommerce plugin boosts engagement, builds customer loyalty, enhances SEO, and drives more sales through powerful social proof.
+**Product Reviews, Customer Reviews, Video Reviews for WooCommerce** helps you build trust, improve SEO with rich content, and increase engagement and loyalty—all by empowering real customers to share their experiences.
 
-This plugin helps you increase engagement, build customer loyalty, improve SEO, and drive more sales with the power of social proof.
+=== 🔑 Key Features ===
 
-===  Key Features:  ===
+* 📹 **Video Capture via Webcam** – Let customers record and submit reviews without needing third-party tools.
+* 📁 **Video Upload Support** – Accept pre-recorded video files directly from customers.
+* 🛒 **Seamless WooCommerce Integration** – Works out-of-the-box with the WooCommerce review system.
+* 📈 **Boost Engagement and SEO** – Leverage real customer testimonials for better search rankings and trust.
 
-* Allow Customers to Capture Video from a Webcam.
-* Allow Customers to Upload Recorded Product Video Reviews.
+=== 🚀 Why Use This Plugin? ===
 
-=== Boost Engagement with Authentic Video Reviews ===
+* Increase conversion rates with authentic, video-based product feedback.
+* Improve SEO by enriching product pages with multimedia content.
+* Understand customer sentiment directly from their own words and expressions.
+* Strengthen customer relationships by letting them share real stories and experiences.
 
-Only 8% of customers believe companies deliver a great experience—but you can change that!
+=== ✅ How to Use ===
 
-Collect real video feedback from your customers to understand what they love and where you can improve. 
-
-Use these insights to make better business decisions and enhance customer satisfaction.
-
-===  Basic Usages:  ===
-* Install & Activate the Plugin.
-* Enable Product Reviews from WooCommerce -> Settings -> Products Tab.
-* Enable Settings from Product Reviews Menu.
-* Go to the Product Review Section and Enjoy Extended Review Features.
+1. Install and activate the plugin.
+2. In your WP dashboard, go to **WooCommerce > Settings > Products**, and enable reviews.
+3. Configure plugin settings under **Product Reviews**.
+4. Start collecting powerful video testimonials from your product pages.
 
 == Frequently Asked Questions ==
 
-**Is it a WooCommerce Addon?**
+**Is this a WooCommerce add-on?**  
+Yes. This plugin enhances WooCommerce by adding functionality to collect video and text reviews from customers.
 
-Yes. It’s a WooCommerce Addon to collect video reviews from Customers.
-
-**I found a bug. How to get it fixed?**
-
-Please create a new topic at the support forum and provide detailed information with a screenshot.
+**How can I report a bug or get support?**  
+Please open a new topic in the [support forum](https://wordpress.org/support/plugin/YOUR-PLUGIN-SLUG/) with as much detail as possible. Include screenshots or steps to reproduce the issue.
 
 == Changelog ==
+
+= 2.0.3 - 2025-05-5 =
+* Updated Readme
+
+= 2.0.2 - 2025-03-21 =
+* Updated Freemius SDK
 
 = 2.0.1 - 2025-03-21 =
 * Added Freemius SDK
