@@ -3,7 +3,7 @@ Contributors: devshakhawat
 Requires at least: 4.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.2
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: product testimonial, product reviews, customer feedback, product video testimonials, customer video feedback
@@ -48,6 +48,9 @@ Yes. This plugin enhances WooCommerce by adding functionality to collect video a
 Please open a new topic in the [support forum](https://wordpress.org/support/plugin/YOUR-PLUGIN-SLUG/) with as much detail as possible. Include screenshots or steps to reproduce the issue.
 
 == Changelog ==
+
+= 2.0.4 - 2025-06-25 =
+* Updated Readme
 
 = 2.0.3 - 2025-05-5 =
 * Updated Readme
