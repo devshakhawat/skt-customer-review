@@ -1,4 +1,4 @@
-=== Product Reviews, Customer Reviews, Video Reviews for WooCommerce ===
+=== Product Video Testimonial or Customer Video Feedback for WooCommerce ===
 Contributors: devshakhawat
 Requires at least: 4.5
 Tested up to: 6.8
@@ -6,17 +6,17 @@ Requires PHP: 7.4
 Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: video reviews, product reviews, customer reviews, woocommerce video reviews, customer feedback, product testimonials
+Tags: product testimonial, product reviews, customer feedback, product video testimonials, customer video feedback
 
-Collect video and text reviews from your WooCommerce customers to boost trust, increase engagement, and drive more sales with real social proof.
+Collect video testimonial of feedback for products from your WooCommerce customers to boost trust, increase engagement, and drive more sales.
 
 == Description ==
 
-**Turn your happy customers into your best marketers with authentic video and product reviews.**
+**Turn your happy customers into your best marketers with authentic video and product testimonials.**
 
 This plugin extends the default WooCommerce review system by enabling customers to **upload videos** or **record them directly via webcam**, creating compelling, trustworthy testimonials that drive conversions.
 
-**Product Reviews, Customer Reviews, Video Reviews for WooCommerce** helps you build trust, improve SEO with rich content, and increase engagement and loyalty—all by empowering real customers to share their experiences.
+**Product Video Testimonial or Customer Video Feedback for WooCommerce** helps you build trust, improve SEO with rich content, and increase engagement and loyalty—all by empowering real customers to share their experiences.
 
 === 🔑 Key Features ===
 
