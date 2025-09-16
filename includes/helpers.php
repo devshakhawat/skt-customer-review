@@ -80,6 +80,7 @@ trait Helpers {
 			'review_btn_color'     => '#005BDF1F',
 			'review_btn_txt_color' => '#005bdf',
 			'review_btn_text'      => 'Record Video',
+			'button_position'      => 'after_review_form',
 		);
 	}
 
@@ -97,6 +98,7 @@ trait Helpers {
 		$form_data['review_btn_color']     = sanitize_text_field( $form_data['review_btn_color'] );
 		$form_data['review_btn_txt_color'] = sanitize_text_field( $form_data['review_btn_txt_color'] );
 		$form_data['review_btn_text']      = sanitize_text_field( $form_data['review_btn_text'] );
+		$form_data['button_position']      = sanitize_text_field( $form_data['button_position'] );
 
 		return $form_data;
 	}

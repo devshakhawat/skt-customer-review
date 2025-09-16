@@ -40,6 +40,7 @@ class Hooks {
 			'review_btn_color'     => isset( $_POST['review_btn_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_color'] ) ) : '',
 			'review_btn_txt_color' => isset( $_POST['review_btn_txt_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_txt_color'] ) ) : '',
 			'review_btn_text'      => isset( $_POST['review_btn_text'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_text'] ) ) : '',
+			'button_position'      => isset( $_POST['button_position'] ) ? sanitize_text_field( wp_unslash( $_POST['button_position'] ) ) : 'after_review_form',
 		);
 
 		$form_data = shortcode_atts( $this->get_defaults(), $data );
