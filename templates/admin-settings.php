@@ -82,68 +82,70 @@ defined( 'ABSPATH' ) || exit;
 		</form>
 
 		<div class="sktpr-tab-content" data-tab-content="display">
-			<div class="sktpr-settings-section">
-				<h2><?php esc_html_e( 'Button Styling', 'product-reviews' ); ?></h2>
-				<table class="form-table">
-					<tr>
-						<th scope="row" class="titledesc">
-							<label for="review_btn_color"><?php esc_html_e( 'Button Background', 'product-reviews' ); ?></label>
-						</th>
-						<td class="forminp forminp-select">
-							<input type="text" name="review_btn_color" id="review_btn_color" value="<?php echo esc_attr( $settings['review_btn_color'] ); ?>" />
-							<?php echo wp_kses_post( wc_help_tip( 'Choose the background color for the video review button', false ) ); ?>
-							<p class="description"><?php esc_html_e( 'Select a color that matches your brand identity', 'product-reviews' ); ?></p>
-						</td>
-					</tr>
+			<form action="" id="sktpr_plugin_settings_display" method="post">
+				<div class="sktpr-settings-section">
+					<h2><?php esc_html_e( 'Button Styling', 'product-reviews' ); ?></h2>
+					<table class="form-table">
+						<tr>
+							<th scope="row" class="titledesc">
+								<label for="review_btn_color"><?php esc_html_e( 'Button Background', 'product-reviews' ); ?></label>
+							</th>
+							<td class="forminp forminp-select">
+								<input type="text" name="review_btn_color" id="review_btn_color" value="<?php echo esc_attr( $settings['review_btn_color'] ); ?>" />
+								<?php echo wp_kses_post( wc_help_tip( 'Choose the background color for the video review button', false ) ); ?>
+								<p class="description"><?php esc_html_e( 'Select a color that matches your brand identity', 'product-reviews' ); ?></p>
+							</td>
+						</tr>
 
-					<tr>
-						<th scope="row" class="titledesc">
-							<label for="review_btn_txt_color"><?php esc_html_e( 'Button Text Color', 'product-reviews' ); ?></label>
-						</th>
-						<td class="forminp forminp-select">
-							<input type="text" name="review_btn_txt_color" id="review_btn_txt_color" value="<?php echo esc_attr( $settings['review_btn_txt_color'] ); ?>" />
-							<?php echo wp_kses_post( wc_help_tip( 'Choose the text color for the video review button', false ) ); ?>
-							<p class="description"><?php esc_html_e( 'Ensure good contrast with your background color', 'product-reviews' ); ?></p>
-						</td>
-					</tr>
+						<tr>
+							<th scope="row" class="titledesc">
+								<label for="review_btn_txt_color"><?php esc_html_e( 'Button Text Color', 'product-reviews' ); ?></label>
+							</th>
+							<td class="forminp forminp-select">
+								<input type="text" name="review_btn_txt_color" id="review_btn_txt_color" value="<?php echo esc_attr( $settings['review_btn_txt_color'] ); ?>" />
+								<?php echo wp_kses_post( wc_help_tip( 'Choose the text color for the video review button', false ) ); ?>
+								<p class="description"><?php esc_html_e( 'Ensure good contrast with your background color', 'product-reviews' ); ?></p>
+							</td>
+						</tr>
 
-					<tr>
-						<th scope="row" class="titledesc">
-							<label for="review_btn_text"><?php esc_html_e( 'Button Text', 'product-reviews' ); ?></label>
-						</th>
-						<td class="forminp forminp-select">
-							<input type="text" name="review_btn_text" id="review_btn_text" value="<?php echo esc_attr( $settings['review_btn_text'] ); ?>" />
-							<?php echo wp_kses_post( wc_help_tip( 'Customize the text displayed on the video review button', false ) ); ?>
-							<p class="description"><?php esc_html_e( 'Enter the text you want to appear on the video review button', 'product-reviews' ); ?></p>
-						</td>
-					</tr>
-				</table>
-			</div>
+						<tr>
+							<th scope="row" class="titledesc">
+								<label for="review_btn_text"><?php esc_html_e( 'Button Text', 'product-reviews' ); ?></label>
+							</th>
+							<td class="forminp forminp-select">
+								<input type="text" name="review_btn_text" id="review_btn_text" value="<?php echo esc_attr( $settings['review_btn_text'] ); ?>" />
+								<?php echo wp_kses_post( wc_help_tip( 'Customize the text displayed on the video review button', false ) ); ?>
+								<p class="description"><?php esc_html_e( 'Enter the text you want to appear on the video review button', 'product-reviews' ); ?></p>
+							</td>
+						</tr>
+					</table>
+				</div>
 
-			<div class="sktpr-settings-section">
-				<h2><?php esc_html_e( 'Advanced Options', 'product-reviews' ); ?></h2>
-				<table class="form-table">
-					<tr>
-						<th scope="row" class="titledesc">
-							<label for="button_position"><?php esc_html_e( 'Button Position', 'product-reviews' ); ?></label>
-						</th>
-						<td class="forminp forminp-select">
-							<select name="button_position" id="button_position">
-								<option value="after_review_form"><?php esc_html_e( 'After Review Form', 'product-reviews' ); ?></option>
-								<option value="before_review_form"><?php esc_html_e( 'Before Review Form', 'product-reviews' ); ?></option>
-								<option value="after_tabs"><?php esc_html_e( 'After Product Tabs', 'product-reviews' ); ?></option>
-							</select>
-							<?php echo wp_kses_post( wc_help_tip( 'Choose where to display the video review button on product pages', false ) ); ?>
-							<p class="description"><?php esc_html_e( 'Select the position of the video review button on product pages', 'product-reviews' ); ?></p>
-						</td>
-					</tr>
-				</table>
-			</div>
+				<div class="sktpr-settings-section">
+					<h2><?php esc_html_e( 'Advanced Options', 'product-reviews' ); ?></h2>
+					<table class="form-table">
+						<tr>
+							<th scope="row" class="titledesc">
+								<label for="button_position"><?php esc_html_e( 'Button Position', 'product-reviews' ); ?></label>
+							</th>
+							<td class="forminp forminp-select">
+								<select name="button_position" id="button_position">
+									<option value="after_review_form"><?php esc_html_e( 'After Review Form', 'product-reviews' ); ?></option>
+									<option value="before_review_form"><?php esc_html_e( 'Before Review Form', 'product-reviews' ); ?></option>
+									<option value="after_tabs"><?php esc_html_e( 'After Product Tabs', 'product-reviews' ); ?></option>
+								</select>
+								<?php echo wp_kses_post( wc_help_tip( 'Choose where to display the video review button on product pages', false ) ); ?>
+								<p class="description"><?php esc_html_e( 'Select the position of the video review button on product pages', 'product-reviews' ); ?></p>
+							</td>
+						</tr>
+					</table>
+				</div>
 
-			<div class="sktpr-submit-section">
-				<input type="submit" name="submit" id="sktpr_plugin_submit_display" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'product-reviews' ); ?>">
-				<span class="sktpr_submit_successful" style="display:none;"><?php esc_html_e( 'Settings saved successfully!', 'product-reviews' ); ?></span>
-			</div>
+				<div class="sktpr-submit-section">
+					<input type="submit" name="submit" id="sktpr_plugin_submit_display" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'product-reviews' ); ?>">
+					<span class="sktpr_submit_successful" style="display:none;"><?php esc_html_e( 'Settings saved successfully!', 'product-reviews' ); ?></span>
+				</div>
+			</form>
 		</div>
 
 		<div class="sktpr-tab-content" data-tab-content="preview">

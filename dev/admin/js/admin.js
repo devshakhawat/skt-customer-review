@@ -28,8 +28,8 @@ jQuery(function ($) {
     }).find("span").text(btnText);
   });
 
-  // Form submission
-  $("#sktpr_plugin_settings, #sktpr_plugin_settings_display").on("submit", function (e) {
+  // Form submission for general settings
+  $("#sktpr_plugin_settings").on("submit", function (e) {
     e.preventDefault();
 
     let formData = new FormData(this);
@@ -49,7 +49,39 @@ jQuery(function ($) {
       .then((data) => {
         if (data.success) {
           toastr.success(data.data.status);
-          $(".sktpr_submit_successful").show().fadeOut(3000);
+          $("#sktpr_plugin_submit").siblings(".sktpr_submit_successful").show().fadeOut(3000);
+        } else {
+          toastr.error(data.data.status);
+        }
+      })
+      .catch((error) => {
+        toastr.error("An error occurred while saving settings");
+        console.error("Error:", error);
+      });
+  });
+
+  // Form submission for display settings
+  $("#sktpr_plugin_settings_display").on("submit", function (e) {
+    e.preventDefault();
+
+    let formData = new FormData(this);
+    formData.append("_wpnonce", sktpr_plugin.nonce);
+    formData.append("action", "get_review_settings");
+
+    fetch(sktpr_plugin.ajax_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          toastr.success(data.data.status);
+          $("#sktpr_plugin_submit_display").siblings(".sktpr_submit_successful").show().fadeOut(3000);
         } else {
           toastr.error(data.data.status);
         }
