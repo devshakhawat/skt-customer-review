@@ -144,7 +144,7 @@ class Reminders_List {
 	private function get_scheduled_reminders() {
 		global $wpdb;
 		
-		$results = $wpdb->get_results( $wpdb->prepare( "
+		$results = $wpdb->get_results( "
 			SELECT p.ID as order_id, pm1.meta_value as scheduled_time, pm2.meta_value as reminder_scheduled
 			FROM {$wpdb->posts} p
 			INNER JOIN {$wpdb->postmeta} pm1 ON p.ID = pm1.post_id AND pm1.meta_key = '_sktpr_reminder_time'
@@ -152,7 +152,7 @@ class Reminders_List {
 			WHERE p.post_type = 'shop_order'
 			AND p.post_status IN ('wc-completed', 'wc-processing', 'wc-on-hold')
 			ORDER BY pm1.meta_value ASC
-		" ) );
+		" );
 		
 		$reminders = array();
 		foreach ( $results as $result ) {
