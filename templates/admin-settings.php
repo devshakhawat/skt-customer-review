@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="sktpr-tabs">
 			<button class="sktpr-tab active" data-tab="general"><?php esc_html_e( 'General', 'product-reviews' ); ?></button>
 			<button class="sktpr-tab" data-tab="display"><?php esc_html_e( 'Display', 'product-reviews' ); ?></button>
+			<button class="sktpr-tab" data-tab="email-reminders"><?php esc_html_e( 'Email Reminders', 'product-reviews' ); ?></button>
 			<button class="sktpr-tab" data-tab="preview"><?php esc_html_e( 'Preview', 'product-reviews' ); ?></button>
 			<?php if( !pr_fs()->can_use_premium_code__premium_only() ): ?>
 				<button class="sktpr-tab premium-tab" data-tab="premium">
@@ -146,6 +147,10 @@ defined( 'ABSPATH' ) || exit;
 					<span class="sktpr_submit_successful" style="display:none;"><?php esc_html_e( 'Settings saved successfully!', 'product-reviews' ); ?></span>
 				</div>
 			</form>
+		</div>
+
+		<div class="sktpr-tab-content" data-tab-content="email-reminders">
+			<?php if ( isset( $email_settings ) ) $email_settings->render_email_settings_form(); ?>
 		</div>
 
 		<div class="sktpr-tab-content" data-tab-content="preview">

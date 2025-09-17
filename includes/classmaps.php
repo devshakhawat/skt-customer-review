@@ -15,4 +15,7 @@ return array(
 	'Display_Video'   => 'includes/display-video.php',
 	'Helpers'         => 'includes/helpers.php',
 	'Generate_CSS'    => 'includes/generate-css.php',
+	'Email_Reminders' => 'includes/email-reminders.php',
+	'Email_Settings'  => 'includes/email-settings.php',
+	'Reminders_List'  => 'includes/reminders-list.php',
 );

@@ -42,6 +42,7 @@ class Admin_Menu {
 	public function get_menu_page_data() {
 
 		$settings = $this->get_settings();
+		$email_settings = new Email_Settings();
 		include_once Template_Loader::locate_template( 'admin-settings.php' );
 	}
 }

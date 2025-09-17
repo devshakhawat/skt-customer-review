@@ -80,3 +80,13 @@ if ( ! defined( 'SKTPR_PLUGIN_URI' ) ) {
 require_once SKTPR_PLUGIN_DIR . 'includes/functions.php';
 require_once SKTPR_PLUGIN_DIR . 'includes/autoloader.php';
 require_once SKTPR_PLUGIN_DIR . 'includes/plugin.php';
+
+/**
+ * Plugin deactivation hook
+ */
+register_deactivation_hook( __FILE__, 'sktpr_deactivation_cleanup' );
+
+function sktpr_deactivation_cleanup() {
+	// Clear all scheduled email reminders
+	wp_clear_scheduled_hook( 'sktpr_send_review_reminder' );
+}

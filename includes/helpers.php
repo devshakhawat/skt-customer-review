@@ -137,4 +137,64 @@ trait Helpers {
 
 		return $settings;
 	}
+
+	/**
+	 * Get email reminder settings
+	 * 
+	 * @return array
+	 */
+	public function get_email_settings() {
+		$defaults = array(
+			'enable_email_reminders' => false,
+			'trigger_order_status' => 'completed',
+			'email_delay_days' => 7,
+			'from_name' => get_bloginfo( 'name' ),
+			'from_email' => get_option( 'admin_email' ),
+			'email_subject' => __( 'How was your recent purchase, {customer_name}?', 'product-reviews' ),
+			'email_content' => $this->get_default_email_content()
+		);
+		
+		$settings = get_option( 'sktpr_email_reminder_settings', $defaults );
+		return wp_parse_args( $settings, $defaults );
+	}
+
+	/**
+	 * Update email settings
+	 * 
+	 * @param array $settings Settings array
+	 * @return bool
+	 */
+	public function update_email_settings( $settings ) {
+		return update_option( 'sktpr_email_reminder_settings', $settings );
+	}
+
+	/**
+	 * Get default email content template
+	 * 
+	 * @return string
+	 */
+	private function get_default_email_content() {
+		return '<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+			<h2 style="color: #333;">Hi {customer_name},</h2>
+			
+			<p>Thank you for your recent purchase from {site_name}! We hope you\'re enjoying your new products.</p>
+			
+			<p>We\'d love to hear about your experience. Your feedback helps us improve and helps other customers make informed decisions.</p>
+			
+			<p><strong>Order #{order_number}</strong> placed on {order_date}</p>
+			
+			{products_list}
+			
+			<p>Thank you for taking the time to share your thoughts!</p>
+			
+			<p>Best regards,<br>
+			The {site_name} Team</p>
+			
+			<hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+			<p style="font-size: 12px; color: #666;">
+				This email was sent because you recently made a purchase from {site_name}. 
+				If you have any questions, please contact us at <a href="mailto:' . get_option( 'admin_email' ) . '">' . get_option( 'admin_email' ) . '</a>
+			</p>
+		</div>';
+	}
 }
