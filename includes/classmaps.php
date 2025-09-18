@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || exit;
 
 return array(
 	'Hooks'           => 'includes/hooks.php',
-	'Shortcode'       => 'includes/shortcode.php',
 	'Scripts'         => 'includes/scripts.php',
 	'Template_Loader' => 'includes/template-loader.php',
 	'Video_Btn'       => 'includes/video-btn.php',
@@ -18,4 +17,6 @@ return array(
 	'Email_Reminders' => 'includes/email-reminders.php',
 	'Email_Settings'  => 'includes/email-settings.php',
 	'Reminders_List'  => 'includes/reminders-list.php',
+	'Database'        => 'includes/database.php',
+	'Migration'       => 'includes/migration.php',
 );
