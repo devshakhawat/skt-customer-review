@@ -23,7 +23,7 @@ class Migration {
 			return;
 		}
 		
-		error_log( 'SKTPR: Starting migration of existing reminders' );
+
 		
 		// Get all orders with reminder meta data
 		$results = $wpdb->get_results( "

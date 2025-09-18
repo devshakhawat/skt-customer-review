@@ -49,19 +49,10 @@ class Email_Reminders {
 		add_action( 'woocommerce_order_status_cancelled', array( $this, 'cancel_reminder' ), 20, 1 );
 		add_action( 'woocommerce_order_status_refunded', array( $this, 'cancel_reminder' ), 20, 1 );
 		
-		// Add debug logging
-		add_action( 'wp_loaded', array( $this, 'debug_log_settings' ) );
+
 	}
 	
-	/**
-	 * Debug log current settings
-	 */
-	public function debug_log_settings() {
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			$settings = $this->get_email_settings();
-			error_log( 'SKTPR Email Reminders Settings: ' . print_r( $settings, true ) );
-		}
-	}
+
 
 	/**
 	 * Schedule a review reminder for an order
@@ -70,24 +61,18 @@ class Email_Reminders {
 	 */
 	public function schedule_reminder( $order_id ) {
 		if ( ! $order_id ) {
-			error_log( 'SKTPR: No order ID provided for scheduling reminder' );
 			return;
 		}
 
 		$order = wc_get_order( $order_id );
 		if ( ! $order ) {
-			error_log( 'SKTPR: Invalid order ID: ' . $order_id );
 			return;
 		}
 
 		$settings = $this->get_email_settings();
 		
-		// Debug log
-		error_log( 'SKTPR: Attempting to schedule reminder for order #' . $order->get_order_number() );
-		
 		// Check if reminder already exists in database
 		if ( Database::reminder_exists( $order_id ) ) {
-			error_log( 'SKTPR: Reminder already exists for order #' . $order->get_order_number() );
 			return;
 		}
 
@@ -95,14 +80,12 @@ class Email_Reminders {
 		$customer_email = $order->get_billing_email();
 		if ( ! is_email( $customer_email ) ) {
 			$order->add_order_note( __( 'SKTPR: Review reminder not scheduled - invalid email address.', 'product-reviews' ) );
-			error_log( 'SKTPR: Invalid email for order #' . $order->get_order_number() . ': ' . $customer_email );
 			return;
 		}
 
 		// Check if order has reviewable products
 		if ( ! $this->has_reviewable_products( $order ) ) {
 			$order->add_order_note( __( 'SKTPR: Review reminder not scheduled - no reviewable products in order.', 'product-reviews' ) );
-			error_log( 'SKTPR: No reviewable products for order #' . $order->get_order_number() );
 			return;
 		}
 
@@ -131,7 +114,6 @@ class Email_Reminders {
 		) );
 		
 		if ( ! $reminder_id ) {
-			error_log( 'SKTPR: Failed to insert reminder into database for order #' . $order->get_order_number() );
 			$order->add_order_note( __( 'SKTPR: Failed to schedule review reminder - database error.', 'product-reviews' ) );
 			return;
 		}
@@ -143,7 +125,6 @@ class Email_Reminders {
 		if ( $scheduled === false ) {
 			// Remove from database if cron scheduling failed
 			Database::delete_reminder( $reminder_id );
-			error_log( 'SKTPR: Failed to schedule cron event for order #' . $order->get_order_number() );
 			$order->add_order_note( __( 'SKTPR: Failed to schedule review reminder - cron error.', 'product-reviews' ) );
 			return;
 		}
@@ -155,8 +136,6 @@ class Email_Reminders {
 				$scheduled_date
 			) 
 		);
-		
-		error_log( 'SKTPR: Successfully scheduled reminder for order #' . $order->get_order_number() . ' at ' . $scheduled_date );
 	}
 
 	/**
@@ -209,7 +188,6 @@ class Email_Reminders {
 		// Get reminder from database
 		$reminder = Database::get_reminder_by_order( $order_id );
 		if ( ! $reminder || $reminder->status !== 'scheduled' ) {
-			error_log( 'SKTPR: No scheduled reminder found for order #' . $order->get_order_number() );
 			return;
 		}
 
@@ -366,8 +344,6 @@ class Email_Reminders {
 		if ( empty( $due_reminders ) ) {
 			return;
 		}
-		
-		error_log( 'SKTPR: Processing ' . count( $due_reminders ) . ' due reminders' );
 		
 		foreach ( $due_reminders as $reminder ) {
 			$this->send_review_reminder( $reminder->order_id );

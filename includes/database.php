@@ -84,9 +84,6 @@ class Database {
 		
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
-		
-		// Log table creation
-		error_log( 'SKTPR: Email reminders table created: ' . $table_name );
 	}
 
 	/**
@@ -123,7 +120,6 @@ class Database {
 		);
 		
 		if ( $result === false ) {
-			error_log( 'SKTPR: Failed to insert reminder: ' . $wpdb->last_error );
 			return false;
 		}
 		
