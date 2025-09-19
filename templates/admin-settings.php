@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 		<form action="" id="sktpr_plugin_settings" method="post" class="sktpr-tab-content active" data-tab-content="general">
 			<div class="sktpr-settings-section">
 				<h2><?php esc_html_e( 'Review Collection', 'product-reviews' ); ?></h2>
-				<table class="form-table">
+				<table class="sktpr-form-table">
 					<tr>
 						<th scope="row" class="titledesc">
 							<label for="enable_video_btn">
@@ -87,7 +87,7 @@ defined( 'ABSPATH' ) || exit;
 			<?php if( pr_fs()->can_use_premium_code__premium_only() ): ?>
 				<div class="sktpr-settings-section">
 					<h2><?php esc_html_e( 'Premium Settings', 'product-reviews' ); ?></h2>
-					<table class="form-table">
+					<table class="sktpr-form-table">
 						<tr>
 							<th scope="row" class="titledesc">
 								<label for="video_duration"><?php esc_html_e( 'Video Duration', 'product-reviews' ); ?></label>
@@ -105,7 +105,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="sktpr-settings-section">
 					<h2><?php esc_html_e( 'Premium Settings', 'product-reviews' ); ?></h2>
-					<table class="form-table">
+					<table class="sktpr-form-table">
 						<tr>
 							<th scope="row" class="titledesc">
 								<label for="video_duration"><?php esc_html_e( 'Video Duration', 'product-reviews' ); ?></label>
@@ -132,7 +132,7 @@ defined( 'ABSPATH' ) || exit;
 			<form action="" id="sktpr_plugin_settings_display" method="post">
 				<div class="sktpr-settings-section">
 					<h2><?php esc_html_e( 'Button Styling', 'product-reviews' ); ?></h2>
-					<table class="form-table">
+					<table class="sktpr-form-table">
 						<tr>
 							<th scope="row" class="titledesc">
 								<label for="review_btn_color"><?php esc_html_e( 'Button Background', 'product-reviews' ); ?></label>
@@ -170,7 +170,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="sktpr-settings-section">
 					<h2><?php esc_html_e( 'Advanced Options', 'product-reviews' ); ?></h2>
-					<table class="form-table">
+					<table class="sktpr-form-table">
 						<tr>
 							<th scope="row" class="titledesc">
 								<label for="button_position"><?php esc_html_e( 'Button Position', 'product-reviews' ); ?></label>

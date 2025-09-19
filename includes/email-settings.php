@@ -96,7 +96,7 @@ class Email_Settings {
 			<form method="post" action="">
 				<?php wp_nonce_field( 'sktpr_save_email_settings', 'sktpr_email_settings_nonce' ); ?>
 				
-				<table class="form-table">
+				<table class="sktpr-form-table">
 					<tr>
 						<th scope="row">
 							<label for="enable_email_reminders">
