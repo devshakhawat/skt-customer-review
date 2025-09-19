@@ -42,6 +42,7 @@ class Plugin {
 	public $email_reminders; // phpcs:ignore
 	public $email_settings; // phpcs:ignore
 	public $reminders_list; // phpcs:ignore
+	public $video_reviews_list; // phpcs:ignore
 
 	/**
 	 * Constructor for the class.
@@ -55,9 +56,10 @@ class Plugin {
 		$this->save_video      = new Save_Video();
 		$this->display_video   = new Display_Video();
 		$this->generate_css    = new Generate_CSS();
-		$this->email_reminders = new Email_Reminders();
-		$this->email_settings  = new Email_Settings();
-		$this->reminders_list  = new Reminders_List();
+		$this->email_reminders    = new Email_Reminders();
+		$this->email_settings     = new Email_Settings();
+		$this->reminders_list     = new Reminders_List();
+		$this->video_reviews_list = new Video_Reviews_List();
 
 		new Template_Loader();
 	}

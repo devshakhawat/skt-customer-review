@@ -17,6 +17,8 @@ return array(
 	'Email_Reminders' => 'includes/email-reminders.php',
 	'Email_Settings'  => 'includes/email-settings.php',
 	'Reminders_List'  => 'includes/reminders-list.php',
-	'Database'        => 'includes/database.php',
-	'Migration'       => 'includes/migration.php',
+	'Database'            => 'includes/database.php',
+	'Migration'           => 'includes/migration.php',
+	'Video_Reviews_List'  => 'includes/video-reviews-list.php',
+	'Video_Reviews_Table' => 'includes/video-reviews-table.php',
 );
