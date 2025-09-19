@@ -74,13 +74,15 @@ trait Helpers {
 	public function get_defaults() {
 
 		return array(
-			'enable_video_btn'     => true,
-			'show_file_uploader'   => true,
-			'video_duration'   	   => 2,
-			'review_btn_color'     => '#005BDF1F',
-			'review_btn_txt_color' => '#005bdf',
-			'review_btn_text'      => 'Record Video',
-			'button_position'      => 'after_review_form',
+			'enable_video_btn'        => true,
+			'show_file_uploader'      => true,
+			'required_video_recording'=> false,
+			'required_file_upload'    => false,
+			'video_duration'  	      => 2,
+			'review_btn_color'        => '#005BDF1F',
+			'review_btn_txt_color'    => '#005bdf',
+			'review_btn_text'         => 'Record Video',
+			'button_position'         => 'after_review_form',
 		);
 	}
 
@@ -92,13 +94,15 @@ trait Helpers {
 	 */
 	public function validate_form_data( $form_data ) {
 
-		$form_data['enable_video_btn']     = filter_var( $form_data['enable_video_btn'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['show_file_uploader']   = filter_var( $form_data['show_file_uploader'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['video_duration']   	   = intval( $form_data['video_duration'] );
-		$form_data['review_btn_color']     = sanitize_text_field( $form_data['review_btn_color'] );
-		$form_data['review_btn_txt_color'] = sanitize_text_field( $form_data['review_btn_txt_color'] );
-		$form_data['review_btn_text']      = sanitize_text_field( $form_data['review_btn_text'] );
-		$form_data['button_position']      = sanitize_text_field( $form_data['button_position'] );
+		$form_data['enable_video_btn']         = filter_var( $form_data['enable_video_btn'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['show_file_uploader']       = filter_var( $form_data['show_file_uploader'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['required_video_recording'] = filter_var( $form_data['required_video_recording'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['required_file_upload']     = filter_var( $form_data['required_file_upload'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['video_duration']  	       = intval( $form_data['video_duration'] );
+		$form_data['review_btn_color']         = sanitize_text_field( $form_data['review_btn_color'] );
+		$form_data['review_btn_txt_color']     = sanitize_text_field( $form_data['review_btn_txt_color'] );
+		$form_data['review_btn_text']          = sanitize_text_field( $form_data['review_btn_text'] );
+		$form_data['button_position']          = sanitize_text_field( $form_data['button_position'] );
 
 		return $form_data;
 	}

@@ -35,10 +35,24 @@ defined( 'ABSPATH' ) || exit;
 								<?php esc_html_e( 'Video Recording', 'product-reviews' ); ?>
 							</label>
 						</th>
+
 						<td class="sktpr_video_btn">
 							<input type="checkbox" name="enable_video_btn" id="enable_video_btn" <?php checked( $settings['enable_video_btn'], true ); ?> >
 							<label for="enable_video_btn"><?php esc_html_e( 'Enable video recording via webcam', 'product-reviews' ); ?></label>
 							<?php echo wp_kses_post( wc_help_tip( 'Allow customers to record video testimonials directly from product pages using their webcam', false ) ); ?>
+						</td>
+					</tr>
+
+					<tr>
+						<th scope="row" class="titledesc">
+							<label for="required_video_recording">
+								<?php esc_html_e( 'Required Video Recording', 'product-reviews' ); ?>
+							</label>
+						</th>
+						<td class="sktpr_video_btn">
+							<input type="checkbox" name="required_video_recording" id="required_video_recording" <?php checked( $settings['required_video_recording'] ?? false, true ); ?> >
+							<label for="required_video_recording"><?php esc_html_e( 'Make video recording required', 'product-reviews' ); ?></label>
+							<?php echo wp_kses_post( wc_help_tip( 'Require customers to record a video testimonial when submitting a review', false ) ); ?>
 						</td>
 					</tr>
 
@@ -52,6 +66,19 @@ defined( 'ABSPATH' ) || exit;
 							<input type="checkbox" name="show_file_uploader" id="show_file_uploader" <?php checked( $settings['show_file_uploader'], true ); ?> >
 							<label for="show_file_uploader"><?php esc_html_e( 'Allow customers to upload video files', 'product-reviews' ); ?></label>
 							<?php echo wp_kses_post( wc_help_tip( 'Allow customers to upload pre-recorded video testimonials', false ) ); ?>
+						</td>
+					</tr>
+
+					<tr>
+						<th scope="row" class="titledesc">
+							<label for="required_file_upload">
+								<?php esc_html_e( 'Required File Upload', 'product-reviews' ); ?>
+							</label>
+						</th>
+						<td class="sktpr_video_btn">
+							<input type="checkbox" name="required_file_upload" id="required_file_upload" <?php checked( $settings['required_file_upload'] ?? false, true ); ?> >
+							<label for="required_file_upload"><?php esc_html_e( 'Make file upload required', 'product-reviews' ); ?></label>
+							<?php echo wp_kses_post( wc_help_tip( 'Require customers to upload a video file when submitting a review', false ) ); ?>
 						</td>
 					</tr>
 				</table>

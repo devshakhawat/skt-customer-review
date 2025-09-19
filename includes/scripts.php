@@ -78,6 +78,12 @@ class Scripts {
 
 		$settings = $this->get_settings();
 		plugin()->generate_css->generate_custom_css( $settings );
+		
+		// Pass settings to JavaScript
+		wp_localize_script( 'sktpr_public', 'sktpr_settings', array(
+			'required_video_recording' => $settings['required_video_recording'] ?? false,
+			'required_file_upload'     => $settings['required_file_upload'] ?? false,
+		) );
 	}
 
 	/**

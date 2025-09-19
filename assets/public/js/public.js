@@ -242,4 +242,27 @@ jQuery(function ($) {
       sktpr_stopButton.disabled = true;
     }
   }
+
+  // Form validation for required video fields
+  $('form.comment-form').on('submit', function(e) {
+    
+    // Get settings from localized script (if available)
+    var settings = typeof sktpr_settings !== 'undefined' ? sktpr_settings : {};
+
+    // Check if video recording is required
+    if (settings.required_video_recording === '1' && 
+        $('#sktpr_client_video_upload')[0].files.length === 0 ) {
+      e.preventDefault();
+      alert('Please record a video testimonial before submitting your review.');
+      return false;
+    }
+    
+    // Check if file upload is required
+    if (settings.required_file_upload === '1' && 
+        $('#sktpr_file_upload')[0].files.length === 0 ) {
+      e.preventDefault();
+      alert('Please upload a video file before submitting your review.');
+      return false;
+    }
+  });
 });
