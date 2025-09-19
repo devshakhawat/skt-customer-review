@@ -79,8 +79,8 @@ trait Helpers {
 			'required_video_recording'=> false,
 			'required_file_upload'    => false,
 			'video_duration'  	      => 2,
-			'review_btn_color'        => '#005BDF1F',
-			'review_btn_txt_color'    => '#005bdf',
+			'review_btn_color'        => '#481FEA',
+			'review_btn_txt_color'    => '#FFFFFF',
 			'review_btn_text'         => 'Record Video',
 			'button_position'         => 'after_review_form',
 		);
