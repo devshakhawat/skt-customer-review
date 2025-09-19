@@ -47,29 +47,29 @@ class Video_Reviews_List {
 		
 		// Add custom styles for video reviews table
 		wp_add_inline_style( 'wp-list-table', '
-			.video-preview video {
+			.sktpr-video-preview video {
 				border-radius: 4px;
 				border: 1px solid #ddd;
 			}
-			.star-rating {
+			.sktpr-star-rating {
 				display: flex;
 				align-items: center;
 				gap: 2px;
 			}
-			.star-rating .dashicons {
+			.sktpr-star-rating .dashicons {
 				font-size: 16px;
 				width: 16px;
 				height: 16px;
 			}
-			.rating-text {
+			.sktpr-rating-text {
 				margin-left: 5px;
 				font-size: 12px;
 				color: #666;
 			}
-			.comment-text {
+			.sktpr-comment-text {
 				max-width: 300px;
 			}
-			.post-state {
+			.sktpr-post-state {
 				font-weight: 600;
 				color: #d63638;
 			}

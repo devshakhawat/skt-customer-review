@@ -240,15 +240,15 @@ class Video_Reviews_Table extends \WP_List_Table {
 		
 		$status_label = '';
 		if ( $item->comment_approved === '0' ) {
-			$status_label = ' — <span class="post-state">' . __( 'Pending', 'product-reviews' ) . '</span>';
+			$status_label = ' — <span class="sktpr-post-state">' . __( 'Pending', 'product-reviews' ) . '</span>';
 		} elseif ( $item->comment_approved === 'spam' ) {
-			$status_label = ' — <span class="post-state">' . __( 'Spam', 'product-reviews' ) . '</span>';
+			$status_label = ' — <span class="sktpr-post-state">' . __( 'Spam', 'product-reviews' ) . '</span>';
 		} elseif ( $item->comment_approved === 'trash' ) {
-			$status_label = ' — <span class="post-state">' . __( 'Trash', 'product-reviews' ) . '</span>';
+			$status_label = ' — <span class="sktpr-post-state">' . __( 'Trash', 'product-reviews' ) . '</span>';
 		}
 
 		return sprintf(
-			'<div class="comment-text">%s%s</div>',
+			'<div class="sktpr-comment-text">%s%s</div>',
 			esc_html( $comment_text ),
 			$status_label
 		);
@@ -296,7 +296,7 @@ class Video_Reviews_Table extends \WP_List_Table {
 		}
 
 		return sprintf(
-			'<div class="star-rating">%s <span class="rating-text">(%d/5)</span></div>',
+			'<div class="sktpr-star-rating">%s <span class="sktpr-rating-text">(%d/5)</span></div>',
 			$stars,
 			$rating
 		);
@@ -328,7 +328,7 @@ class Video_Reviews_Table extends \WP_List_Table {
 		$first_video = $video_urls[0];
 
 		return sprintf(
-			'<div class="video-preview">
+			'<div class="sktpr-video-preview">
 				<video width="100" height="75" controls preload="metadata" style="max-width: 100px;">
 					<source src="%s" type="video/mp4">
 				</video>
