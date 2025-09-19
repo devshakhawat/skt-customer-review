@@ -78,6 +78,7 @@ trait Helpers {
 			'show_file_uploader'      => true,
 			'required_video_recording'=> false,
 			'required_file_upload'    => false,
+			'auto_approve_video_reviews' => false,
 			'video_duration'  	      => 2,
 			'review_btn_color'        => '#481FEA',
 			'review_btn_txt_color'    => '#FFFFFF',
@@ -94,10 +95,11 @@ trait Helpers {
 	 */
 	public function validate_form_data( $form_data ) {
 
-		$form_data['enable_video_btn']         = filter_var( $form_data['enable_video_btn'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['show_file_uploader']       = filter_var( $form_data['show_file_uploader'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['required_video_recording'] = filter_var( $form_data['required_video_recording'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['required_file_upload']     = filter_var( $form_data['required_file_upload'], FILTER_VALIDATE_BOOLEAN );
+		$form_data['enable_video_btn']         = ( $form_data['enable_video_btn'] === 'on' );
+		$form_data['show_file_uploader']       = ( $form_data['show_file_uploader'] === 'on' );
+		$form_data['required_video_recording'] = ( $form_data['required_video_recording'] === 'on' );
+		$form_data['required_file_upload']     = ( $form_data['required_file_upload'] === 'on' );
+		$form_data['auto_approve_video_reviews'] = ( $form_data['auto_approve_video_reviews'] === 'on' );
 		$form_data['video_duration']  	       = intval( $form_data['video_duration'] );
 		$form_data['review_btn_color']         = sanitize_text_field( $form_data['review_btn_color'] );
 		$form_data['review_btn_txt_color']     = sanitize_text_field( $form_data['review_btn_txt_color'] );

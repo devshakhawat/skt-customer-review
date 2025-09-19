@@ -81,6 +81,20 @@ defined( 'ABSPATH' ) || exit;
 							<?php echo wp_kses_post( wc_help_tip( 'Require customers to upload a video file when submitting a review', false ) ); ?>
 						</td>
 					</tr>
+
+					<tr>
+						<th scope="row" class="titledesc">
+							<label for="auto_approve_video_reviews">
+								<?php esc_html_e( 'Auto-Approve Video Reviews', 'product-reviews' ); ?>
+							</label>
+						</th>
+						<td class="sktpr_video_btn">
+							<input type="checkbox" name="auto_approve_video_reviews" id="auto_approve_video_reviews" <?php checked( $settings['auto_approve_video_reviews'] ?? false, true ); ?> >
+							<label for="auto_approve_video_reviews"><?php esc_html_e( 'Automatically approve video reviews', 'product-reviews' ); ?></label>
+							<?php echo wp_kses_post( wc_help_tip( 'When disabled, video reviews will be set to pending status and require admin approval. When enabled, video reviews will be automatically approved like regular reviews.', false ) ); ?>
+							<p class="description"><?php esc_html_e( 'Unchecked: Video reviews require admin approval (recommended for quality control)', 'product-reviews' ); ?></p>
+						</td>
+					</tr>
 				</table>
 			</div>
 

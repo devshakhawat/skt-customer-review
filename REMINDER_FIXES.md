@@ -105,16 +105,17 @@
 4. `includes/email-reminders.php` - Updated to use database table for all operations
 5. `includes/plugin.php` - Added database class initialization
 6. `product-reviews.php` - Updated deactivation cleanup
-7. `test-reminders.php` - Updated test file for new database system
-
 ## Debugging Commands
 
-### Via Test File
-Visit: `yoursite.com/wp-content/plugins/product-reviews/test-reminders.php?test_reminders=1`
+### Via WordPress Admin
+1. Go to **Product Reviews → Email Reminders** 
+2. Enable debug mode by adding `?debug=1` to the URL
+3. View system status and scheduled reminders
 
 ### Via WP-CLI (if available)
 ```bash
-wp eval-file test-reminders.php
+wp cron event list
+wp cron test
 ```
 
 ## Common Issues and Solutions

@@ -174,8 +174,9 @@ class Video_Reviews_Table extends \WP_List_Table {
 		$author_name = ! empty( $item->comment_author ) ? $item->comment_author : __( 'Anonymous', 'product-reviews' );
 		
 		$actions = array();
+		$base_url = admin_url( 'admin.php?page=video-reviews-list' );
 		
-		// Edit action
+		// Edit action - use WordPress comment edit page
 		$edit_url = admin_url( 'comment.php?action=editcomment&c=' . $item->comment_ID );
 		$actions['edit'] = sprintf(
 			'<a href="%s">%s</a>',
@@ -191,37 +192,60 @@ class Video_Reviews_Table extends \WP_List_Table {
 			__( 'View', 'product-reviews' )
 		);
 
-		// Status actions
+		// Status actions - use our custom handlers
 		if ( $item->comment_approved === '1' ) {
 			$actions['unapprove'] = sprintf(
 				'<a href="%s">%s</a>',
-				wp_nonce_url( admin_url( 'comment.php?action=unapprovecomment&c=' . $item->comment_ID ), 'unapprove-comment_' . $item->comment_ID ),
+				wp_nonce_url( add_query_arg( array( 'action' => 'unapprove', 'comment_id' => $item->comment_ID ), $base_url ), 'video-review-action_' . $item->comment_ID ),
 				__( 'Unapprove', 'product-reviews' )
 			);
-		} else {
+		} elseif ( $item->comment_approved === '0' ) {
 			$actions['approve'] = sprintf(
 				'<a href="%s">%s</a>',
-				wp_nonce_url( admin_url( 'comment.php?action=approvecomment&c=' . $item->comment_ID ), 'approve-comment_' . $item->comment_ID ),
+				wp_nonce_url( add_query_arg( array( 'action' => 'approve', 'comment_id' => $item->comment_ID ), $base_url ), 'video-review-action_' . $item->comment_ID ),
 				__( 'Approve', 'product-reviews' )
 			);
 		}
 
-		// Spam action
-		$actions['spam'] = sprintf(
-			'<a href="%s">%s</a>',
-			wp_nonce_url( admin_url( 'comment.php?action=spamcomment&c=' . $item->comment_ID ), 'spam-comment_' . $item->comment_ID ),
-			__( 'Spam', 'product-reviews' )
-		);
+		// Spam/Unspam actions
+		if ( $item->comment_approved === 'spam' ) {
+			$actions['unspam'] = sprintf(
+				'<a href="%s">%s</a>',
+				wp_nonce_url( add_query_arg( array( 'action' => 'unspam', 'comment_id' => $item->comment_ID ), $base_url ), 'video-review-action_' . $item->comment_ID ),
+				__( 'Not Spam', 'product-reviews' )
+			);
+		} else {
+			$actions['spam'] = sprintf(
+				'<a href="%s">%s</a>',
+				wp_nonce_url( add_query_arg( array( 'action' => 'spam', 'comment_id' => $item->comment_ID ), $base_url ), 'video-review-action_' . $item->comment_ID ),
+				__( 'Spam', 'product-reviews' )
+			);
+		}
 
-		// Trash action
-		$actions['trash'] = sprintf(
-			'<a href="%s" class="submitdelete">%s</a>',
-			wp_nonce_url( admin_url( 'comment.php?action=trashcomment&c=' . $item->comment_ID ), 'trash-comment_' . $item->comment_ID ),
-			__( 'Trash', 'product-reviews' )
-		);
+		// Trash/Untrash actions
+		if ( $item->comment_approved === 'trash' ) {
+			$actions['untrash'] = sprintf(
+				'<a href="%s">%s</a>',
+				wp_nonce_url( add_query_arg( array( 'action' => 'untrash', 'comment_id' => $item->comment_ID ), $base_url ), 'video-review-action_' . $item->comment_ID ),
+				__( 'Restore', 'product-reviews' )
+			);
+		} else {
+			$actions['trash'] = sprintf(
+				'<a href="%s" class="submitdelete">%s</a>',
+				wp_nonce_url( add_query_arg( array( 'action' => 'trash', 'comment_id' => $item->comment_ID ), $base_url ), 'video-review-action_' . $item->comment_ID ),
+				__( 'Trash', 'product-reviews' )
+			);
+		}
 
 		return sprintf(
-			'%s <strong>%s</strong><br><small>%s</small>%s',
+			'<div class="author-info">
+				%s
+				<div class="author-details">
+					<strong>%s</strong><br>
+					<small>%s</small>
+					%s
+				</div>
+			</div>',
 			$avatar,
 			esc_html( $author_name ),
 			esc_html( $item->comment_author_email ),
@@ -350,7 +374,10 @@ class Video_Reviews_Table extends \WP_List_Table {
 		$time = mysql2date( get_option( 'time_format' ), $item->comment_date );
 		
 		return sprintf(
-			'<div>%s<br><small>%s</small></div>',
+			'<div class="date-info">
+				<div class="date-main">%s</div>
+				<div class="date-time"><small>%s</small></div>
+			</div>',
 			esc_html( $date ),
 			esc_html( $time )
 		);

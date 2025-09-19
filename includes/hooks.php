@@ -37,11 +37,13 @@ class Hooks {
 		$current_settings = $this->get_settings();
 
 		// Merge submitted data with current settings
+		// Note: Checkboxes only send data when checked, so we need to handle unchecked state
 		$data = array(
-			'enable_video_btn'         => isset( $_POST['enable_video_btn'] ) ? sanitize_text_field( wp_unslash( $_POST['enable_video_btn'] ) ) : $current_settings['enable_video_btn'],
-			'show_file_uploader'       => isset( $_POST['show_file_uploader'] ) ? sanitize_text_field( wp_unslash( $_POST['show_file_uploader'] ) ) : $current_settings['show_file_uploader'],
-			'required_video_recording' => isset( $_POST['required_video_recording'] ) ? sanitize_text_field( wp_unslash( $_POST['required_video_recording'] ) ) : $current_settings['required_video_recording'],
-			'required_file_upload'     => isset( $_POST['required_file_upload'] ) ? sanitize_text_field( wp_unslash( $_POST['required_file_upload'] ) ) : $current_settings['required_file_upload'],
+			'enable_video_btn'         => isset( $_POST['enable_video_btn'] ) ? 'on' : 'off',
+			'show_file_uploader'       => isset( $_POST['show_file_uploader'] ) ? 'on' : 'off',
+			'required_video_recording' => isset( $_POST['required_video_recording'] ) ? 'on' : 'off',
+			'required_file_upload'     => isset( $_POST['required_file_upload'] ) ? 'on' : 'off',
+			'auto_approve_video_reviews' => isset( $_POST['auto_approve_video_reviews'] ) ? 'on' : 'off',
 			'video_duration'           => isset( $_POST['video_duration'] ) ? absint( wp_unslash( $_POST['video_duration'] ) ) : $current_settings['video_duration'],
 			'review_btn_color'         => isset( $_POST['review_btn_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_color'] ) ) : $current_settings['review_btn_color'],
 			'review_btn_txt_color'     => isset( $_POST['review_btn_txt_color'] ) ? sanitize_text_field( wp_unslash( $_POST['review_btn_txt_color'] ) ) : $current_settings['review_btn_txt_color'],
@@ -50,6 +52,9 @@ class Hooks {
 		);
 
 		$form_data = $this->validate_form_data( $data );
+
+		// Debug: Log the form data being saved (remove this in production)
+		error_log( 'SKTPR Debug: Saving settings = ' . var_export( $form_data, true ) );
 
 		$is_updated = $this->update_settings( $form_data );
 
