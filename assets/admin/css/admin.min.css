@@ -105,18 +105,18 @@
   border-bottom: 1px solid #e0e0e0;
   color: #1d2327;
 }
-.sktpr-settings-section .sktpr-form-table th {
+.sktpr-settings-section .form-table th {
   width: 200px;
   padding: 15px 10px 15px 0;
   font-weight: 500;
 }
-.sktpr-settings-section .sktpr-form-table th label {
+.sktpr-settings-section .form-table th label {
   font-size: 14px;
 }
-.sktpr-settings-section .sktpr-form-table td {
+.sktpr-settings-section .form-table td {
   padding: 12px 10px;
 }
-.sktpr-settings-section .sktpr-form-table td .description {
+.sktpr-settings-section .form-table td .description {
   margin-top: 5px;
   font-size: 13px;
   color: #646970;
@@ -330,18 +330,18 @@
   font-size: 13px;
 }
 
-.sktpr-form-table .disabled {
+.form-table .disabled {
   opacity: 0.5;
   position: relative;
 }
-.sktpr-form-table .disabled:hover {
+.form-table .disabled:hover {
   cursor: not-allowed;
   opacity: 0.8;
 }
-.sktpr-form-table .disabled:hover .go-pro-text {
+.form-table .disabled:hover .go-pro-text {
   display: block;
 }
-.sktpr-form-table .go-pro-text {
+.form-table .go-pro-text {
   display: none;
   position: absolute;
   top: 50%;
@@ -356,7 +356,7 @@
   z-index: 1;
   white-space: nowrap;
 }
-.sktpr-form-table .go-pro-text a {
+.form-table .go-pro-text a {
   color: #fff;
 }
 
