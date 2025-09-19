@@ -74,6 +74,25 @@ defined( 'ABSPATH' ) || exit;
 						</tr>
 					</table>
 				</div>
+			<?php else: ?>
+
+				<div class="sktpr-settings-section">
+					<h2><?php esc_html_e( 'Premium Settings', 'product-reviews' ); ?></h2>
+					<table class="form-table">
+						<tr>
+							<th scope="row" class="titledesc">
+								<label for="video_duration"><?php esc_html_e( 'Video Duration', 'product-reviews' ); ?></label>
+							</th>
+							<td class="forminp forminp-number">
+								<input type="number" name="video_duration" id="video_duration" placeholder="2" step="1" min="1" max="2" disabled value="<?php echo esc_attr( $settings['video_duration'] ?? 2 ); ?>">
+								<span class="sktpr-unit"><?php esc_html_e( 'minutes', 'product-reviews' ); ?></span>
+								<?php echo wp_kses_post( wc_help_tip( 'Set the maximum recording duration for video testimonials', false ) ); ?>
+								<p class="description"><?php esc_html_e( 'Maximum allowed recording time for customer videos', 'product-reviews' ); ?></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+
 			<?php endif; ?>
 
 			<div class="sktpr-submit-section">
