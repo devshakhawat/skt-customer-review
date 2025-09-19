@@ -25,8 +25,8 @@ class Video_Reviews_List {
 	public function add_submenu() {
 		add_submenu_page(
 			'skt-product-reviews',
-			__( 'Video Reviews', 'product-reviews' ),
-			__( 'Video Reviews', 'product-reviews' ),
+			__( 'Reviews', 'product-reviews' ),
+			__( 'Reviews', 'product-reviews' ),
 			'manage_options',
 			'video-reviews-list',
 			array( $this, 'display_video_reviews_page' )

@@ -30,9 +30,19 @@ class Admin_Menu {
 			'Product Reviews',
 			'manage_options',
 			'skt-product-reviews',
-			array( $this, 'get_menu_page_data' ),
+			'',
 			'dashicons-format-video',
 			50
+		);
+
+		add_submenu_page(
+			'skt-product-reviews',
+			__( 'Review Settings', 'product-reviews' ),
+			__( 'Review Settings', 'product-reviews' ),
+			'manage_options',
+			'skt-product-reviews',
+			array( $this, 'get_menu_page_data' ),
+			10
 		);
 	}
 
