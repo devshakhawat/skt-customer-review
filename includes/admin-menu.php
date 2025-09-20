@@ -31,7 +31,7 @@ class Admin_Menu {
 			'manage_options',
 			'skt-product-reviews',
 			'',
-			'dashicons-format-video',
+			SKTPR_PLUGIN_URI . 'assets/img/icon.png',
 			50
 		);
 
