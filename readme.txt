@@ -153,7 +153,7 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
-= 2.0.4 - 2025-01-19 =
+= 2.0.5 - 2025-09-20 =
 * Added: Video Reviews admin management page with WooCommerce-style interface
 * Added: Search and filter functionality for video reviews
 * Added: Bulk actions for video review management
@@ -161,6 +161,9 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 * Added: Star rating display in admin interface
 * Improved: CSS optimization and unused code removal
 * Improved: Admin interface styling and responsiveness
+* Updated: Documentation and feature descriptions
+
+= 2.0.4 - 2025-06-25 =
 * Updated: Documentation and feature descriptions
 
 = 2.0.3 - 2025-05-5 =
