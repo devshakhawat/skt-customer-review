@@ -78,6 +78,8 @@ class Video_Reviews_List {
 				border-radius: 4px;
 				border: 1px solid #ddd;
 				margin-bottom: 5px;
+				max-width: 100%;
+				height: auto;
 			}
 			
 			/* Star rating alignment */

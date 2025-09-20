@@ -33,7 +33,7 @@ class Scripts {
 	 */
 	public function admin_enqueue_scripts( $hook ) {
 
-		if ( 'toplevel_page_skt-product-reviews' !== $hook ) {
+		if ( ! in_array( $hook, [ 'product-reviews_page_video-reviews-list', 'toplevel_page_skt-product-reviews' ] ) ) {
 			return;
 		}
 

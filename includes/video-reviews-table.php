@@ -353,7 +353,7 @@ class Video_Reviews_Table extends \WP_List_Table {
 
 		return sprintf(
 			'<div class="sktpr-video-preview">
-				<video width="100" height="75" controls preload="metadata" style="max-width: 100px;">
+				<video controls preload="metadata" style="max-width: 200px;">
 					<source src="%s" type="video/mp4">
 				</video>
 				<br><small>%s</small>
