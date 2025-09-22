@@ -1,0 +1,23 @@
+name: Test SVN Secrets
+
+on:
+  workflow_dispatch:   # Lets you run this workflow manually from GitHub Actions tab
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Show masked SVN username
+        run: echo "SVN Username is ${{ secrets.SVN_USERNAME }}"
+
+      - name: Check if password is available
+        run: |
+          if [ -z "${{ secrets.SVN_PASSWORD }}" ]; then
+            echo "❌ SVN_PASSWORD not set"
+            exit 1
+          else
+            echo "✅ SVN_PASSWORD is set (hidden for security)"
+          fi
