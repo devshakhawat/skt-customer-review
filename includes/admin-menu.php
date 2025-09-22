@@ -18,6 +18,7 @@ class Admin_Menu {
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
+		add_action( 'admin_menu', array( $this, 'add_admin_submenu' ), 9999 );
 	}
 
 	/**
@@ -55,4 +56,18 @@ class Admin_Menu {
 		$email_settings = new Email_Settings();
 		include_once Template_Loader::locate_template( 'admin-settings.php' );
 	}
+
+	public function add_admin_submenu() {
+
+		if ( pr_fs()->is_not_paying() && !pr_fs()->is_trial() ) {
+            add_submenu_page(
+                'skt-product-reviews',
+                _x( 'Product Reviews - Trial', 'Menu Label', 'product-reviews' ),
+                _x( 'Free Trial', 'Menu Label', 'product-reviews' ),
+                'manage_options',
+                pr_fs()->get_trial_url()
+            );
+        }
+		
+	} 
 }
