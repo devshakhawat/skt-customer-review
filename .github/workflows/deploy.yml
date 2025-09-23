@@ -1,23 +1,36 @@
-name: Test SVN Secrets
+name: Deploy to WordPress.org
 
 on:
-  workflow_dispatch:   # Lets you run this workflow manually from GitHub Actions tab
+  push:
+    tags:
+      - "*"
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Show masked SVN username
-        run: echo "SVN Username is ${{ secrets.SVN_USERNAME }}"
-
-      - name: Check if password is available
-        run: |
-          if [ -z "${{ secrets.SVN_PASSWORD }}" ]; then
-            echo "❌ SVN_PASSWORD not set"
-            exit 1
-          else
-            echo "✅ SVN_PASSWORD is set (hidden for security)"
-          fi
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: product-reviews
+          EXCLUDE: |
+            build.sh
+            mix-manifest.json
+            webpack.config.js
+            node_modules
+            webpack.mix.js
+            .babelrc
+            .eslintrc.json
+            .stylelintrc.json
+            .gitignore
+            package.json
+            package-lock.json
+            composer.json
+            composer.lock
+            .github
