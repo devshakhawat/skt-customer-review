@@ -1,7 +1,7 @@
 {
-  "name": "skt-customer-review",
-  "version": "2.0.3",
-  "description": "customer product",
+  "name": "product-reviews",
+  "version": "2.0.8",
+  "description": "product reviews for woocommerce products",
   "main": "index.js",
   "scripts": {
     "start": "mix watch",
@@ -20,12 +20,11 @@
     "laravel-mix": "^6.0.39",
     "postcss": "^8.4.5",
     "sass": "^1.48.0",
-    "sass-loader": "^12.4.0",
-    "wp-pot": "^1.9.9"
+    "sass-loader": "^12.4.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devshakhawat/skt-composite-products.git"
+    "url": "git+https://github.com/devshakhawat/product-reviews.git"
   },
   "author": "shakhawat",
   "license": "ISC"
