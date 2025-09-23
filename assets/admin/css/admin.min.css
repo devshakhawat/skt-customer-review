@@ -1,3 +1,335 @@
+.sktpr-settings-wrap {
+  padding: 20px 40px 40px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sktpr-header {
+  margin-bottom: 30px;
+}
+.sktpr-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #1d2327;
+}
+.sktpr-header p {
+  font-size: 16px;
+  color: #50575e;
+  margin: 0;
+}
+
+.sktpr-settings-container {
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.sktpr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #c3c4c7;
+  background: #f6f7f7;
+  border-radius: 4px 4px 0 0;
+  padding: 0 10px;
+}
+.sktpr-tabs .sktpr-tab {
+  background: transparent;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #50575e;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.sktpr-tabs .sktpr-tab.active {
+  color: #1d2327;
+  box-shadow: inset 0 -3px #2271b1;
+}
+.sktpr-tabs .sktpr-tab.active:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #fff;
+}
+.sktpr-tabs .sktpr-tab:hover:not(.active) {
+  color: #135e96;
+  background: #f0f0f1;
+}
+.sktpr-tabs .sktpr-tab.premium-tab {
+  color: #f08300;
+}
+.sktpr-tabs .sktpr-tab.premium-tab.active {
+  box-shadow: inset 0 -3px #f08300;
+}
+.sktpr-tabs .sktpr-tab.premium-tab:hover:not(.active) {
+  color: #d65a00;
+  background: #f0f0f1;
+}
+.sktpr-tabs .sktpr-badge {
+  background: #f08300;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.sktpr-tab-content {
+  display: none;
+  padding: 30px;
+}
+.sktpr-tab-content.active {
+  display: block;
+}
+
+.sktpr-settings-section {
+  margin-bottom: 30px;
+}
+.sktpr-settings-section:last-child {
+  margin-bottom: 0;
+}
+.sktpr-settings-section h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #1d2327;
+}
+.sktpr-settings-section .form-table th {
+  width: 200px;
+  padding: 15px 10px 15px 0;
+  font-weight: 500;
+}
+.sktpr-settings-section .form-table th label {
+  font-size: 14px;
+}
+.sktpr-settings-section .form-table td {
+  padding: 12px 10px;
+}
+.sktpr-settings-section .form-table td .description {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #646970;
+  font-style: italic;
+}
+
+.sktpr-unit {
+  margin-left: 8px;
+  font-size: 13px;
+  color: #50575e;
+}
+
+.sktpr-submit-section {
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+}
+.sktpr-submit-section .button {
+  margin-right: 10px;
+}
+.sktpr-submit-section .sktpr_submit_successful {
+  color: #008a20;
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+.sktpr-preview-container {
+  background: #f6f7f7;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.sktpr-preview-container p {
+  margin-top: 0;
+  color: #50575e;
+}
+
+.sktpr-button-preview {
+  text-align: center;
+  padding: 20px 0;
+}
+.sktpr-button-preview .sktpr-video-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sktpr-button-preview .sktpr-video-button .dashicons {
+  margin-right: 8px;
+  font-size: 18px;
+}
+.sktpr-button-preview .sktpr-video-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.sktpr-modal-preview .sktpr_modal-content-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sktpr-modal-preview .sktpr_modal-content {
+  background: #fff;
+}
+.sktpr-modal-preview .sktpr_modal-content-inner h3 {
+  text-align: center;
+  margin: 0 0 20px 0;
+  padding: 20px 20px 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1d2327;
+}
+.sktpr-modal-preview .sktpr_modal-content-inner h3 .dashicons {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.sktpr-modal-preview .sktpr_preview-recording {
+  text-align: center;
+  margin: 0 20px 20px 20px;
+}
+.sktpr-modal-preview .sktpr_preview-recording .sktpr_preview-placeholder {
+  background: #f0f0f1;
+  border-radius: 4px;
+  padding: 40px 20px;
+  color: #50575e;
+}
+.sktpr-modal-preview .sktpr_preview-recording .sktpr_preview-placeholder .dashicons {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+.sktpr-modal-preview .sktpr_preview-recording .sktpr_preview-placeholder p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px 20px 20px;
+  flex-wrap: wrap;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  background: #fff;
+  color: #1d2327;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button .dashicons {
+  margin-right: 5px;
+  font-size: 16px;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button:hover {
+  background: #f6f7f7;
+  border-color: #8c8f94;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button.stop_recording_btn {
+  border-color: #d63638;
+  background: #fcf0f1;
+  color: #d63638;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button.stop_recording_btn:hover {
+  background: #fcf0f1;
+  border-color: #d63638;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button.add_video_btn {
+  border-color: #00a32a;
+  background: #f0f6f1;
+  color: #008a20;
+}
+.sktpr-modal-preview .sktpr_record_video_buttons .sktpr_video_button.add_video_btn:hover {
+  background: #f0f6f1;
+  border-color: #00a32a;
+}
+
+.sktpr-premium-features {
+  margin-bottom: 30px;
+}
+
+.sktpr-feature {
+  display: flex;
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  background: #f6f7f7;
+}
+.sktpr-feature:last-child {
+  margin-bottom: 0;
+}
+
+.sktpr-feature-icon {
+  flex: 0 0 50px;
+  margin-right: 20px;
+}
+.sktpr-feature-icon .dashicons {
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  color: #f08300;
+}
+
+.sktpr-feature-content {
+  flex: 1;
+}
+.sktpr-feature-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d2327;
+}
+.sktpr-feature-content p {
+  margin: 0;
+  color: #50575e;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sktpr-premium-cta {
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid #e0e0e0;
+}
+.sktpr-premium-cta .button-hero {
+  padding: 12px 36px;
+  height: auto;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.sktpr-premium-cta p {
+  margin: 15px 0 0 0;
+  color: #646970;
+  font-size: 13px;
+}
+
 #sktpr_plugin_submit {
   padding: 5px 30px;
   margin-top: 20px;
@@ -5,36 +337,6 @@
   font-weight: 500;
 }
 
-.skt-wrap {
-  padding: 40px 0 0 40px;
-}
-
-.form-table .disabled {
-  opacity: 0.5;
-  position: relative;
-}
-.form-table .disabled:hover {
-  cursor: not-allowed;
-  opacity: 0.8;
-}
-.form-table .disabled:hover .go-pro-text {
+.video-reviews .approve {
   display: block;
-}
-.form-table .go-pro-text {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%);
-  background: #2271b1;
-  color: #fff;
-  font-weight: bold;
-  padding: 6px 20px;
-  border-radius: 5px;
-  font-size: 14px;
-  z-index: 1;
-  white-space: nowrap;
-}
-.form-table .go-pro-text a {
-  color: #fff;
 }

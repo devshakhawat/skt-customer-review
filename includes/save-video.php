@@ -17,6 +17,7 @@ class Save_Video {
 	 */
 	public function __construct() {
 		add_action( 'comment_post', array( $this, 'save_video' ) );
+		add_filter( 'pre_comment_approved', array( $this, 'set_video_review_status' ), 10, 2 );
 	}
 
 	/**
@@ -62,5 +63,113 @@ class Save_Video {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Set video reviews to pending status by default
+	 *
+	 * @param int|string|WP_Error $approved The approval status
+	 * @param array $commentdata Comment data
+	 * @return int|string|WP_Error Modified approval status
+	 */
+	public function set_video_review_status( $approved, $commentdata ) {
+		// Check if this is a video review submission
+		$has_video = false;
+		
+		// Check for video files in the submission
+		if ( isset( $_FILES['sktpr_client_video_upload'] ) && ! empty( $_FILES['sktpr_client_video_upload']['name'] ) ) {
+			$has_video = true;
+		}
+		
+		if ( isset( $_FILES['sktpr_file_upload'] ) && ! empty( $_FILES['sktpr_file_upload']['name'] ) ) {
+			$has_video = true;
+		}
+		
+		// If this is a video review, set it to pending for admin approval
+		if ( $has_video ) {
+			// Check if admin wants video reviews to be auto-approved
+			$settings = get_option( 'sktpr_review_settings', array() );
+			$auto_approve_videos = isset( $settings['auto_approve_video_reviews'] ) ? $settings['auto_approve_video_reviews'] : false;
+			
+			// Debug: Log the setting value (remove this in production)
+			error_log( 'SKTPR Debug: auto_approve_video_reviews setting = ' . var_export( $auto_approve_videos, true ) );
+			
+			if ( ! $auto_approve_videos ) {
+				// Add action to notify admin about pending video review
+				add_action( 'comment_post', array( $this, 'notify_admin_pending_video_review' ), 20 );
+				
+				// Set to pending (0) for admin approval
+				return 0;
+			}
+		}
+		
+		// Return original approval status for non-video reviews
+		return $approved;
+	}
+
+	/**
+	 * Notify admin about pending video review
+	 *
+	 * @param int $comment_id Comment ID
+	 */
+	public function notify_admin_pending_video_review( $comment_id ) {
+		// Check if this comment has video
+		$video_urls = get_comment_meta( $comment_id, 'uploaded_video_url', true );
+		if ( empty( $video_urls ) ) {
+			return;
+		}
+
+		$comment = get_comment( $comment_id );
+		if ( ! $comment || $comment->comment_approved !== '0' ) {
+			return;
+		}
+
+		// Get admin email
+		$admin_email = get_option( 'admin_email' );
+		$site_name = get_bloginfo( 'name' );
+		$product = get_post( $comment->comment_post_ID );
+		
+		// Email subject
+		$subject = sprintf( 
+			__( '[%s] New Video Review Awaiting Approval', 'product-reviews' ), 
+			$site_name 
+		);
+		
+		// Email message
+		$message = sprintf(
+			__( "A new video review has been submitted and is awaiting your approval.\n\n" .
+				"Product: %s\n" .
+				"Author: %s (%s)\n" .
+				"Review: %s\n\n" .
+				"Please review and approve it here:\n%s\n\n" .
+				"You can manage all video reviews here:\n%s", 'product-reviews' ),
+			$product ? $product->post_title : __( 'Unknown Product', 'product-reviews' ),
+			$comment->comment_author,
+			$comment->comment_author_email,
+			wp_trim_words( $comment->comment_content, 20 ),
+			admin_url( 'comment.php?action=editcomment&c=' . $comment_id ),
+			admin_url( 'admin.php?page=video-reviews-list&comment_status=pending' )
+		);
+		
+		// Send notification email
+		wp_mail( $admin_email, $subject, $message );
+		
+		// Add admin notice for next admin page load
+		$this->add_admin_notice_for_pending_review( $comment_id );
+	}
+
+	/**
+	 * Add admin notice for pending video review
+	 *
+	 * @param int $comment_id Comment ID
+	 */
+	private function add_admin_notice_for_pending_review( $comment_id ) {
+		$pending_notices = get_transient( 'sktpr_pending_video_reviews' );
+		if ( ! is_array( $pending_notices ) ) {
+			$pending_notices = array();
+		}
+		
+		$pending_notices[] = $comment_id;
+		set_transient( 'sktpr_pending_video_reviews', $pending_notices, DAY_IN_SECONDS );
 	}
 }

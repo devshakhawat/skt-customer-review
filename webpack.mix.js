@@ -1,5 +1,4 @@
 const mix   = require('laravel-mix');
-const wpPot = require('wp-pot');
 
 mix.options({
     autoprefixer: {
@@ -33,7 +32,6 @@ if ( process.env.NODE_ENV.trim() !== 'production' ) {
 	mix.disableNotifications();
 }
 
-
 // Form Builder JS
 mix.scripts('./dev/public/js/public.js', './assets/public/js/public.min.js');
 mix.scripts('./dev/admin/js/admin.js', './assets/admin/js/admin.min.js');
@@ -41,16 +39,3 @@ mix.scripts('./dev/admin/js/admin.js', './assets/admin/js/admin.min.js');
 // Form Builder SCSS
 mix.sass('./dev/public/css/public.scss', './assets/public/css/public.min.css');
 mix.sass('./dev/admin/css/admin.scss', './assets/admin/css/admin.min.css');
-
-// Freemius
-if ( process.env.NODE_ENV.trim() === 'production' ) {
-
-	// Language pot file generator
-	wpPot({
-		destFile: 'languages/sktplugin.pot',
-		domain: 'sktplugin',
-		package: 'Sktpr_Customer_Review',
-		src: ['**/*.php', '!freemius/**/*.php']
-	});
-
-}

@@ -32,6 +32,8 @@ rm -rf build/product-reviews/composer.json &&
 rm -rf build/product-reviews/composer.lock &&
 rm -rf build/product-reviews/task.txt &&
 rm -rf build/product-reviews/phpcs.xml &&
+rm -rf build/product-reviews/QWEN.md &&
+rm -rf build/product-reviews/.vscode &&
 
 find . -type f -name '*.LICENSE.txt' -ls -delete &&
 

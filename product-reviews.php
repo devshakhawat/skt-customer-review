@@ -80,3 +80,28 @@ if ( ! defined( 'SKTPR_PLUGIN_URI' ) ) {
 require_once SKTPR_PLUGIN_DIR . 'includes/functions.php';
 require_once SKTPR_PLUGIN_DIR . 'includes/autoloader.php';
 require_once SKTPR_PLUGIN_DIR . 'includes/plugin.php';
+
+/**
+ * Plugin activation hook
+ */
+register_activation_hook( __FILE__, 'sktpr_activation_setup' );
+
+function sktpr_activation_setup() {
+	// Create database table
+	SKTPREVIEW\Database::create_table_on_activation();
+	
+	// Set database version
+	update_option( 'sktpr_db_version', '1.0' );
+}
+
+/**
+ * Plugin deactivation hook
+ */
+register_deactivation_hook( __FILE__, 'sktpr_deactivation_cleanup' );
+
+function sktpr_deactivation_cleanup() {
+	// Clear all scheduled email reminders
+	wp_clear_scheduled_hook( 'sktpr_send_review_reminder' );
+	wp_clear_scheduled_hook( 'sktpr_process_due_reminders' );
+	wp_clear_scheduled_hook( 'sktpr_migrate_reminders' );
+}

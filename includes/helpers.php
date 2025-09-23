@@ -74,12 +74,16 @@ trait Helpers {
 	public function get_defaults() {
 
 		return array(
-			'enable_video_btn'     => true,
-			'show_file_uploader'   => true,
-			'video_duration'   	   => 2,
-			'review_btn_color'     => '#005BDF1F',
-			'review_btn_txt_color' => '#005bdf',
-			'review_btn_text'      => 'Record Video',
+			'enable_video_btn'        => true,
+			'show_file_uploader'      => true,
+			'required_video_recording'=> false,
+			'required_file_upload'    => false,
+			'auto_approve_video_reviews' => false,
+			'video_duration'  	      => 2,
+			'review_btn_color'        => '#481FEA',
+			'review_btn_txt_color'    => '#FFFFFF',
+			'review_btn_text'         => 'Record Video',
+			'button_position'         => 'after_review_form',
 		);
 	}
 
@@ -91,12 +95,16 @@ trait Helpers {
 	 */
 	public function validate_form_data( $form_data ) {
 
-		$form_data['enable_video_btn']     = filter_var( $form_data['enable_video_btn'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['show_file_uploader']   = filter_var( $form_data['show_file_uploader'], FILTER_VALIDATE_BOOLEAN );
-		$form_data['video_duration']   	   = intval( $form_data['video_duration'] );
-		$form_data['review_btn_color']     = sanitize_text_field( $form_data['review_btn_color'] );
-		$form_data['review_btn_txt_color'] = sanitize_text_field( $form_data['review_btn_txt_color'] );
-		$form_data['review_btn_text']      = sanitize_text_field( $form_data['review_btn_text'] );
+		$form_data['enable_video_btn']         = ( $form_data['enable_video_btn'] === 'on' );
+		$form_data['show_file_uploader']       = ( $form_data['show_file_uploader'] === 'on' );
+		$form_data['required_video_recording'] = ( $form_data['required_video_recording'] === 'on' );
+		$form_data['required_file_upload']     = ( $form_data['required_file_upload'] === 'on' );
+		$form_data['auto_approve_video_reviews'] = ( $form_data['auto_approve_video_reviews'] === 'on' );
+		$form_data['video_duration']  	       = intval( $form_data['video_duration'] );
+		$form_data['review_btn_color']         = sanitize_text_field( $form_data['review_btn_color'] );
+		$form_data['review_btn_txt_color']     = sanitize_text_field( $form_data['review_btn_txt_color'] );
+		$form_data['review_btn_text']          = sanitize_text_field( $form_data['review_btn_text'] );
+		$form_data['button_position']          = sanitize_text_field( $form_data['button_position'] );
 
 		return $form_data;
 	}
@@ -134,5 +142,65 @@ trait Helpers {
 		$settings = get_option( 'sktpr_review_settings', $this->get_defaults() );
 
 		return $settings;
+	}
+
+	/**
+	 * Get email reminder settings
+	 * 
+	 * @return array
+	 */
+	public function get_email_settings() {
+		$defaults = array(
+			'enable_email_reminders' => false,
+			'trigger_order_status' => 'completed',
+			'email_delay_days' => 7,
+			'from_name' => get_bloginfo( 'name' ),
+			'from_email' => get_option( 'admin_email' ),
+			'email_subject' => __( 'How was your recent purchase, {customer_name}?', 'product-reviews' ),
+			'email_content' => $this->get_default_email_content()
+		);
+		
+		$settings = get_option( 'sktpr_email_reminder_settings', $defaults );
+		return wp_parse_args( $settings, $defaults );
+	}
+
+	/**
+	 * Update email settings
+	 * 
+	 * @param array $settings Settings array
+	 * @return bool
+	 */
+	public function update_email_settings( $settings ) {
+		return update_option( 'sktpr_email_reminder_settings', $settings );
+	}
+
+	/**
+	 * Get default email content template
+	 * 
+	 * @return string
+	 */
+	private function get_default_email_content() {
+		return '<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+			<h2 style="color: #333;">Hi {customer_name},</h2>
+			
+			<p>Thank you for your recent purchase from {site_name}! We hope you\'re enjoying your new products.</p>
+			
+			<p>We\'d love to hear about your experience. Your feedback helps us improve and helps other customers make informed decisions.</p>
+			
+			<p><strong>Order #{order_number}</strong> placed on {order_date}</p>
+			
+			{products_list}
+			
+			<p>Thank you for taking the time to share your thoughts!</p>
+			
+			<p>Best regards,<br>
+			The {site_name} Team</p>
+			
+			<hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+			<p style="font-size: 12px; color: #666;">
+				This email was sent because you recently made a purchase from {site_name}. 
+				If you have any questions, please contact us at <a href="mailto:' . get_option( 'admin_email' ) . '">' . get_option( 'admin_email' ) . '</a>
+			</p>
+		</div>';
 	}
 }
