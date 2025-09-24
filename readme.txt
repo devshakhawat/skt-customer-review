@@ -150,7 +150,7 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
-= 2.0.8 - 2025-06-22 =
+= 2.0.9 - 2025-06-24 =
 * Fix: Update Readme.
 
 = 2.0.8 - 2025-06-22 =
