@@ -1,20 +1,19 @@
-=== Product Reviews - Video Testimonials & Email Reminders for WooCommerce ===
+=== Video Testimonial for WooCommerce ===
 Contributors: devshakhawat
-Requires at least: 4.5
+Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: product testimonial, product reviews, customer feedback, video testimonials, email reminders, woocommerce reviews
+Tags: video testimonial, woocommerce video reviews, customer video feedback, product video testimonials
 
-Transform your WooCommerce store with authentic video testimonials and automated email reminders to boost trust, engagement, and sales.
+Collect product video testimonials and woocommerce video reviews to boost trust, engagement, and sales.
 
 == Description ==
 
-**Turn your happy customers into your best marketers with authentic video testimonials and smart review collection.**
+**Turn your happy customers into your best marketers with authentic video testimonials and customer video feedback collection.**
 
-This comprehensive plugin extends WooCommerce's review system with powerful features that help you collect more reviews and showcase them effectively. Enable customers to **record videos via webcam** or **upload video files**, while automated **email reminders** ensure you never miss an opportunity to gather valuable feedback.
+This comprehensive plugin extends WooCommerce reviews by allowing customers to record video feedback, upload customer video reviews, and showcase product video testimonials. Enable customers to **record videos via webcam** or **upload video files**, making it easy to collect authentic video feedback from customers—while automated email reminders ensure you never miss an opportunity to gather valuable reviews.
 
 **Product Reviews** helps you build trust, improve SEO with rich multimedia content, and increase customer engagement—all while providing a seamless experience for both you and your customers.
 
@@ -68,7 +67,7 @@ This comprehensive plugin extends WooCommerce's review system with powerful feat
 
 === 🎯 Perfect For ===
 
-* E-commerce stores wanting to showcase authentic customer experiences
+* E-commerce stores wanting to showcase authentic customer video feedback
 * Businesses looking to automate their review collection process
 * Store owners who want to stand out with video testimonials
 * WooCommerce sites focused on building customer trust and credibility
@@ -83,8 +82,6 @@ Upgrade to **Product Reviews Pro** for advanced functionality:
 * **🛡️ Advanced Moderation** – Enhanced review approval and management tools
 * **📊 Analytics & Insights** – Track video review performance and engagement
 * **🔧 Priority Support** – Get faster, dedicated support for your store
-
-[Upgrade to Pro →](https://your-upgrade-link.com)
 
 == Frequently Asked Questions ==
 
@@ -120,12 +117,12 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 
 == Screenshots ==
 
-1. **Video Recording Interface** - Clean, user-friendly modal for recording video testimonials
-2. **Admin Settings Dashboard** - Comprehensive settings with tabbed interface for easy configuration  
-3. **Video Reviews Management** - Dedicated admin page to view and manage all video reviews
-4. **Email Reminders Setup** - Configure automated review request emails with custom templates
-5. **Button Customization** - Live preview of video button styling and positioning options
-6. **Customer Review Experience** - How the video recording button appears on product pages
+1. **Admin Settings Dashboard** - Comprehensive settings with tabbed interface for easy configuration  
+2. **Video Reviews Management** - Dedicated admin page to view and manage all video reviews
+3. **Email Reminders Setup** - Configure automated review request emails with custom templates
+4. **Button Customization** - Live preview of video button styling and positioning options
+5. **Customer Review Experience** - How the video recording button appears on product pages
+6. **Video Recording Interface** - Clean, user-friendly modal for recording video testimonials
 
 == Installation ==
 
@@ -153,14 +150,27 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
+= 2.0.8 - 2025-06-22 =
+* Fix: Update Readme.
+
+= 2.0.8 - 2025-06-22 =
+* Fix: Fix url for free trial.
+
+= 2.0.7 - 2025-06-21 =
+* Updated: Add submenu for free trial.
+
+= 2.0.6 - 2025-06-21 =
+* Updated: Documentation and feature descriptions
+
 = 2.0.5 - 2025-09-20 =
-* Added: Video Reviews admin management page with WooCommerce-style interface
-* Added: Search and filter functionality for video reviews
+* Added: Video Reviews for WooCommerce admin management page with WooCommerce-style interface
+* Added: Search and filter functionality for WooCommerce video reviews
 * Added: Bulk actions for video review management
 * Added: Video preview thumbnails in admin table
 * Added: Star rating display in admin interface
 * Improved: CSS optimization and unused code removal
 * Improved: Admin interface styling and responsiveness
+* Improved: Customer video feedback feature
 * Updated: Documentation and feature descriptions
 
 = 2.0.4 - 2025-06-25 =
@@ -192,5 +202,6 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 * Added: Video recording via webcam functionality
 * Added: Video file upload support
 * Added: WooCommerce integration
+* Added: Real Video Review Feature
 * Added: Basic admin settings
 * Added: Customizable video button styling
