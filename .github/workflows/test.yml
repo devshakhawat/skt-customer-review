@@ -1,0 +1,15 @@
+name: Test SVN Auth
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-svn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test SVN credentials
+        run: |
+          svn ls https://plugins.svn.wordpress.org/product-reviews \
+            --username="${{ secrets.SVN_USERNAME }}" \
+            --password="${{ secrets.SVN_PASSWORD }}" \
+            --non-interactive
