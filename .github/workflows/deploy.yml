@@ -33,6 +33,7 @@ jobs:
           SLUG: product-reviews
           EXCLUDE: |
             build.sh
+            .wordpress-org
             mix-manifest.json
             webpack.config.js
             node_modules
