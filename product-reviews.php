@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Product Reviews
  * Description: this plugin will enhance product review experience by adding some extra features.
- * Version: 2.0.12
+ * Version: 2.0.13
  * Author: Shakhawat
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -62,7 +62,7 @@ if ( ! function_exists( 'pr_fs' ) ) {
  * Defining constants
  */
 if ( ! defined( 'SKTPR_VERSION' ) ) {
-	define( 'SKTPR_VERSION', '2.0.12' );
+	define( 'SKTPR_VERSION', '2.0.13' );
 }
 if ( ! defined( 'SKTPR_PLUGIN_FILE' ) ) {
 	define( 'SKTPR_PLUGIN_FILE', __FILE__ );

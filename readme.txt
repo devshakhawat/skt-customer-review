@@ -3,7 +3,7 @@ Contributors: devshakhawat
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.12
+Stable tag: 2.0.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: video testimonial, woocommerce video reviews, customer video feedback, product video testimonials
@@ -151,7 +151,7 @@ For free support, please use the [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
-= 2.0.12 - 2025-06-24 =
+= 2.0.13 - 2025-06-24 =
 * Fix: Update Readme.
 
 = 2.0.9 - 2025-06-24 =
