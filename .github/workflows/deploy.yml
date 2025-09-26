@@ -47,4 +47,6 @@ jobs:
             composer.lock
             .github
             dev
-            *.md
+            QWEN.md
+            REMINDER_FIXES.md
+            VIDEO_REVIEWS_FEATURE.md
